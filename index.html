@@ -18,47 +18,49 @@
 		<header>
 			<h1>Fire Emblem</h1>
 		</header>
-		<div id="BoardWrapper">
 
+		<div id="GameWrapper">
 			<div id="BlueTurnWrapper" class="turnWrapper">
 				<div id="BlueTurnTitle" class="turnTitle">Blue Team</div>
 				<button id="BlueTurnButton" class="turnButton" disabled="true">End Turn</button>
 			</div>
-			
-			<div id="Board">
-				<!-- Qui la roba viene aggiunta via DOM -->
+
+			<div id="BoardWrapper">
+				<div id="Board">
+					<!-- Qui la roba viene aggiunta via DOM -->
+				</div>
+
+				<div class="stats" id="StatsAttacker">
+					<div class="characterPortraitWrapper" id="CharacterPortraitWrapperAttacker">
+						<img class="characterPortrait" id="CharacterPortraitAttacker" alt="Character">
+					</div>
+					<div class="valuesWrapper" id="ValuesWrapperAttacker">
+						<div id="CharacterNameAttacker" class="value">Nome:--</div>
+						<div id="PSAttacker" class="value">Ps:--</div>
+					</div>
+				</div>
+
+				<div id="DuelWrapper">
+					<div id="ButtonWrapper">
+						<button id="DuelButton" class="duelMenuButton" disabled="true">DUEL</button>
+						<button id="UndoButton" class="duelMenuButton" disabled="true">UNDO</button>
+					</div>
+					<div class="stats" id="StatsDefender">
+						<div class="characterPortraitWrapper" id="CharacterPortraitWrapperDefender">
+							<img class="characterPortrait" id="CharacterPortraitDefender" alt="Character">
+						</div>
+						<div class="valuesWrapper" id="ValuesWrapperDefender">
+							<div id="CharacterNameDefender" class="value">Nome:--</div>
+							<div id="PSDefender" class="value">Ps:--</div>
+						</div>
+					</div>
+
+				</div>
 			</div>
 
 			<div id="RedTurnWrapper" class="turnWrapper">
 				<div id="RedTurnTitle" class="turnTitle">Red Team</div>
 				<button id="RedTurnButton" class="turnButton" disabled="true">End Turn</button>
-			</div>
-
-			<div class="stats" id="StatsAttacker">
-				<div class="characterPortraitWrapper" id="CharacterPortraitWrapperAttacker">
-					<img class="characterPortrait" id="CharacterPortraitAttacker" alt="Character">
-				</div>
-				<div class="valuesWrapper" id="ValuesWrapperAttacker">
-					<div id="CharacterNameAttacker" class="value">Nome:--</div>
-					<div id="PSAttacker" class="value">Ps:--</div>
-				</div>
-			</div>
-
-			<div id="DuelWrapper">
-				<div id="ButtonWrapper">
-					<button id="DuelButton" class="duelMenuButton" disabled="true">DUEL</button>
-					<button id="UndoButton" class="duelMenuButton" disabled="true">UNDO</button>
-				</div>
-				<div class="stats" id="StatsDefender">
-					<div class="characterPortraitWrapper" id="CharacterPortraitWrapperDefender">
-						<img class="characterPortrait" id="CharacterPortraitDefender" alt="Character">
-					</div>
-					<div class="valuesWrapper" id="ValuesWrapperDefender">
-						<div id="CharacterNameDefender" class="value">Nome:--</div>
-						<div id="PSDefender" class="value">Ps:--</div>
-					</div>
-				</div>
-
 			</div>
 		</div>
 	</body>

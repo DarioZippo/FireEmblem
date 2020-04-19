@@ -3,11 +3,18 @@ h1
 	text-align: center;
 }
 
+#GameWrapper
+{
+	width: 41%;
+	margin: auto;	
+}
+
 #BoardWrapper
 {
 	width: 530px;
 	/*width: 100%;*/
-    margin: auto;
+	margin: auto;
+	display: inline-block;
 }
 
 #Board
@@ -165,23 +172,52 @@ h1
 /*Turn Buttons*/
 .turnWrapper
 {
+	display: inline-block;
+	margin-top: -80%;
+	text-align: center;
+	height: 46px;
+	width: 120px;
+}
+
+#BlueTurnWrapper
+{
+	background-color: #7ba2ff;
+}
+
+#RedTurnWrapper
+{
+	background-color: #ff5050;
+}
+
+.turnTitle
+{
+	height: 50%;
+	width: 100%;
+}
+
+#BlueTurnTitle
+{
 
 }
 
-#Blue
+#RedTurnTitle
+{
+
+}
 
 .turnButton
 {
-
+	color: black;
+	width: 100%;
+	height: 50%;
 }
 
 #BlueTurnButton
 {
-
+	background-color: #7ba2ff;
 }
 
 #RedTurnButton
 {
-
+	background-color: #ff5050;
 }
-
