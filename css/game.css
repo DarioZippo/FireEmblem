@@ -1,0 +1,187 @@
+h1
+{
+	text-align: center;
+}
+
+#BoardWrapper
+{
+	width: 530px;
+	/*width: 100%;*/
+    margin: auto;
+}
+
+#Board
+{
+	/*width: 100%;*/
+	margin: auto;
+}
+
+.matrixRow
+{
+
+}
+
+.matrixBlock
+{
+	width: 100px;
+	display: inline-block;
+	height: 100px;
+	border-style: solid;
+}
+
+.highlightedBlock
+{
+	background-color: yellow;
+}
+
+.selectedBlock
+{
+	background-color: green;
+}
+
+.occupied
+{
+	background-image: url('./img/Bylet.png');
+	z-index: 4;
+}
+
+.characterWrapper
+{
+	width: 100%;
+	height: 100%;
+}
+
+.characterSprite
+{
+	width: 100%;
+	height: 100%;
+	width: 80px;
+	height: 80px;
+	margin: 7px;
+	margin-left: 16px;
+	margin-top: 16px;
+}
+
+#Stats
+{
+
+}
+
+.characterPortraitWrapper
+{
+	width: 60%;
+	display: inline-block;
+	border-style: solid;
+}
+
+.characterPortrait
+{
+	width: 100%;
+	height: 192px;
+	width: 60%;
+	margin-left: 20%;
+}
+
+.valuesWrapper
+{
+	width: 38.8%;
+	height: 193px;
+	position: relative;
+	float: right;
+}
+
+.value
+{
+	height: 10%;
+	text-align: center;
+	padding: 18%;
+	border-style: solid;
+}
+
+.characterName
+{
+
+}
+
+#PS
+{
+
+}
+
+#DuelWrapper
+{
+	display: none;
+}
+
+#ButtonWrapper
+{
+	height: 80px;
+}
+
+.duelMenuButton
+{
+	display: block;
+	margin: auto;
+	width: 100%;
+	height: 50%;
+	border-top-width: 0px;
+	border-top-style: solid;
+	border-bottom-width: 0px;
+	border-bottom-style: solid;
+	color: black;
+	font-weight: bold;
+	border-right-width: 0px;
+	border-right-style: solid;
+	border-left-width: 0px;
+	border-left-style: solid;
+}
+
+#DuelButton
+{
+	background-color: rgb(172, 29, 29);
+}
+
+.damage
+{
+	color: red;
+}
+
+#UndoButton
+{
+	background-color: rgb(83, 130, 233);
+}
+
+/*Areas*/
+.movementBlock
+{
+	background-color: rgb(92, 154, 235);
+}
+
+.attackBlock
+{
+	background-color: red;
+}
+
+/*Turn Buttons*/
+.turnWrapper
+{
+
+}
+
+#Blue
+
+.turnButton
+{
+
+}
+
+#BlueTurnButton
+{
+
+}
+
+#RedTurnButton
+{
+
+}
+

@@ -1,0 +1,65 @@
+<html>
+	<head>
+		<meta charset="utf-8"> 
+    	<meta name = "author" content = "Dario Zippo">
+    	<meta name = "keywords" content = "Fire Emblem">
+    	<link rel="shortcut icon" type="image/x-icon" href="./img" />
+		<link rel="stylesheet" href="./css/game.css" type="text/css" media="screen">
+		<script type="text/javascript" src="./js/game.js"></script>
+		<script type="text/javascript" src="./js/board.js"></script>
+		<script type="text/javascript" src="./js/block.js"></script>
+		<script type="text/javascript" src="./js/area.js"></script>
+		<script type="text/javascript" src="./js/character.js"></script>
+		<script type="text/javascript" src="./js/duel.js"></script>
+		<script type="text/javascript" src="./js/util.js"></script>
+		<title>Fire Emblem</title>
+	</head>
+	<body onLoad="begin()">
+		<header>
+			<h1>Fire Emblem</h1>
+		</header>
+		<div id="BoardWrapper">
+
+			<div id="BlueTurnWrapper" class="turnWrapper">
+				<div id="BlueTurnTitle" class="turnTitle">Blue Team</div>
+				<button id="BlueTurnButton" class="turnButton" disabled="true">End Turn</button>
+			</div>
+			
+			<div id="Board">
+				<!-- Qui la roba viene aggiunta via DOM -->
+			</div>
+
+			<div id="RedTurnWrapper" class="turnWrapper">
+				<div id="RedTurnTitle" class="turnTitle">Red Team</div>
+				<button id="RedTurnButton" class="turnButton" disabled="true">End Turn</button>
+			</div>
+
+			<div class="stats" id="StatsAttacker">
+				<div class="characterPortraitWrapper" id="CharacterPortraitWrapperAttacker">
+					<img class="characterPortrait" id="CharacterPortraitAttacker" alt="Character">
+				</div>
+				<div class="valuesWrapper" id="ValuesWrapperAttacker">
+					<div id="CharacterNameAttacker" class="value">Nome:--</div>
+					<div id="PSAttacker" class="value">Ps:--</div>
+				</div>
+			</div>
+
+			<div id="DuelWrapper">
+				<div id="ButtonWrapper">
+					<button id="DuelButton" class="duelMenuButton" disabled="true">DUEL</button>
+					<button id="UndoButton" class="duelMenuButton" disabled="true">UNDO</button>
+				</div>
+				<div class="stats" id="StatsDefender">
+					<div class="characterPortraitWrapper" id="CharacterPortraitWrapperDefender">
+						<img class="characterPortrait" id="CharacterPortraitDefender" alt="Character">
+					</div>
+					<div class="valuesWrapper" id="ValuesWrapperDefender">
+						<div id="CharacterNameDefender" class="value">Nome:--</div>
+						<div id="PSDefender" class="value">Ps:--</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</body>
+</html>
