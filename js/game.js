@@ -5,6 +5,8 @@ var len = 5;
 var movementLength = 1; //Ampiezza dell'area di movimento
 var attackLength = 1; //Ampiezza dell'area di attacco
 
+var turn; //Variabile che registra chi deve fare il turno corrente
+
 var movePhase = false;
 var attackPhase = false;
 
