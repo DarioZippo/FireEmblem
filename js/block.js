@@ -49,6 +49,7 @@ function()
 {
 	var classe = this.element.className;
 	var currentCharacter;
+
 	if(movePhase == true)
 	{
 		if(this.movementBlock == true)
@@ -56,6 +57,7 @@ function()
 			cleanBlock(selectedBlock.x, selectedBlock.y);
 			currentCharacter = findCharacter(selectedBlock.x, selectedBlock.y);
 			currentCharacter.move(this);
+			currentCharacter.movePoints--;
 			movePhase = false;
 			attackPhase = true;
 			updateBoardCharacters();
@@ -63,30 +65,39 @@ function()
 			selectedBlock.x = this.x; 
 			selectedBlock.y = this.y;
 
+			currentCharacter.showStats();
 			currentCharacter.showAttackArea();
 
 			return;
+		}
+		else
+		{
+			currentCharacter.selected = false;
 		}
 	}
 
 	if(attackPhase == true)
 	{
+		currentCharacter = findCharacter(selectedBlock.x, selectedBlock.y);
 		if(this.attackBlock == true)
 		{
 			cleanBlock(selectedBlock.x, selectedBlock.y);
-			currentCharacter = findCharacter(selectedBlock.x, selectedBlock.y);
 			var attackedCharacter = findCharacter(this.x, this.y);
 			if(currentCharacter != null && attackedCharacter != null)
 				attackMenu(currentCharacter, attackedCharacter);
-
+			
 			attackPhase = false;
 
 			return;
 		}
-		attackPhase = false;
-		cleanArea();
-		selectedBlock.x = null; 
-		selectedBlock.y = null;
+		else
+		{
+			currentCharacter.selected = false;
+			attackPhase = false;
+			cleanArea();
+			selectedBlock.x = null; 
+			selectedBlock.y = null;
+		}
 	}
 
 	if(selectedBlock.x != null && selectedBlock.y != null)
@@ -104,8 +115,24 @@ function()
 		if(currentCharacter != null)
 		{
 			currentCharacter.showStats();
-			currentCharacter.showArea();
-			movePhase = true;
+			if(currentCharacter.selected == false)
+			{
+				currentCharacter.selected = true;
+				if(currentCharacter.movePoints > 0)
+				{
+					currentCharacter.showArea();
+					movePhase = true;
+				}
+				else if(currentCharacter.attackPoints > 0)
+				{
+					currentCharacter.showAttackArea();
+					attackPhase = true;
+				}
+			}
+			else
+			{
+				currentCharacter.selected = false;
+			}
 		}
 		else
 			cleanStats();

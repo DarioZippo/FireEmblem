@@ -1,6 +1,8 @@
 var duelClick;
 var undoClick;
 
+var duelDone = false;
+
 function attackMenu(attacker, defender)
 {
 	attacker.showStats("Attacker");
@@ -20,7 +22,8 @@ function duel(attacker, defender)
 {
 	disableDuelButtons();
 
-    var result = defender.getDamage(attacker.attack, "Defender");
+	var result = defender.getDamage(attacker.attack, "Defender");
+	attacker.attackPoints--;
 	if(result == "died")
 	{
 		attackPhase = false;

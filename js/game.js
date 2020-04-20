@@ -5,7 +5,9 @@ var len = 5;
 var movementLength = 1; //Ampiezza dell'area di movimento
 var attackLength = 1; //Ampiezza dell'area di attacco
 
-var turn; //Variabile che registra chi deve fare il turno corrente
+var teams = ["Blue", "Red"]; //Variabile che registra chi deve fare il turno corrente
+
+var turn;
 
 var movePhase = false;
 var attackPhase = false;
@@ -22,6 +24,7 @@ function begin()
 	characters[0] = new Character("Bylet", 0, 2, "Blue");
 	characters[1] = new Character("Petra", len-1, 2, "Red");
 	updateBoardCharacters();
+	turn = new Turn();
 }
 
 function updateBoardCharacters()

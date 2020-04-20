@@ -23,7 +23,13 @@ function cleanStats(role = "Attacker")
 	PS.textContent = "Ps:--";
 
 	var cName = document.getElementById("CharacterName" + role);
-	cName.textContent = "Nome:--";
+    cName.textContent = "Nome:--";
+    
+    var mPoints = document.getElementById("MovePoints" + role);
+    cName.textContent = "Move Points:--";
+    
+    var cName = document.getElementById("AttackPoints" + role);
+	cName.textContent = "Attack Points:--";
 }
 
 function cleanBlock(positionX, positionY)
