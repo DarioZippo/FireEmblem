@@ -83,7 +83,7 @@ function()
     {
         if(characters[i].team == this.teamName)
         {
-            characters[i].movePoints = 1;
+            characters[i].movePoints = 3;
             characters[i].attackPoints = 1;
         }
     }

@@ -6,7 +6,9 @@ function Block()
 
 	this.occupied = false;
     this.occupier = "";
-    
+	
+	this.selected = false;
+
     this.movementBlock = false;
 	this.attackBlock = false;
 	
@@ -52,52 +54,14 @@ function()
 
 	if(movePhase == true)
 	{
-		if(this.movementBlock == true)
-		{
-			cleanBlock(selectedBlock.x, selectedBlock.y);
-			currentCharacter = findCharacter(selectedBlock.x, selectedBlock.y);
-			currentCharacter.move(this);
-			currentCharacter.movePoints--;
-			movePhase = false;
-			attackPhase = true;
-			updateBoardCharacters();
-
-			selectedBlock.x = this.x; 
-			selectedBlock.y = this.y;
-
-			currentCharacter.showStats();
-			currentCharacter.showAttackArea();
-
-			return;
-		}
-		else
-		{
-			currentCharacter.selected = false;
-		}
+		this.movement();
+		return;
 	}
 
 	if(attackPhase == true)
 	{
-		currentCharacter = findCharacter(selectedBlock.x, selectedBlock.y);
-		if(this.attackBlock == true)
-		{
-			cleanBlock(selectedBlock.x, selectedBlock.y);
-			var attackedCharacter = findCharacter(this.x, this.y);
-			if(currentCharacter != null && attackedCharacter != null)
-				attackMenu(currentCharacter, attackedCharacter);
-			
-			attackPhase = false;
-
-			return;
-		}
-		else
-		{
-			currentCharacter.selected = false;
-			attackPhase = false;
-			cleanArea();
-			selectedBlock.x = null; 
-			selectedBlock.y = null;
-		}
+		this.attack();
+		return;
 	}
 
 	if(selectedBlock.x != null && selectedBlock.y != null)
@@ -110,29 +74,24 @@ function()
 
 	currentCharacter = findCharacter(this.x, this.y); //Trovo il personaggio nella posizione selezionata
 
-	if(classe.includes("selectedBlock") == false)	
+	if(this.selected == false)	
 	{	
+		this.selected = true;
 		this.element.className += " selectedBlock";
+		
 		if(currentCharacter != null)
 		{
 			currentCharacter.showStats();
-			if(currentCharacter.selected == false)
+			
+			if(currentCharacter.movePoints > 0)
 			{
-				currentCharacter.selected = true;
-				if(currentCharacter.movePoints > 0)
-				{
-					currentCharacter.showArea();
-					movePhase = true;
-				}
-				else if(currentCharacter.attackPoints > 0)
-				{
-					currentCharacter.showAttackArea();
-					attackPhase = true;
-				}
+				currentCharacter.showArea();
+				movePhase = true;
 			}
-			else
+			else if(currentCharacter.attackPoints > 0)
 			{
-				currentCharacter.selected = false;
+				currentCharacter.showAttackArea();
+				attackPhase = true;
 			}
 		}
 		else
@@ -153,4 +112,53 @@ function()
 	}
 
 	//alert(this.element.className)
+}
+
+Block.prototype.movement =
+function()
+{
+	if(this.movementBlock == true)
+	{
+		cleanBlock(selectedBlock.x, selectedBlock.y);
+		currentCharacter = findCharacter(selectedBlock.x, selectedBlock.y);
+		currentCharacter.move(this);
+		currentCharacter.movePoints--;
+		movePhase = false;
+		updateBoardCharacters();
+
+		selectedBlock.x = this.x; 
+		selectedBlock.y = this.y;
+
+		currentCharacter.showStats();
+
+		return;
+	}
+	else
+	{
+		movePhase = false;
+	}
+}
+
+Block.prototype.attack =
+function()
+{
+	currentCharacter = findCharacter(selectedBlock.x, selectedBlock.y);
+	if(this.attackBlock == true)
+	{
+		cleanBlock(selectedBlock.x, selectedBlock.y);
+		var attackedCharacter = findCharacter(this.x, this.y);
+		if(currentCharacter != null && attackedCharacter != null)
+			attackMenu(currentCharacter, attackedCharacter);
+		
+		attackPhase = false;
+
+		return;
+	}
+	else
+	{
+		attackPhase = false;
+		cleanArea();
+		selectedBlock.x = null; 
+		selectedBlock.y = null;
+	}
 }

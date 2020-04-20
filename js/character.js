@@ -55,7 +55,7 @@ function(role = "Attacker")
 	var cName = document.getElementById("CharacterName" + role);
 	var str2 = cName.textContent.slice(cName.textContent.indexOf(":"), cName.textContent.length);
 	cName.textContent = cName.textContent.replace(str2, ":" + this.name);
-
+/*
 	var mPoints = document.getElementById("MovePoints" + role);
 	var str3 = mPoints.textContent.slice(mPoints.textContent.indexOf(":"), mPoints.textContent.length);
 	mPoints.textContent = mPoints.textContent.replace(str3, ":" + this.movePoints);
@@ -63,6 +63,7 @@ function(role = "Attacker")
 	var aPoints = document.getElementById("AttackPoints" + role);
 	var str4 = aPoints.textContent.slice(aPoints.textContent.indexOf(":"), aPoints.textContent.length);
 	aPoints.textContent = aPoints.textContent.replace(str4, ":" + this.attackPoints);	
+*/
 }
 
 Character.prototype.showArea =
