@@ -108,10 +108,11 @@ function()
 		}
 	}
 
+	currentCharacter = findCharacter(this.x, this.y); //Trovo il personaggio nella posizione selezionata
+
 	if(classe.includes("selectedBlock") == false)	
 	{	
 		this.element.className += " selectedBlock";
-		currentCharacter = findCharacter(this.x, this.y); //Trovo il personaggio nella posizione selezionata
 		if(currentCharacter != null)
 		{
 			currentCharacter.showStats();
@@ -135,7 +136,10 @@ function()
 			}
 		}
 		else
+		{
 			cleanStats();
+		}
+			
 		//Aggiorno la posizione del blocco selezionato
 		selectedBlock.x = this.x; 
 		selectedBlock.y = this.y;

@@ -5,6 +5,9 @@ function Character(cName, positionX, positionY, cTeam)
 	this.y = positionY;
 	this.team = cTeam;
 
+	this.attackPhase = false;
+	this.movePhase = false;
+
 	this.values();
 
 	this.images = 
