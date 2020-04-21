@@ -9,6 +9,12 @@ h1
 	margin: auto;	
 }
 
+#GameWrapper2
+{
+	width: 779px;
+	margin: auto;
+}
+
 #BoardWrapper
 {
 	width: 530px;
@@ -91,8 +97,8 @@ h1
 
 .valuesWrapper
 {
-	width: 38.8%;
-	height: 193px;
+	width: 38.86%;
+	height: 184px;
 	position: relative;
 	float: right;
 }
@@ -170,6 +176,28 @@ h1
 }
 
 /*Turn Buttons*/
+#TurnTableWrapper
+{
+	
+}
+
+#TurnTable
+{
+	border-style: solid;
+	background-color: rgb(0, 0, 0); 
+	margin: auto;
+}
+
+#TurnTableBody
+{
+	border-style: solid;
+}
+
+.turnTableBlock
+{
+	border-style: solid;
+}
+
 .turnWrapper
 {
 	display: inline-block;

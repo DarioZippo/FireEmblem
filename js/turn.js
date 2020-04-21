@@ -32,13 +32,25 @@ function()
 
     this.currentTeam();
 
-    alert(this.teamName);
+    this.updateTable();
 
     this.removeTurnPoints();
     this.addTurnPoints();
 
     this.disableTurnButton();
     this.activeTurnButton();
+}
+
+Turn.prototype.updateTable =
+function()
+{
+    var elementTarget = document.getElementById(this.teamName + "TurnWrapper");
+    var style = window.getComputedStyle(elementTarget);
+    var currentColor = style.getPropertyValue("background-color");
+
+    document.getElementById("TurnTableBody").style.backgroundColor = currentColor;
+    document.getElementById("TurnNumber").textContent = this.number;
+    document.getElementById("TurnTeam").textContent = this.teamName;
 }
 
 Turn.prototype.addButtonEvents =
