@@ -6,9 +6,6 @@ function Area(targetCharacter, movLen = movementLength, atkLen = attackLength)
 
     this.movementMatrix = new Array();
     this.attackMatrix = new Array();
-
-    this.buildMovementArea();
-    this.buildAttackArea();
 }
 
 Area.prototype.buildMovementArea =
@@ -110,16 +107,27 @@ function()
     }
 }
 
-Area.prototype.show =
+Area.prototype.showMovementArea =
 function()
 {
+    this.buildMovementArea();
+    for(let i = 0; i < this.movementMatrix.length; i++)
+    {
+        if(this.movementMatrix[i].movementBlock == true)
+        {
+            this.movementMatrix[i].element.className += " movementBlock";
+        }
+    }
+}
+
+Area.prototype.showAttackArea =
+function()
+{
+    this.showMovementArea();
+    this.buildAttackArea();
     for(let i = 0; i < this.attackMatrix.length; i++)
     {
-        if(this.attackMatrix[i].movementBlock == true)
-        {
-            this.attackMatrix[i].element.className += " movementBlock";
-        }
-        else if(this.attackMatrix[i].attackBlock == true)
+        if(this.attackMatrix[i].attackBlock == true)
         {
             this.attackMatrix[i].element.className += " attackBlock";
         }

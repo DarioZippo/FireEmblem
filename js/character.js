@@ -70,14 +70,14 @@ Character.prototype.showArea =
 function()
 {
 	this.area = new Area(this);
-	this.area.show();
+	this.area.showMovementArea();
 }
 
 Character.prototype.showAttackArea =
 function()
 {
 	this.area = new Area(this, 0);
-	this.area.show();
+	this.area.showAttackArea();
 }
 
 Character.prototype.move =
