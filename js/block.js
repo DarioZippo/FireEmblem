@@ -54,8 +54,12 @@ function()
 
 	if(movePhase == true)
 	{
-		this.movement();
-		return;
+		if(this.movementBlock == true)
+		{
+			this.movement();
+			return;
+		}
+		movePhase = false;
 	}
 
 	if(attackPhase == true)
@@ -82,14 +86,16 @@ function()
 		if(currentCharacter != null)
 		{
 			currentCharacter.showStats();
-			
+			//alert(1);
 			if(currentCharacter.movePoints > 0)
 			{
+				//alert(2);
 				currentCharacter.showArea();
 				movePhase = true;
 			}
 			else if(currentCharacter.attackPoints > 0)
 			{
+				//alert(3);
 				currentCharacter.showAttackArea();
 				attackPhase = true;
 			}
@@ -105,38 +111,30 @@ function()
 	}
 	else
 	{
+		this.selected = false;
 		cleanBlock(this.x, this.y);
 		//Nessun blocco è selezionato
 		selectedBlock.x = null; 
 		selectedBlock.y = null;
 	}
-
-	//alert(this.element.className)
 }
 
 Block.prototype.movement =
 function()
 {
-	if(this.movementBlock == true)
-	{
-		cleanBlock(selectedBlock.x, selectedBlock.y);
-		currentCharacter = findCharacter(selectedBlock.x, selectedBlock.y);
-		currentCharacter.move(this);
-		currentCharacter.movePoints--;
-		movePhase = false;
-		updateBoardCharacters();
+	cleanBlock(selectedBlock.x, selectedBlock.y);
+	currentCharacter = findCharacter(selectedBlock.x, selectedBlock.y);
+	currentCharacter.move(this);
+	currentCharacter.movePoints--;
+	movePhase = false;
+	updateBoardCharacters();
 
-		selectedBlock.x = this.x; 
-		selectedBlock.y = this.y;
+	selectedBlock.x = this.x; 
+	selectedBlock.y = this.y;
 
-		currentCharacter.showStats();
+	currentCharacter.showStats();
 
-		return;
-	}
-	else
-	{
-		movePhase = false;
-	}
+	return;
 }
 
 Block.prototype.attack =

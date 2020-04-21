@@ -15,7 +15,7 @@ function attackMenu(attacker, defender)
 	duelClick = function(){duel(attacker, defender)};
 	undoClick = function(){undo()};
 
-	activeDuelButtons();
+	activeDuelButtons(attacker.attackPoints);
 }
 
 function duel(attacker, defender)
@@ -34,7 +34,7 @@ function duel(attacker, defender)
 	setTimeout(function(){attacker.getDamage(defender.attack, "Attacker")}, 3000);
 	attackPhase = false;
 
-	activeDuelButtons();
+	setTimeout(function(){activeDuelButtons();}, 5000);
 }
 
 function undo()
@@ -61,14 +61,24 @@ function disableDuelButtons()
 	undoButton.disabled = true;
 }
 
-function activeDuelButtons()
+function activeDuelButtons(attackPoints)
 {
 	var duelButton = document.getElementById("DuelButton");
 	var undoButton = document.getElementById("UndoButton");
 
-	duelButton.disabled = false;
 	undoButton.disabled = false;
-
-	duelButton.addEventListener("click", duelClick);
 	undoButton.addEventListener("click", undoClick);
+
+	if(attackPoints > 0)
+	{
+		duelButton.disabled = false;
+		duelButton.addEventListener("click", duelClick);
+		duelButton.style.display = "block";
+		undoButton.style.height= "50%";
+	}
+	else
+	{
+		duelButton.style.display = "none";
+		undoButton.style.height= "100%";
+	}
 }

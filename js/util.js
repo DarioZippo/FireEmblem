@@ -24,19 +24,24 @@ function cleanStats(role = "Attacker")
 
 	var cName = document.getElementById("CharacterName" + role);
     cName.textContent = "Nome:--";
-    
+    /*
     var mPoints = document.getElementById("MovePoints" + role);
-    cName.textContent = "Move Points:--";
+    mPoints.textContent = "Move Points:--";
     
-    var cName = document.getElementById("AttackPoints" + role);
-	cName.textContent = "Attack Points:--";
+    var aPoints = document.getElementById("AttackPoints" + role);
+	aPoints.textContent = "Attack Points:--";
+    */
 }
 
 function cleanBlock(positionX, positionY)
 {
     var classe = "matrixBlock";
     var currentBlock = board.blocks[positionX * len + positionY];
+    currentBlock.selected = false;
     currentBlock.element.className = classe;
+
+    movePhase = false;
+    attackPhase = false;
 
     if(currentBlock.occupied == true)
     {
@@ -55,8 +60,11 @@ function distance(a, b)
 
 function cleanArea()
 {
+    movePhase = false;
+    attackPhase = false;
     for(var i = 0; i <  board.blocks.length; i++)
     {
+        board.blocks[i].selected = false;
         board.blocks[i].movementBlock = false;
         board.blocks[i].attackBlock = false;
         board.blocks[i].element.className = "matrixBlock";
