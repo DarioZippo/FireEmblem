@@ -81,8 +81,6 @@ function()
 Turn.prototype.activeTurnButton =
 function()
 {
-    var that = this;
-    var turnClick = function(){that.startTurn()};
     var targetButtons = document.getElementsByClassName("turnButton");
     for(var i = 0; i < targetButtons.length; i++)
     {

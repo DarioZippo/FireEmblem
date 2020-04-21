@@ -11,6 +11,8 @@ function attackMenu(attacker, defender)
     document.getElementById("DuelWrapper").style.display = "block";
 
 	disableBlocks();
+	document.getElementById("BlueTurnButton").disabled = true;
+	document.getElementById("RedTurnButton").disabled = true;
 
 	duelClick = function(){duel(attacker, defender)};
 	undoClick = function(){undo()};
@@ -43,6 +45,8 @@ function undo()
 	cleanStats("Defender");
 
 	document.getElementById("DuelWrapper").style.display = "none";
+
+	turn.activeTurnButton();
 
 	disableDuelButtons();
 	
