@@ -27,6 +27,7 @@ Turn.prototype.startTurn =
 function()
 {
     cleanArea();
+    cleanStats();
 
     this.number++;
 

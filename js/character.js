@@ -55,6 +55,12 @@ function(role = "Attacker")
 	var cName = document.getElementById("CharacterName" + role);
 	var str2 = cName.textContent.slice(cName.textContent.indexOf(":"), cName.textContent.length);
 	cName.textContent = cName.textContent.replace(str2, ":" + this.name);
+
+	var elementTarget = document.getElementById(this.team + "TurnWrapper");
+    var style = window.getComputedStyle(elementTarget);
+    var currentColor = style.getPropertyValue("background-color");
+
+    document.getElementById("Stats" + role).style.backgroundColor = currentColor;
 /*
 	var mPoints = document.getElementById("MovePoints" + role);
 	var str3 = mPoints.textContent.slice(mPoints.textContent.indexOf(":"), mPoints.textContent.length);
