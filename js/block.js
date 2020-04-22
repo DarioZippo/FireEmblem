@@ -146,7 +146,10 @@ function()
 		cleanBlock(selectedBlock.x, selectedBlock.y);
 		var attackedCharacter = findCharacter(this.x, this.y);
 		if(currentCharacter != null && attackedCharacter != null)
-			attackMenu(currentCharacter, attackedCharacter);
+		{
+			if(attackedCharacter.team != currentCharacter.team)
+				attackMenu(currentCharacter, attackedCharacter);
+		}
 		
 		attackPhase = false;
 
