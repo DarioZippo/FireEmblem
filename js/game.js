@@ -21,8 +21,10 @@ function begin()
 {
 	board = new Board(len);
 	characters = new Array();
-	characters[0] = new Character("Bylet", 0, 2, "Blue");
-	characters[1] = new Character("Petra", len-1, 2, "Red");
+	characters[0] = new Character("Bylet", 0, 0, "Blue");
+	characters[1] = new Character("Petra", 0, len-1, "Blue");
+	characters[2] = new Character("Edelgard", len-1, 0, "Red");
+	characters[3] = new Character("Claude", len-1, len-1, "Red");
 	updateBoardCharacters();
 	turn = new Turn();
 }
