@@ -24,7 +24,9 @@ function duel(attacker, defender)
 {
 	disableDuelButtons();
 
-	var result = defender.getDamage(attacker.attack, "Defender");
+	var currentDamage = calculateDamage(attacker.attack, attacker.weapon, defender.weapon); //Calcolo l'attacco iniziale	
+
+	var result = defender.getDamage(currentDamage, "Defender");
 	attacker.attackPoints--;
 	if(result == "died")
 	{
@@ -32,11 +34,57 @@ function duel(attacker, defender)
 		setTimeout( function(){undo();}, 3000);
 		setTimeout( function(){attacker.showStats("Attacker");}, 3000);
 		return;
-	}	
-	setTimeout(function(){attacker.getDamage(defender.attack, "Attacker")}, 3000);
+	}
+	currentDamage = calculateDamage(defender.attack, defender.weapon, attacker.weapon); //Calcolo l'attacco di risposta	
+	setTimeout(function(){attacker.getDamage(currentDamage, "Attacker")}, 3000);
 	attackPhase = false;
 
 	setTimeout(function(){activeDuelButtons();}, 5000);
+}
+
+function calculateDamage(currentDamage, attackerWeapon, defenderWeapon)
+{
+	if(attackerWeapon != defenderWeapon)
+	{
+		var modifier = currentDamage / 2;
+
+		if(attackerWeapon == "Sword")
+		{
+			if(defenderWeapon == "Axe")
+			{
+				currentDamage = currentDamage + modifier;
+			}
+			if(defenderWeapon == "Lance")
+			{
+				currentDamage = currentDamage - modifier;
+			}
+		}
+
+		if(attackerWeapon == "Axe")
+		{
+			if(defenderWeapon == "Lance")
+			{
+				currentDamage = currentDamage + modifier;
+			}
+			if(defenderWeapon == "Sword")
+			{
+				currentDamage = currentDamage - modifier;
+			}
+		}
+		
+		if(attackerWeapon == "Lance")
+		{
+			if(defenderWeapon == "Sword")
+			{
+				currentDamage = currentDamage + modifier;
+			}
+			if(defenderWeapon == "Axe")
+			{
+				currentDamage = currentDamage - modifier;
+			}
+		}
+	}
+	return currentDamage;
 }
 
 function undo()

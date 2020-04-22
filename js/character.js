@@ -1,9 +1,10 @@
-function Character(cName, positionX, positionY, cTeam)
+function Character(cName, positionX, positionY, cWeapon, cTeam)
 {
 	this.name = cName;
 	this.x = positionX;
 	this.y = positionY;
 	this.team = cTeam;
+	this.weapon = cWeapon;
 
 	this.attackPhase = false;
 	this.movePhase = false;
@@ -24,7 +25,6 @@ function()
 {
 	this.lifePoints = 100;
 	this.attack = 50;
-	this.class = "Soldier";
 	this.alive = true;
 	this.movePoints = 0; //Indicano i punti spendibili per un movimento
 	this.attackPoints = 0; //Indicano i punti spendibili per un attacco
@@ -55,6 +55,10 @@ function(role = "Attacker")
 	var cName = document.getElementById("CharacterName" + role);
 	var str2 = cName.textContent.slice(cName.textContent.indexOf(":"), cName.textContent.length);
 	cName.textContent = cName.textContent.replace(str2, ":" + this.name);
+
+	var cWeapon = document.getElementById("CharacterWeapon" + role);
+	var str3 = cWeapon.textContent.slice(cWeapon.textContent.indexOf(":"), cWeapon.textContent.length);
+	cWeapon.textContent = cWeapon.textContent.replace(str3, ":" + this.weapon);
 
 	var elementTarget = document.getElementById(this.team + "TurnWrapper");
     var style = window.getComputedStyle(elementTarget);

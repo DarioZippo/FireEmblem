@@ -25,6 +25,9 @@ function cleanStats(role = "Attacker")
 	var cName = document.getElementById("CharacterName" + role);
     cName.textContent = "Nome:--";
 
+    var cWeapon = document.getElementById("CharacterWeapon" + role);
+    cWeapon.textContent = "Arma:--";
+
     document.getElementById("Stats" + role).style.backgroundColor = "transparent";
     /*
     var mPoints = document.getElementById("MovePoints" + role);
