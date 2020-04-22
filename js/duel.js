@@ -26,9 +26,10 @@ function duel(attacker, defender)
 
 	var currentDamage = calculateDamage(attacker.attack, attacker.weapon, defender.weapon); //Calcolo l'attacco iniziale	
 
-	var result = defender.getDamage(currentDamage, "Defender");
+	//duelResult = ""; //Lo inizializzo a 0
+	var duelResult = defender.getDamage(currentDamage, "Defender");
 	attacker.attackPoints--;
-	if(result == "died")
+	if(duelResult == "died")
 	{
 		attackPhase = false;
 		setTimeout( function(){undo();}, 3000);
@@ -36,10 +37,25 @@ function duel(attacker, defender)
 		return;
 	}
 	currentDamage = calculateDamage(defender.attack, defender.weapon, attacker.weapon); //Calcolo l'attacco di risposta	
-	setTimeout(function(){attacker.getDamage(currentDamage, "Attacker")}, 3000);
-	attackPhase = false;
 
-	setTimeout(function(){activeDuelButtons();}, 5000);
+	setTimeout(function(){duelResult = attacker.getDamage(currentDamage, "Attacker");}, 3000);
+	setTimeout(
+		function()
+		{
+			attackPhase = false;
+
+			if(duelResult == "died")
+			{
+				undo();
+				setTimeout(function(){defender.showStats("Attacker");}, 1);
+				return;
+			}
+			else
+			{ 
+				activeDuelButtons();
+			}
+		}, 5000);
+	
 }
 
 function calculateDamage(currentDamage, attackerWeapon, defenderWeapon)
@@ -91,11 +107,12 @@ function undo()
 {
 	cleanStats("Attacker");
 	cleanStats("Defender");
+	
 
 	document.getElementById("DuelWrapper").style.display = "none";
-
+	
 	turn.activeTurnButton();
-
+	
 	disableDuelButtons();
 	
 	activeBlocks();
