@@ -42,7 +42,10 @@ function()
     this.activeTurnButton();
 
     if(this.teamName == enemyTeamColor)
+    {
+        disableBlocks();
         this.enemyTurn();
+    }
 }
 
 Turn.prototype.updateTable =
@@ -124,6 +127,7 @@ function()
 Turn.prototype.enemyTurn =
 function()
 {
+    disableBlocks();
     var currentEnemy;
     var currentNumber = howManyAlive(enemyTeam);
     var k = 0;
@@ -153,5 +157,5 @@ function()
             }
         }
     }
-    setTimeout(function(){turn.startTurn();}, (11000 * currentNumber) );
+    setTimeout(function(){activeBlocks(); turn.startTurn();}, (11000 * currentNumber) );
 }
