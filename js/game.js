@@ -34,7 +34,6 @@ function begin()
 	characters[3] = new Character("Claude", len-1, len-1, "Lance", "Red");
 	
 	buildTeams();
-	showTeams();
 
 	updateBoardCharacters();
 	turn = new Turn();
@@ -52,20 +51,6 @@ function buildTeams()
 		{
 			enemyTeam.push(characters[i]);
 		}
-	}
-}
-
-function showTeams()
-{
-	alert("Player");
-	for(var i = 0; i < playerTeam.length; i++)
-	{
-		alert(playerTeam[i].name);
-	}
-	alert("Enemy");
-	for(var i = 0; i < enemyTeam.length; i++)
-	{
-		alert(enemyTeam[i].name);
 	}
 }
 
