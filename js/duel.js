@@ -142,7 +142,8 @@ function activeDuelButtons(attackPoints)
 		duelButton.style.height= "100%";
 		return;
 	}
-
+	
+	undoButton.style.display = "block";
 	undoButton.disabled = false;
 	undoButton.addEventListener("click", undoClick);
 
@@ -151,6 +152,7 @@ function activeDuelButtons(attackPoints)
 		duelButton.disabled = false;
 		duelButton.addEventListener("click", duelClick);
 		duelButton.style.display = "block";
+		duelButton.style.height = "50%";
 		undoButton.style.height= "50%";
 	}
 	else
