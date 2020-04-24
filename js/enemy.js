@@ -1,6 +1,7 @@
 Character.prototype.autoTurn =
 function()
 {
+    this.showStats();
     this.showArea();
     var that = this;
     setTimeout(function(){that.autoMove();}, 2000);
@@ -14,12 +15,14 @@ Character.prototype.autoMove =
 function()
 {
     var currentBlock, minDistanceBlock;
+    var k = 0;
     for(var i = 0; i < playerTeam.length; i++)
     {
         if(playerTeam[i].alive == true)
         {
-            if(i == 0)
+            if(k == 0)
             {
+                k++;
                 minDistanceBlock = checkMinDistance(this, playerTeam[i]);
             }
             else
@@ -27,6 +30,7 @@ function()
                 currentBlock = checkMinDistance(this, playerTeam[i]);
                 if(currentBlock.dist < minDistanceBlock.dist)
                     minDistanceBlock = currentBlock;
+                k++;
             }
         }
     }
@@ -99,8 +103,11 @@ function()
         attackMenu(this, targetCharacter);
         duel(this, targetCharacter);
         enemyAttacking = true;
-        setTimeout(function(){cleanArea(); undo();}, 5000);
+        setTimeout(function(){cleanStats(); cleanArea(); undo();}, 5000);
     }
     else
+    {
+        cleanStats();
         cleanArea();
+    }
 }

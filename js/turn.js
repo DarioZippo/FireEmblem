@@ -126,12 +126,16 @@ function()
 {
     var currentEnemy;
     var currentNumber = howManyAlive(enemyTeam);
+    var k = 0;
     for(var i = 0; i < enemyTeam.length; i++)
     {
         if(enemyTeam[i].alive == true)
         {
-            if(i == 0)
+            if(k == 0)
+            {
+                k++;
                 enemyTeam[i].autoTurn();
+            }
             else
             {
                 currentEnemy = enemyTeam[i];
@@ -145,6 +149,7 @@ function()
                                             currentEnemy.autoTurn();
                                         }
                                     }, 6000);
+                k++;
             }
         }
     }
