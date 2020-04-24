@@ -1,7 +1,7 @@
-function Block()
+function Block(positionX, positionY)
 {
-	this.x;
-	this.y;
+	this.x = positionX;
+	this.y = positionY;
 	this.element;
 
 	this.occupied = false;

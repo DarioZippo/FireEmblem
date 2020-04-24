@@ -40,6 +40,9 @@ function()
 
     this.disableTurnButton();
     this.activeTurnButton();
+
+    if(this.teamName == enemyTeamColor)
+        this.enemyTurn();
 }
 
 Turn.prototype.updateTable =
@@ -114,6 +117,22 @@ function()
         {
             characters[i].movePoints = 1;
             characters[i].attackPoints = 1;
+        }
+    }
+}
+
+Turn.prototype.enemyTurn =
+function()
+{
+    var currentEnemy;
+    for(var i = 0; i < enemyTeam.length; i++)
+    {
+        if(i == 0)
+            enemyTeam[i].autoTurn();
+        else
+        {
+            currentEnemy = enemyTeam[i];
+            setTimeout(function(){currentEnemy.autoTurn();}, 5000);
         }
     }
 }

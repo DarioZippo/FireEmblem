@@ -18,11 +18,9 @@ function(len)
 		this.element.appendChild(currentRow);
 		for(var j = 0; j < len; j++)
 		{
-			currentBlock = new Block();
+			currentBlock = new Block(i, j);
 			currentBlock.element = document.createElement("span");
 			currentBlock.element.className = "matrixBlock";
-			currentBlock.x = i;
-			currentBlock.y = j;
 			currentRow.appendChild(currentBlock.element);
 			
 			this.blocks.push(currentBlock);
