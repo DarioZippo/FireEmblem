@@ -91,3 +91,14 @@ function activeBlocks()
         board.blocks[i].addEvents();
     }
 }
+
+function howManyAlive(targetTeam)
+{
+    var counter = 0;
+    for(var i = 0; i < targetTeam.length; i++)
+    {
+        if(targetTeam[i].alive == true)
+            counter++;
+    }
+    return counter;
+}

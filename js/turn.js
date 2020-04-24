@@ -125,14 +125,28 @@ Turn.prototype.enemyTurn =
 function()
 {
     var currentEnemy;
+    var currentNumber = howManyAlive(enemyTeam);
     for(var i = 0; i < enemyTeam.length; i++)
     {
-        if(i == 0)
-            enemyTeam[i].autoTurn();
-        else
+        if(enemyTeam[i].alive == true)
         {
-            currentEnemy = enemyTeam[i];
-            setTimeout(function(){currentEnemy.autoTurn();}, 5000);
+            if(i == 0)
+                enemyTeam[i].autoTurn();
+            else
+            {
+                currentEnemy = enemyTeam[i];
+                setTimeout(function(){
+                                        if(enemyAttacking == true)
+                                        {
+                                            setTimeout(function(){enemyAttacking = false; currentEnemy.autoTurn();}, 5000);
+                                        }
+                                        else
+                                        {
+                                            currentEnemy.autoTurn();
+                                        }
+                                    }, 6000);
+            }
         }
     }
+    setTimeout(function(){turn.startTurn();}, (11000 * currentNumber) );
 }

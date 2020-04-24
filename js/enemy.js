@@ -7,13 +7,12 @@ function()
     setTimeout(function(){updateBoardCharacters();}, 3000);
     setTimeout(function(){cleanArea();}, 3500);
     setTimeout(function(){that.showAttackArea();}, 4000);
-    setTimeout(function(){that.autoAttack();}, 4500);
+    setTimeout(function(){that.autoAttack();}, 5000);
 }
 
 Character.prototype.autoMove =
 function()
 {
-    var startBlock = board.blocks[this.x * len + this.y];
     var currentBlock, minDistanceBlock;
     for(var i = 0; i < playerTeam.length; i++)
     {
@@ -69,10 +68,39 @@ function checkMinDistance(character1, character2)
                     minDistanceBlock.dist = currentBlock.dist;
                 }
             }
-            
+
             k++;
         }
     }
 
     return minDistanceBlock;
+}
+
+Character.prototype.autoAttack =
+function()
+{
+    var currentArea = this.area.attackMatrix;
+    var targetCharacter;
+    var found;
+    for(var i = 0; i < currentArea.length; i++)
+    {
+        if(currentArea[i].attackBlock == true && currentArea[i].occupied == true)
+        {
+            targetCharacter = findCharacter(currentArea[i].x, currentArea[i].y);
+            if(targetCharacter != null && (targetCharacter.team != this.team) )
+            {
+                found = true;
+                break;
+            }
+        }
+    }
+    if(found == true)
+    {
+        attackMenu(this, targetCharacter);
+        duel(this, targetCharacter);
+        enemyAttacking = true;
+        setTimeout(function(){cleanArea(); undo();}, 5000);
+    }
+    else
+        cleanArea();
 }

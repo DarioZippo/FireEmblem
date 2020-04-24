@@ -135,6 +135,14 @@ function activeDuelButtons(attackPoints)
 	var duelButton = document.getElementById("DuelButton");
 	var undoButton = document.getElementById("UndoButton");
 
+	if(turn.teamName == enemyTeamColor)
+	{
+		undoButton.style.display = "none";
+		duelButton.style.display = "block";
+		duelButton.style.height= "100%";
+		return;
+	}
+
 	undoButton.disabled = false;
 	undoButton.addEventListener("click", undoClick);
 

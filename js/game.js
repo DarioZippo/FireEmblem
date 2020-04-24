@@ -13,6 +13,8 @@ var enemyTeamColor = teams[1];
 var playerTeam = new Array();
 var enemyTeam = new Array();
 
+var enemyAttacking = false;
+
 var turn;
 
 var movePhase = false;
