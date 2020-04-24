@@ -7,6 +7,12 @@ var attackLength = 1; //Ampiezza dell'area di attacco
 
 var teams = ["Blue", "Red"]; //Variabile che registra chi deve fare il turno corrente
 
+var playerTeamColor = teams[0];
+var enemyTeamColor = teams[1];
+
+var playerTeam = new Array();
+var enemyTeam = new Array();
+
 var turn;
 
 var movePhase = false;
@@ -20,13 +26,47 @@ var selectedBlock = {
 function begin()
 {
 	board = new Board(len);
+
 	characters = new Array();
 	characters[0] = new Character("Bylet", 0, 0, "Sword", "Blue");
 	characters[1] = new Character("Petra", 0, len-1, "Sword", "Blue");
 	characters[2] = new Character("Edelgard", len-1, 0, "Axe", "Red");
 	characters[3] = new Character("Claude", len-1, len-1, "Lance", "Red");
+	
+	buildTeams();
+	showTeams();
+
 	updateBoardCharacters();
 	turn = new Turn();
+}
+
+function buildTeams()
+{
+	for(var i = 0; i < characters.length; i++)
+	{
+		if(characters[i].team == playerTeamColor)
+		{
+			playerTeam.push(characters[i]);
+		}
+		else
+		{
+			enemyTeam.push(characters[i]);
+		}
+	}
+}
+
+function showTeams()
+{
+	alert("Player");
+	for(var i = 0; i < playerTeam.length; i++)
+	{
+		alert(playerTeam[i].name);
+	}
+	alert("Enemy");
+	for(var i = 0; i < enemyTeam.length; i++)
+	{
+		alert(enemyTeam[i].name);
+	}
 }
 
 function updateBoardCharacters()
