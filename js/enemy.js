@@ -1,6 +1,7 @@
 Character.prototype.autoTurn =
-function()
+function(current)
 {
+    console.log(this.name);
     this.showStats();
     this.showArea();
     var that = this;
@@ -109,5 +110,6 @@ function()
     {
         cleanStats();
         cleanArea();
+        enemyAttacking = false;
     }
 }

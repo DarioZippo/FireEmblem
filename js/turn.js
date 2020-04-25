@@ -131,6 +131,9 @@ function()
     var currentEnemy;
     var currentNumber = howManyAlive(enemyTeam);
     var k = 0;
+    
+    setTimeout(function(){activeBlocks(); turn.startTurn();}, (11000 * currentNumber) );
+
     for(var i = 0; i < enemyTeam.length; i++)
     {
         if(enemyTeam[i].alive == true)
@@ -143,19 +146,24 @@ function()
             else
             {
                 currentEnemy = enemyTeam[i];
-                setTimeout(function(){
-                                        if(enemyAttacking == true)
-                                        {
-                                            setTimeout(function(){enemyAttacking = false; currentEnemy.autoTurn();}, 5000);
-                                        }
-                                        else
-                                        {
-                                            currentEnemy.autoTurn();
-                                        }
-                                    }, 6000);
+                waitAutoTurn(currentEnemy, k); //Aggiungo l'istanza alla "lista di attesa"
+                
                 k++;
             }
         }
     }
-    setTimeout(function(){activeBlocks(); turn.startTurn();}, (11000 * currentNumber) );
+}
+
+function waitAutoTurn(currentEnemy, number)
+{
+    setTimeout(function(){
+        if(enemyAttacking == true)
+        {
+            setTimeout(function(){currentEnemy.autoTurn();}, number * 5000);
+        }
+        else
+        {
+            currentEnemy.autoTurn();
+        }
+    }, number * 6000);
 }

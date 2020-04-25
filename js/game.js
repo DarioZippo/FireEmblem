@@ -31,9 +31,11 @@ function begin()
 
 	characters = new Array();
 	characters[0] = new Character("Bylet", 0, 0, "Sword", "Blue");
-	characters[1] = new Character("Petra", 0, len-1, "Sword", "Blue");
-	characters[2] = new Character("Edelgard", len-1, 0, "Axe", "Red");
-	characters[3] = new Character("Claude", len-1, len-1, "Lance", "Red");
+	characters[1] = new Character("Hilda", 0, Math.floor(len / 2), "Axe", "Blue");
+	characters[2] = new Character("Claude", 0, len-1, "Lance", "Blue");
+	characters[3] = new Character("Edelgard", len-1, 0, "Axe", "Red");
+	characters[4] = new Character("Ingrid", len-1, Math.floor(len / 2), "Axe", "Red");
+	characters[5] = new Character("Petra", len-1, len-1, "Sword", "Red");
 	
 	buildTeams();
 
