@@ -132,7 +132,7 @@ function()
     var currentNumber = howManyAlive(enemyTeam);
     var k = 0;
     
-    setTimeout(function(){activeBlocks(); turn.startTurn();}, (11000 * currentNumber) );
+    setTimeout(function(){activeBlocks(); turn.startTurn();}, (10500 * currentNumber) );
 
     for(var i = 0; i < enemyTeam.length; i++)
     {
@@ -157,13 +157,7 @@ function()
 function waitAutoTurn(currentEnemy, number)
 {
     setTimeout(function(){
-        if(enemyAttacking == true)
-        {
-            setTimeout(function(){currentEnemy.autoTurn();}, number * 5000);
-        }
-        else
-        {
             currentEnemy.autoTurn();
-        }
-    }, number * 6000);
+        }, 
+    number * 10500);
 }
