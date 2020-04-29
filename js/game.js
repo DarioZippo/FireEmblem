@@ -15,6 +15,8 @@ var enemyTeam = new Array();
 
 var turn;
 
+var waitingTurn = false;
+
 var movePhase = false;
 var attackPhase = false;
 

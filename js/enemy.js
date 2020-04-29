@@ -103,11 +103,12 @@ function()
     {
         attackMenu(this, targetCharacter);
         duel(this, targetCharacter);
-        setTimeout(function(){cleanStats(); cleanArea(); undo();}, 5000);
+        setTimeout(function(){cleanStats(); cleanArea(); undo(); waitingTurn = false;}, 5000);
     }
     else
     {
         cleanStats();
         cleanArea();
+        waitingTurn = false;
     }
 }

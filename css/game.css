@@ -11,7 +11,7 @@ h1
 #GameWrapper2
 {
 	margin: auto;
-	width: 50%;
+	width: 60%;
 	display: flex;
 	justify-content: center;
 }
@@ -98,7 +98,7 @@ h1
 .valuesWrapper
 {
 	width: 39.29%;
-	height: 98%;
+	height: 98.5%;
 	position: relative;
 	float: right;
 }

@@ -128,36 +128,30 @@ Turn.prototype.enemyTurn =
 function()
 {
     disableBlocks();
-    var currentEnemy;
-    var currentNumber = howManyAlive(enemyTeam);
-    var k = 0;
-    
-    setTimeout(function(){activeBlocks(); turn.startTurn();}, (10500 * currentNumber) );
+    var i = 0;
+    var that = this;
 
-    for(var i = 0; i < enemyTeam.length; i++)
-    {
-        if(enemyTeam[i].alive == true)
+    var turnBlock = setInterval(
+        function()
         {
-            if(k == 0)
+            if(waitingTurn == false)
             {
-                k++;
-                enemyTeam[i].autoTurn();
+                if(i >= enemyTeam.length)
+                {
+                    activeBlocks();
+                    that.startTurn();
+                    clearInterval(turnBlock);
+                }
+                else if(enemyTeam[i].alive == true)
+                {
+                    waitingTurn = true;
+                    enemyTeam[i].autoTurn();
+                    i++;
+                }
+                else
+                {
+                    i++;
+                }
             }
-            else
-            {
-                currentEnemy = enemyTeam[i];
-                waitAutoTurn(currentEnemy, k); //Aggiungo l'istanza alla "lista di attesa"
-                
-                k++;
-            }
-        }
-    }
-}
-
-function waitAutoTurn(currentEnemy, number)
-{
-    setTimeout(function(){
-            currentEnemy.autoTurn();
-        }, 
-    number * 10500);
+        }, 1000);
 }
