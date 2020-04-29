@@ -24,7 +24,10 @@ function()
 TeamStat.prototype.updateScoreBoard =
 function()
 {
-    document.getElementById(this.team + "KilledCounter").TEXT_NODE = this.killedCounter;
-    document.getElementById(this.team + "DeadCounter").TEXT_NODE = this.deadCounter;
-    document.getElementById(this.team + "Score").TEXT_NODE = this.correntScore;
+    document.getElementById(this.team + "KilledCounter").textContent = this.killedCounter;
+    document.getElementById(this.team + "DeadCounter").textContent = this.deadCounter;
+    document.getElementById(this.team + "Score").textContent = this.correntScore;
 }
+
+var playerStat = new TeamStat(playerTeamColor);
+var enemyStat = new TeamStat(enemyTeamColor);

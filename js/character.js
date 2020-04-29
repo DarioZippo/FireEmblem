@@ -28,7 +28,7 @@ function Character(cName, positionX, positionY, cWeapon, cTeam)
 Character.prototype.values =
 function()
 {
-	this.lifePoints = 100;
+	this.lifePoints = 1;//00;
 	this.attack = 50;
 	this.alive = true;
 	this.movePoints = 0; //Indicano i punti spendibili per un movimento
@@ -78,7 +78,7 @@ function(role = "Attacker")
 	}
 	cWeapon.textContent = cWeapon.textContent.replace(str3, ":" + italianWeapon);
 
-	var elementTarget = document.getElementById(this.team + "TurnWrapper");
+	var elementTarget = document.getElementById(this.team + "StatsTable");
     var style = window.getComputedStyle(elementTarget);
     var currentColor = style.getPropertyValue("background-color");
 

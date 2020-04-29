@@ -34,10 +34,10 @@ function duel(attacker, defender)
 		attackPhase = false;
 		/*Aggiorno i punteggi*/
 		attacker.teamStat.incrementScore();
-		attacker.teamStat.updateBoard();
+		attacker.teamStat.updateScoreBoard();
 
 		defender.teamStat.decrementScore();
-		defender.teamStat.updateBoard();
+		defender.teamStat.updateScoreBoard();
 
 		setTimeout( function(){undo();}, 3000);
 		setTimeout( function(){attacker.showStats("Attacker");}, 3000);
@@ -54,6 +54,13 @@ function duel(attacker, defender)
 			if(duelResult == "died")
 			{
 				undo();
+				/*Aggiorno i punteggi*/
+				defender.teamStat.incrementScore();
+				defender.teamStat.updateScoreBoard();
+
+				attacker.teamStat.decrementScore();
+				attacker.teamStat.updateScoreBoard();
+
 				setTimeout(function(){defender.showStats("Attacker");}, 1);
 				return;
 			}

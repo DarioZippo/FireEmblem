@@ -2,7 +2,7 @@ var board = null;
 var characters = null;
 var len = 8;
 
-var movementLength = 2; //Ampiezza dell'area di movimento
+var movementLength = 10; //Ampiezza dell'area di movimento
 var attackLength = 1; //Ampiezza dell'area di attacco
 
 var teams = ["Blue", "Red"]; //Variabile che registra chi deve fare il turno corrente
@@ -24,9 +24,6 @@ var selectedBlock = {
 	x : null,
 	y : null
 };
-
-var playerStat = new TeamStat(playerTeamColor);
-var enemyStat = new TeamStat(enemyTeamColor);
 
 function begin()
 {

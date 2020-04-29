@@ -136,6 +136,10 @@ function()
         {
             if(waitingTurn == false)
             {
+                while(i < enemyTeam.length && enemyTeam[i].alive != true)
+                {
+                    i++;
+                }
                 if(i >= enemyTeam.length)
                 {
                     activeBlocks();
@@ -146,10 +150,6 @@ function()
                 {
                     waitingTurn = true;
                     enemyTeam[i].autoTurn();
-                    i++;
-                }
-                else
-                {
                     i++;
                 }
             }
