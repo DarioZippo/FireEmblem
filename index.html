@@ -14,6 +14,7 @@
 		<script type="text/javascript" src="./js/enemy.js"></script>
 		<script type="text/javascript" src="./js/duel.js"></script>
 		<script type="text/javascript" src="./js/util.js"></script>
+		<script type="text/javascript" src="./js/teamStat.js"></script>
 		<title>Fire Emblem</title>
 	</head>
 	<body onLoad="begin()">
@@ -22,6 +23,7 @@
 		</header>
 
 		<div id="GameWrapper">
+
 			<div id="TurnTableWrapper">
 				<table  id="TurnTable">
 					<tbody id="TurnTableBody">
@@ -46,9 +48,34 @@
 			</div>
 
 			<div id="GameWrapper2">
-				<div id="BlueTurnWrapper" class="turnWrapper">
-					<div id="BlueTurnTitle" class="turnTitle">Blue Team</div>
-					<button id="BlueTurnButton" class="turnButton" disabled="true">End Turn</button>
+				
+				<div id="BlueStatsWrapper" class="teamStatsWrapper">
+					<table id="BlueStatsTable"class="teamStatsTable">
+						<tbody id="BlueStatsTableBody" class="teamStatsTableBody">
+							<tr>
+								<th id="BlueStatsTitle" class="teamStatsTitle" colspan="2">Blue Team</th>
+							</tr>
+							<tr>
+								<th id="BlueKilledCounterTitle" class="statTitle">Uccisi</th>
+								<th id="BlueDiedCounterTitle" class="statTitle">Morti</th>
+							</tr>
+							<tr>
+								<td id="BlueKilledCounter" class="counter">0</td>
+								<td id="BlueDiedCounter" class="counter">0</td>
+							</tr>
+							<tr>
+								<th id="BlueScoreTitle" class="statTitle" colspan="2">Punteggio</th>
+							</tr>
+							<tr>
+								<td id="BlueScore" class="score" colspan="2">0</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									<button id="BlueTurnButton" class="turnButton" disabled="true">End Turn</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
 
 				<div id="BoardWrapper">
@@ -106,11 +133,34 @@
 					</div>
 				</div>
 
-				<div id="RedTurnWrapper" class="turnWrapper">
-					<div id="RedTurnTitle" class="turnTitle">Red Team</div>
-					<button id="RedTurnButton" class="turnButton" disabled="true">End Turn</button>
+				<div id="RedStatsWrapper" class="teamStatsWrapper">
+					<table id="RedStatsTable"class="teamStatsTable">
+						<tbody id="RedStatsTableBody"class="teamStatsTableBody">
+							<tr>
+								<th id="RedStatsTitle" class="teamStatsTitle" colspan="2">Red Team</th>
+							</tr>
+							<tr>
+								<th id="RedKilledCounterTitle" class="statTitle">Uccisi</th>
+								<th id="RedDiedCounterTitle" class="statTitle">Morti</th>
+							</tr>
+							<tr>
+								<td id="RedKilledCounter" class="counter">0</td>
+								<td id="RedDiedCounter" class="counter">0</td>
+							</tr>
+							<tr>
+								<th id="RedScoreTitle" class="statTitle" colspan="2">Punteggio</th>
+							</tr>
+							<tr>
+								<td id="RedScore" class="score" colspan="2">0</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									<button id="RedTurnButton" class="turnButton" disabled="true">End Turn</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
-			</div>
 			
 		</div>
 	</body>

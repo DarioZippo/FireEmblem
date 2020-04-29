@@ -32,6 +32,13 @@ function duel(attacker, defender)
 	if(duelResult == "died")
 	{
 		attackPhase = false;
+		/*Aggiorno i punteggi*/
+		attacker.teamStat.incrementScore();
+		attacker.teamStat.updateBoard();
+
+		defender.teamStat.decrementScore();
+		defender.teamStat.updateBoard();
+
 		setTimeout( function(){undo();}, 3000);
 		setTimeout( function(){attacker.showStats("Attacker");}, 3000);
 		return;

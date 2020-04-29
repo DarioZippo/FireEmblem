@@ -6,6 +6,11 @@ function Character(cName, positionX, positionY, cWeapon, cTeam)
 	this.team = cTeam;
 	this.weapon = cWeapon;
 
+	if(this.team == playerTeamColor)
+		this.teamStat = playerStat;
+	else
+		this.teamStat = enemyStat;
+
 	this.attackPhase = false;
 	this.movePhase = false;
 

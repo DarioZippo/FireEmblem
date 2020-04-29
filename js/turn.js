@@ -51,7 +51,7 @@ function()
 Turn.prototype.updateTable =
 function()
 {
-    var elementTarget = document.getElementById(this.teamName + "TurnWrapper");
+    var elementTarget = document.getElementById(this.teamName + "StatsTable");
     var style = window.getComputedStyle(elementTarget);
     var currentColor = style.getPropertyValue("background-color");
 

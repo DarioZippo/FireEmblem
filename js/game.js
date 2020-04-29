@@ -25,6 +25,9 @@ var selectedBlock = {
 	y : null
 };
 
+var playerStat = new TeamStat(playerTeamColor);
+var enemyStat = new TeamStat(enemyTeamColor);
+
 function begin()
 {
 	board = new Board(len);

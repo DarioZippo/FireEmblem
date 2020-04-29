@@ -1,5 +1,5 @@
 Character.prototype.autoTurn =
-function(current)
+function()
 {
     console.log(this.name);
     this.showStats();
