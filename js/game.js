@@ -1,6 +1,6 @@
 var board = null;
 var characters = null;
-var len = 5;
+var len = 8;
 
 var movementLength = 2; //Ampiezza dell'area di movimento
 var attackLength = 1; //Ampiezza dell'area di attacco
@@ -32,7 +32,7 @@ function begin()
 	characters[1] = new Character("Hilda", 0, Math.floor(len / 2), "Axe", "Blue");
 	characters[2] = new Character("Claude", 0, len-1, "Lance", "Blue");
 	characters[3] = new Character("Edelgard", len-1, 0, "Axe", "Red");
-	characters[4] = new Character("Ingrid", len-1, Math.floor(len / 2), "Axe", "Red");
+	characters[4] = new Character("Dimitri", len-1, Math.floor(len / 2), "Lance", "Red");
 	characters[5] = new Character("Petra", len-1, len-1, "Sword", "Red");
 	
 	buildTeams();

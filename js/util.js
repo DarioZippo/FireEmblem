@@ -19,8 +19,8 @@ function cleanStats(role = "Attacker")
     var statPortrait = document.getElementById("CharacterPortrait" + role);
 	statPortrait.src = "";
 
-	var PS = document.getElementById("PS" + role);
-	PS.textContent = "Ps:--";
+    var PS = document.getElementById("PS" + role);
+    PS.textContent = "Ps:--";
 
 	var cName = document.getElementById("CharacterName" + role);
     cName.textContent = "Nome:--";

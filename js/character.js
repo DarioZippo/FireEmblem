@@ -58,7 +58,20 @@ function(role = "Attacker")
 
 	var cWeapon = document.getElementById("CharacterWeapon" + role);
 	var str3 = cWeapon.textContent.slice(cWeapon.textContent.indexOf(":"), cWeapon.textContent.length);
-	cWeapon.textContent = cWeapon.textContent.replace(str3, ":" + this.weapon);
+	var italianWeapon;
+	switch(this.weapon)
+	{
+		case "Sword":
+			italianWeapon = "Spada";
+			break;
+		case "Lance":
+			italianWeapon = "Lancia";
+			break;
+		case "Axe":
+			italianWeapon = "Ascia";
+			break;
+	}
+	cWeapon.textContent = cWeapon.textContent.replace(str3, ":" + italianWeapon);
 
 	var elementTarget = document.getElementById(this.team + "TurnWrapper");
     var style = window.getComputedStyle(elementTarget);
