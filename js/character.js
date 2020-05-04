@@ -52,6 +52,7 @@ function(role = "Attacker")
 {
 	var statPortrait = document.getElementById("CharacterPortrait" + role);
 	statPortrait.src = this.images.portrait.src;
+	statPortrait.style.display = "block";
 
 	var PS = document.getElementById("PS" + role);
 	var str1 = PS.textContent.slice(PS.textContent.indexOf(":"), PS.textContent.length);
@@ -80,9 +81,10 @@ function(role = "Attacker")
 
 	var elementTarget = document.getElementById(this.team + "StatsTable");
     var style = window.getComputedStyle(elementTarget);
-    var currentColor = style.getPropertyValue("background-color");
+	var currentColor = style.getPropertyValue("background-color");
+	var newColor = changeOpacity(currentColor, 0.7);
 
-    document.getElementById("Stats" + role).style.backgroundColor = currentColor;
+	document.getElementById("Stats" + role).style.backgroundColor = newColor;
 /*
 	var mPoints = document.getElementById("MovePoints" + role);
 	var str3 = mPoints.textContent.slice(mPoints.textContent.indexOf(":"), mPoints.textContent.length);
@@ -159,7 +161,9 @@ function()
 	currentBlock.occupied = false;
 	currentBlock.occupier = "";
 	currentBlock.team = "";
+	
 	currentBlock.element.removeChild(currentBlock.element.childNodes[0]);
+	currentBlock.element.className = "matrixBlock";
 
 	this.x = -1;
 	this.y = -1;

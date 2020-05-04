@@ -17,7 +17,8 @@ function findCharacter(positionX, positionY)
 function cleanStats(role = "Attacker")
 {
     var statPortrait = document.getElementById("CharacterPortrait" + role);
-	statPortrait.src = "";
+    statPortrait.src = "";
+    statPortrait.style.display = "none";
 
     var PS = document.getElementById("PS" + role);
     PS.textContent = "Ps:--";
@@ -28,7 +29,7 @@ function cleanStats(role = "Attacker")
     var cWeapon = document.getElementById("CharacterWeapon" + role);
     cWeapon.textContent = "Arma:--";
 
-    document.getElementById("Stats" + role).style.backgroundColor = "transparent";
+    document.getElementById("Stats" + role).style.backgroundColor = "#d3d3d378";
     /*
     var mPoints = document.getElementById("MovePoints" + role);
     mPoints.textContent = "Move Points:--";
@@ -106,4 +107,13 @@ function howManyAlive(targetTeam)
             counter++;
     }
     return counter;
+}
+
+function changeOpacity(currentColor, opacityTarget)
+{
+    var rgbaValues = currentColor.slice(4, currentColor.length - 1) 
+	rgbaValues = rgbaValues.split(",");
+	rgbaValues[3] = opacityTarget;
+    var newColor = "rgba(" + rgbaValues[0] + ", " + rgbaValues[1] + ", " + rgbaValues[2] + ", " + rgbaValues[3] + ")";
+    return newColor;
 }
