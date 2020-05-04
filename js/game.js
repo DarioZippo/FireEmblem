@@ -76,6 +76,7 @@ function updateBoardCharacters()
 			{
 				currentBlock.occupied = true;
 				currentBlock.occupier = characters[i].name;
+				currentBlock.team = characters[i].team.toLowerCase();
 
 				imageWrapper = document.createElement("div");
 				imageWrapper.className = "characterWrapper";
@@ -83,6 +84,8 @@ function updateBoardCharacters()
 				imageWrapper.appendChild(characters[i].images.sprite);
 
 				currentBlock.element.appendChild(imageWrapper);
+
+				currentBlock.element.className += " " + currentBlock.team + "TeamBlock";
 			}
 			/*currentBlock.element.className += " occupied"; //+ " " + character[i].name; da implementare*/
 		}

@@ -43,6 +43,7 @@ function cleanBlock(positionX, positionY)
     var classe = "matrixBlock";
     var currentBlock = board.blocks[positionX * xLen + positionY];
     currentBlock.selected = false;
+
     currentBlock.element.className = classe;
 
     movePhase = false;
@@ -73,6 +74,10 @@ function cleanArea()
         board.blocks[i].movementBlock = false;
         board.blocks[i].attackBlock = false;
         board.blocks[i].element.className = "matrixBlock";
+        if(board.blocks[i].occupied == true)
+        {
+            board.blocks[i].element.className += " " + board.blocks[i].team + "TeamBlock";
+        }
     }
 }
 

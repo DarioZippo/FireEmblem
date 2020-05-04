@@ -114,6 +114,7 @@ function(destinationBlock)
 	currentBlock = board.blocks[this.x * xLen + this.y];
 	currentBlock.occupied = false;
 	currentBlock.occupier = "";
+	currentBlock.team = "";
 	currentBlock.element.removeChild(currentBlock.element.childNodes[0]);
 
 
@@ -157,6 +158,7 @@ function()
 	currentBlock = board.blocks[this.x * xLen + this.y];
 	currentBlock.occupied = false;
 	currentBlock.occupier = "";
+	currentBlock.team = "";
 	currentBlock.element.removeChild(currentBlock.element.childNodes[0]);
 
 	this.x = -1;

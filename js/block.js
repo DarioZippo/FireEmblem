@@ -6,7 +6,8 @@ function Block(positionX, positionY)
 
 	this.occupied = false;
     this.occupier = "";
-	
+	this.team = "";
+
 	this.selected = false;
 
     this.movementBlock = false;
@@ -37,13 +38,25 @@ Block.prototype.highlight =
 function()
 {
 	//alert(this.className);
+	/*
+	if(this.occupied == true)
+	{
+		this.element.className = this.element.className.replace(" " + this.team + "TeamBlock", "");
+	}
+	*/
 	this.element.className += " highlightedBlock";
 }
 
 Block.prototype.disableHighlight =
 function()
 {
-	this.element.className = this.element.className.replace("highlightedBlock", "");
+	this.element.className = this.element.className.replace(" highlightedBlock", "");
+	/*
+	if(this.occupied == true) //Se il blocco occupato non è stato selezionato
+	{
+		this.element.className += " " + this.team + "TeamBlock";
+	}
+	*/
 }
 
 Block.prototype.selectBlock =
@@ -85,17 +98,16 @@ function()
 		
 		if(currentCharacter != null)
 		{
+			//this.element.className = this.element.className.replace(" " + this.team + "TeamBlock", "");
 			currentCharacter.showStats();
-			//alert(1);
+
 			if(currentCharacter.movePoints > 0)
 			{
-				//alert(2);
 				currentCharacter.showArea();
 				movePhase = true;
 			}
 			else if(currentCharacter.attackPoints > 0)
 			{
-				//alert(3);
 				currentCharacter.showAttackArea();
 				attackPhase = true;
 			}
@@ -122,10 +134,12 @@ function()
 Block.prototype.movement =
 function()
 {
-	cleanBlock(selectedBlock.x, selectedBlock.y);
 	currentCharacter = findCharacter(selectedBlock.x, selectedBlock.y);
 	currentCharacter.move(this);
 	currentCharacter.movePoints--;
+	
+	cleanArea();
+
 	movePhase = false;
 	updateBoardCharacters();
 
