@@ -1,22 +1,22 @@
-function Board(len)
+function Board(xLen, yLen)
 {
 	this.element = document.getElementById("Board");
 	this.blocks = new Array;
 	
-	this.generator(len);
+	this.generator(xLen, yLen);
 }
 
 Board.prototype.generator =
-function(len)
+function(xLen, yLen)
 {
 	var currentRow;
 	var currentBlock;
-	for(var i = 0; i < len; i++)
+	for(var i = 0; i < yLen; i++)
 	{
 		currentRow = document.createElement("div");
 		currentRow.className = "matrixRow";
 		this.element.appendChild(currentRow);
-		for(var j = 0; j < len; j++)
+		for(var j = 0; j < xLen; j++)
 		{
 			currentBlock = new Block(i, j);
 			currentBlock.element = document.createElement("span");
@@ -25,7 +25,7 @@ function(len)
 			
 			this.blocks.push(currentBlock);
 			
-			this.blocks[i * len + j].addEvents();
+			this.blocks[i * xLen + j].addEvents();
 		}
 	}
 }

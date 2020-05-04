@@ -41,7 +41,7 @@ function cleanStats(role = "Attacker")
 function cleanBlock(positionX, positionY)
 {
     var classe = "matrixBlock";
-    var currentBlock = board.blocks[positionX * len + positionY];
+    var currentBlock = board.blocks[positionX * xLen + positionY];
     currentBlock.selected = false;
     currentBlock.element.className = classe;
 

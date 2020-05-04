@@ -1,8 +1,9 @@
 var board = null;
 var characters = null;
-var len = 8;
+var xLen = 8;
+var yLen = 6;
 
-var movementLength = 10; //Ampiezza dell'area di movimento
+var movementLength = 2; //Ampiezza dell'area di movimento
 var attackLength = 1; //Ampiezza dell'area di attacco
 
 var teams = ["Blue", "Red"]; //Variabile che registra chi deve fare il turno corrente
@@ -27,15 +28,15 @@ var selectedBlock = {
 
 function begin()
 {
-	board = new Board(len);
+	board = new Board(xLen, yLen);
 
 	characters = new Array();
 	characters[0] = new Character("Bylet", 0, 0, "Sword", "Blue");
-	characters[1] = new Character("Hilda", 0, Math.floor(len / 2), "Axe", "Blue");
-	characters[2] = new Character("Claude", 0, len-1, "Lance", "Blue");
-	characters[3] = new Character("Edelgard", len-1, 0, "Axe", "Red");
-	characters[4] = new Character("Dimitri", len-1, Math.floor(len / 2), "Lance", "Red");
-	characters[5] = new Character("Petra", len-1, len-1, "Sword", "Red");
+	characters[1] = new Character("Hilda", 0, Math.floor(xLen / 2), "Axe", "Blue");
+	characters[2] = new Character("Claude", 0, xLen-1, "Lance", "Blue");
+	characters[3] = new Character("Edelgard", yLen-1, 0, "Axe", "Red");
+	characters[4] = new Character("Dimitri", yLen-1, Math.floor(xLen / 2), "Lance", "Red");
+	characters[5] = new Character("Petra", yLen-1, xLen-1, "Sword", "Red");
 	
 	buildTeams();
 
@@ -69,7 +70,7 @@ function updateBoardCharacters()
 		{
 			currentX = characters[i].x;
 			currentY = characters[i].y;
-			currentBlock = board.blocks[currentX * len + currentY];
+			currentBlock = board.blocks[currentX * xLen + currentY];
 			
 			if(currentBlock.occupied == false)
 			{

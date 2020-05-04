@@ -18,7 +18,7 @@ function()
         {
             continue;
         }
-        if(i >= len) //Controllo che la riga non sia oltre la matrice
+        if(i >= yLen) //Controllo che la riga non sia oltre la matrice
         {
             break;
         }
@@ -28,11 +28,11 @@ function()
             {
                 continue;
             }
-            if(j >= len) //Controllo che la colonna non sia oltre la matrice
+            if(j >= xLen) //Controllo che la colonna non sia oltre la matrice
             {
                 break;
             }    
-            this.movementMatrix[k] = board.blocks[i * len + j];
+            this.movementMatrix[k] = board.blocks[i * xLen + j];
             k++;
         }
     }
@@ -67,7 +67,7 @@ function()
         {
             continue;
         }
-        if(i >= len) //Controllo che la riga non sia oltre la matrice
+        if(i >= yLen) //Controllo che la riga non sia oltre la matrice
         {
             break;
         }
@@ -77,11 +77,11 @@ function()
             {
                 continue;
             }
-            if(j >= len) //Controllo che la colonna non sia oltre la matrice
+            if(j >= xLen) //Controllo che la colonna non sia oltre la matrice
             {
                 break;
             }
-            this.attackMatrix[k] = board.blocks[i * len + j];
+            this.attackMatrix[k] = board.blocks[i * xLen + j];
             k++;
         }
     }

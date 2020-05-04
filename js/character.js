@@ -28,7 +28,7 @@ function Character(cName, positionX, positionY, cWeapon, cTeam)
 Character.prototype.values =
 function()
 {
-	this.lifePoints = 1;//00;
+	this.lifePoints = 100;
 	this.attack = 50;
 	this.alive = true;
 	this.movePoints = 0; //Indicano i punti spendibili per un movimento
@@ -111,7 +111,7 @@ function()
 Character.prototype.move =
 function(destinationBlock)
 {
-	currentBlock = board.blocks[this.x * len + this.y];
+	currentBlock = board.blocks[this.x * xLen + this.y];
 	currentBlock.occupied = false;
 	currentBlock.occupier = "";
 	currentBlock.element.removeChild(currentBlock.element.childNodes[0]);
@@ -154,7 +154,7 @@ function()
 {
 	this.alive = false;
 
-	currentBlock = board.blocks[this.x * len + this.y];
+	currentBlock = board.blocks[this.x * xLen + this.y];
 	currentBlock.occupied = false;
 	currentBlock.occupier = "";
 	currentBlock.element.removeChild(currentBlock.element.childNodes[0]);
