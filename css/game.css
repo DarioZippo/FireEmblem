@@ -36,9 +36,9 @@ h1
 
 .matrixBlock
 {
-	width: 100px;
+	width: 80px;
 	display: inline-block;
-	height: 100px;
+	height: 80px;
 	border-style: solid;
 }
 
@@ -66,18 +66,16 @@ h1
 
 .characterSprite
 {
-	width: 100%;
-	height: 100%;
-	width: 80px;
-	height: 80px;
-	margin: 7px;
-	margin-left: 16px;
-	margin-top: 16px;
+	width: 60px;
+	height: 60px;
+	margin-left: 10px;
+	margin-top: 11.5px;
+	margin-bottom: 11.5px;
 }
 
 .stats
 {
-	height: 300px;
+	height: 250px;
 }
 
 .characterPortraitWrapper
@@ -97,7 +95,7 @@ h1
 
 .valuesWrapper
 {
-	width: 39.29%;
+	width: 39.13%;
 	height: 98.5%;
 	position: relative;
 	float: right;
@@ -105,7 +103,7 @@ h1
 
 .value
 {
-	height: 31.8%;
+	height: 31.5%;
 	display: flex;
 	justify-content: center;
 	text-align: center;
