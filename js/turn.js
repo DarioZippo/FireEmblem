@@ -142,6 +142,7 @@ function()
                 }
                 if(i >= enemyTeam.length)
                 {
+                    //alert();
                     activeBlocks();
                     that.startTurn();
                     clearInterval(turnBlock);

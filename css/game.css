@@ -86,7 +86,7 @@ h1
 
 .stats
 {
-	height: 250px;
+	height: 260px;
 }
 
 .characterPortraitWrapper
@@ -115,7 +115,7 @@ h1
 
 .value
 {
-	height: 31.5%;
+	height: 31.6%;
 	display: flex;
 	justify-content: center;
 	text-align: center;

@@ -117,7 +117,7 @@ function calculateDamage(currentDamage, attackerWeapon, defenderWeapon)
 	return currentDamage;
 }
 
-function undo()
+function undo(enemyFlag = false)
 {
 	cleanStats("Attacker");
 	cleanStats("Defender");
@@ -128,8 +128,8 @@ function undo()
 	turn.activeTurnButton();
 	
 	disableDuelButtons();
-	
-	activeBlocks();
+	if(enemyFlag == false)
+		activeBlocks();
 }
 
 function disableDuelButtons()
