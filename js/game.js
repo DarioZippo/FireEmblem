@@ -1,6 +1,6 @@
 var board = null;
 var characters = null;
-var xLen = 8;
+var xLen = 9;
 var yLen = 6;
 
 var movementLength = 2; //Ampiezza dell'area di movimento
