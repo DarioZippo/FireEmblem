@@ -3,7 +3,7 @@ var characters = null;
 var xLen = 9;
 var yLen = 6;
 
-var movementLength = 2; //Ampiezza dell'area di movimento
+var movementLength = 5; //Ampiezza dell'area di movimento
 var attackLength = 1; //Ampiezza dell'area di attacco
 
 var teams = ["Blue", "Red"]; //Variabile che registra chi deve fare il turno corrente
