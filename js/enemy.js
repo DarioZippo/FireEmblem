@@ -1,5 +1,5 @@
 Character.prototype.autoTurn =
-function()
+function(i)
 {
     console.log(this.name);
     this.showStats();
@@ -9,7 +9,7 @@ function()
     setTimeout(function(){updateBoardCharacters();}, 3000);
     setTimeout(function(){cleanArea();}, 3500);
     setTimeout(function(){that.showAttackArea();}, 4000);
-    setTimeout(function(){that.autoAttack();}, 5000);
+    setTimeout(function(){that.autoAttack(i);}, 5000);
 }
 
 Character.prototype.autoMove =
@@ -82,12 +82,12 @@ function checkMinDistance(character1, character2)
 }
 
 Character.prototype.autoAttack =
-function()
+function(i)
 {
     var currentArea = this.area.attackMatrix;
     var targetCharacter;
     var found;
-    for(var i = 0; i < currentArea.length; i++)
+    for(let i = 0; i < currentArea.length; i++)
     {
         if(currentArea[i].attackBlock == true && currentArea[i].occupied == true)
         {
@@ -103,12 +103,12 @@ function()
     {
         attackMenu(this, targetCharacter);
         duel(this, targetCharacter);
-        setTimeout(function(){cleanStats(); cleanArea(); undo(true); waitingTurn = false;}, 5000);
+        setTimeout(function(){cleanStats(); cleanArea(); undo(true); nextEnemyTurn(++i)}, 5000);
     }
     else
     {
         cleanStats();
         cleanArea();
-        waitingTurn = false;
+        nextEnemyTurn(++i);
     }
 }

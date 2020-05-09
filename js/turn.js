@@ -128,31 +128,24 @@ Turn.prototype.enemyTurn =
 function()
 {
     disableBlocks();
-    var i = 0;
-    var that = this;
 
-    var turnBlock = setInterval(
-        function()
-        {
-            if(waitingTurn == false)
-            {
-                while(i < enemyTeam.length && enemyTeam[i].alive != true)
-                {
-                    i++;
-                }
-                if(i >= enemyTeam.length)
-                {
-                    //alert();
-                    activeBlocks();
-                    that.startTurn();
-                    clearInterval(turnBlock);
-                }
-                else if(enemyTeam[i].alive == true)
-                {
-                    waitingTurn = true;
-                    enemyTeam[i].autoTurn();
-                    i++;
-                }
-            }
-        }, 1000);
+    nextEnemyTurn(0);
 }
+
+function nextEnemyTurn(i = 0)
+{
+    while(i < enemyTeam.length && enemyTeam[i].alive == false)
+    {
+        alert(i);
+        i++;
+    }
+    if(i >= enemyTeam.length) //Finisce il turno avversario
+    {
+        activeBlocks();
+        turn.startTurn();
+    }
+    else if(enemyTeam[i].alive == true)
+    {
+        enemyTeam[i].autoTurn(i);
+    }
+}        
