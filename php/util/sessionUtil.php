@@ -1,6 +1,6 @@
 <?php
 	require_once __DIR__ . "/../config.php";
-	require_once DIR_DB_MANAGER . "FireEmblemDBManager.php";
+	/*require_once DIR_DB_MANAGER . "FireEmblemDBManager.php";*/
 
 	//Restituisce false se l'utente se non è stato effettuato il login
 	function isLogged()
@@ -65,13 +65,13 @@
 		$password = $FireEmblemDB->sqlInjectionFilter($password);
 		$email = $FireEmblemDB->sqlInjectionFilter($email);
 
-		$query = "INSERT into user (username, password, email) values ('" .$username. "', '" .$password. "', '" .$email. "');"
+		$query = "INSERT into User (username, password, email) values ('" .$username. "', '" .$password. "', '" .$email. "');";
 				/*	INSERT into user_store (username) values ('" .$username. "');";*/
 		
-		$result = $FireEmblemDB->performQuery($query); /* performMultiQuery($query); */
+		/*$result = */$FireEmblemDB->performQuery($query); /* performMultiQuery($query); */
 		$FireEmblemDB->closeConnection();
 
-		return $result;
+		/*return $result;*/
 	}
 
 	//Effettua la validazione degli input tramite espressioni regolari

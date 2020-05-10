@@ -16,10 +16,10 @@
 		<meta charset="utf-8">
 		<title>Fire Emblem</title>
 		<script type="text/javascript" src="./js/index.js"></script>
-		<!--<script type="text/javascript" src="./js/ajaxRequest.js"></script>-->
+		<script type="text/javascript" src="./js/ajaxRequest.js"></script>
 
-		<link rel="stylesheet" type="text/css" href="./../css/index.css">
-		<link rel="stylesheet" type="text/css" href="./../css/FireEmblem.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="./css/index.css">
+		<link rel="stylesheet" type="text/css" href="./css/FireEmblem.css" media="screen">
 	</head>
 	<body onload="load()">
 		<header>
