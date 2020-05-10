@@ -40,10 +40,10 @@ function()
 Character.prototype.characterImages =
 function()
 {
-	this.images.sprite.src = "./img/sprites/" + this.name + ".png";
+	this.images.sprite.src = "./../img/sprites/" + this.name + ".png";
 	this.images.sprite.className = "characterSprite "+ this.name;
 
-	this.images.portrait.src = "./img/portraits/" + this.name + ".png";
+	this.images.portrait.src = "./../img/portraits/" + this.name + ".png";
 	this.images.portrait.className = "characterPortrait "+ this.name;
 }
 
@@ -142,7 +142,7 @@ Character.prototype.showDamage =
 function(damage, role)
 {
 	var statPortrait = document.getElementById("CharacterPortrait" + role);
-	statPortrait.src = "./img/portraits/" + this.name + "Damage" + ".png";
+	statPortrait.src = "./../img/portraits/" + this.name + "Damage" + ".png";
 
 	var damageElement = document.createElement("span");
 	damageElement.className = "damage";

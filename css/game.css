@@ -6,16 +6,7 @@ body
 
 #TitleWrapper
 {
-	margin: auto;
-	width: 18%;
 	background-color: #edbcff5e;
-	height: 8%;
-}
-
-#TitleImage
-{
-	width: 100%;
-	height: 100%;
 }
 
 h1

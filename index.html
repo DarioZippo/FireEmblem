@@ -1,169 +1,58 @@
-<html>
+<!doctype html>
+<html lang="it">
 	<head>
-		<meta charset="utf-8"> 
-    	<meta name = "author" content = "Dario Zippo">
-    	<meta name = "keywords" content = "Fire Emblem">
-    	<link rel="shortcut icon" type="image/x-icon" href="./img" />
-		<link rel="stylesheet" href="./css/game.css" type="text/css" media="screen">
-		<script type="text/javascript" src="./js/game.js"></script>
-		<script type="text/javascript" src="./js/turn.js"></script>
-		<script type="text/javascript" src="./js/board.js"></script>
-		<script type="text/javascript" src="./js/block.js"></script>
-		<script type="text/javascript" src="./js/area.js"></script>
-		<script type="text/javascript" src="./js/character.js"></script>
-		<script type="text/javascript" src="./js/enemy.js"></script>
-		<script type="text/javascript" src="./js/duel.js"></script>
-		<script type="text/javascript" src="./js/util.js"></script>
-		<script type="text/javascript" src="./js/teamStat.js"></script>
+		<meta charset="utf-8">
 		<title>Fire Emblem</title>
+		<script type="text/javascript" src="./js/index.js"></script>
+		<!--<script type="text/javascript" src="./js/ajaxRequest.js"></script>-->
+
+		<link rel="stylesheet" type="text/css" href="./../css/index.css">
+		<link rel="stylesheet" type="text/css" href="./../css/FireEmblem.css" media="screen">
 	</head>
-	<body onLoad="begin()">
+	<body onload="load()">
 		<header>
 			<div id="TitleWrapper">
-				<img src="img/Title/Title.png" alt="Fire Emblem Title" id="TitleImage">
+				<img src="./img/Title/Title.png" alt="Fire Emblem Title" id="TitleImage">
 			</div>
 		</header>
-
-		<div id="GameWrapper">
-
-			<div id="TurnTableWrapper">
-				<table  id="TurnTable">
-					<tbody id="TurnTableBody">
-						<tr>
-							<th class="turnTableBlock">
-								Turno
-							</th>
-							<th class="turnTableBlock">
-								Squadra
-							</th>
-						</tr>
-						<tr>
-							<td id="TurnNumber" class="turnTableBlock">
-
-							</td>
-							<td id="TurnTeam" class="turnTableBlock">
-
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-
-			<div id="GameWrapper2">
-				
-				<div id="BlueStatsWrapper" class="teamStatsWrapper">
-					<table id="BlueStatsTable"class="teamStatsTable">
-						<tbody id="BlueStatsTableBody" class="teamStatsTableBody">
-							<tr>
-								<th id="BlueStatsTitle" class="teamStatsTitle" colspan="2">Blue Team</th>
-							</tr>
-							<tr>
-								<th id="BlueKilledCounterTitle" class="statTitle">Uccisi</th>
-								<th id="BlueDeadCounterTitle" class="statTitle">Morti</th>
-							</tr>
-							<tr>
-								<td id="BlueKilledCounter" class="counter">0</td>
-								<td id="BlueDeadCounter" class="counter">0</td>
-							</tr>
-							<tr>
-								<th id="BlueScoreTitle" class="statTitle" colspan="2">Punteggio</th>
-							</tr>
-							<tr>
-								<td id="BlueScore" class="score" colspan="2">0</td>
-							</tr>
-							<tr>
-								<td colspan="2">
-									<button id="BlueTurnButton" class="turnButton" disabled="true">End Turn</button>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-
-				<div id="BoardWrapper">
-					<div id="Board">
-						<!-- Qui la roba viene aggiunta via DOM -->
-					</div>
-
-					<div class="stats" id="StatsAttacker">
-						<div class="characterPortraitWrapper" id="CharacterPortraitWrapperAttacker">
-							<img class="characterPortrait" id="CharacterPortraitAttacker" alt="Character">
-						</div>
-						<div class="valuesWrapper" id="ValuesWrapperAttacker">
-							<div id="CharacterNameAttackerWrapper" class="value">
-								<p id="CharacterNameAttacker" class="valueText">Nome:-- </p>
-							</div>
-							<div id="PSAttackerWrapper" class="value">
-								<p id="PSAttacker" class="valueText">Ps:--</p>
-							</div>
-							<div id="CharacterWeaponAttackerWrapper" class="value">
-								<p id="CharacterWeaponAttacker" class="valueText">Arma:--</p>
-							</div>
-							<!--<div class="pointsWrapper" id="PointsWrapperAttacker">-->
-							<!--	<div class="value" id="MovePointsAttacker">Move Points:--</div>
-								<div class="value" id="AttackPointsAttacker">Attack Points:--</div> -->
-							<!--</div>-->
-						</div>
-					</div>
-
-					<div id="DuelWrapper">
-						<div id="ButtonWrapper">
-							<button id="DuelButton" class="duelMenuButton" disabled="true">DUEL</button>
-							<button id="UndoButton" class="duelMenuButton" disabled="true">UNDO</button>
-						</div>
-						<div class="stats" id="StatsDefender">
-							<div class="characterPortraitWrapper" id="CharacterPortraitWrapperDefender">
-								<img class="characterPortrait" id="CharacterPortraitDefender" alt="Character">
-							</div>
-							<div class="valuesWrapper" id="ValuesWrapperDefender">
-								<div id="CharacterNameDefenderWrapper" class="value">
-									<p id="CharacterNameDefender" class="valueText">Nome:--</p>
-								</div>
-								<div id="PSDefenderWrapper" class="value">
-									<p id="PSDefender" class="valueText">Ps:--</p>
-								</div>
-								<div id="CharacterWeaponDefenderWrapper" class="value">
-									<p id="CharacterWeaponDefender" class="valueText">Arma:--</p>
-								</div>
-								<!--<div class="pointsWrapper" id="PointsWrapperAttacker">-->
-								<!--	<div class="value" id="MovePointsDefender">Move Points:--</div>
-									<div class="value" id="AttackPointsDefender">Attack Points:--</div> -->
-								<!--</div>-->
-							</div>
-						</div>
-
-					</div>
-				</div>
-
-				<div id="RedStatsWrapper" class="teamStatsWrapper">
-					<table id="RedStatsTable"class="teamStatsTable">
-						<tbody id="RedStatsTableBody"class="teamStatsTableBody">
-							<tr>
-								<th id="RedStatsTitle" class="teamStatsTitle" colspan="2">Red Team</th>
-							</tr>
-							<tr>
-								<th id="RedKilledCounterTitle" class="statTitle">Uccisi</th>
-								<th id="RedDeadCounterTitle" class="statTitle">Morti</th>
-							</tr>
-							<tr>
-								<td id="RedKilledCounter" class="counter">0</td>
-								<td id="RedDeadCounter" class="counter">0</td>
-							</tr>
-							<tr>
-								<th id="RedScoreTitle" class="statTitle" colspan="2">Punteggio</th>
-							</tr>
-							<tr>
-								<td id="RedScore" class="score" colspan="2">0</td>
-							</tr>
-							<tr>
-								<td colspan="2">
-									<button id="RedTurnButton" class="turnButton" disabled="true">End Turn</button>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
+		
+		<div id="FormWrapper">
+			<p id="messageArea" class="hidden"></p>
 			
+			<div id="FormContainer">
+				<div id="LoginWrapper">
+					<p class="inlineP">Accedi</p>
+					<button id="loginSwitch" class="simpleButton" onclick="switchToLogIn();" disabled>&#x25BC</button>
+				
+					<form id="loginForm" name="loginForm" class="form" onsubmit="submitFun(event, 'loginForm');" >
+						<input type="text" name="username" placeholder="Username" autofocus data-pattern="^.*$" oninput="this.modified=true; validate_form('loginForm');">
+						<input type="password" name="password" placeholder="Password" data-pattern="^.*$" oninput="this.modified=true; validate_form('loginForm');">
+						<input id="loginForm.submit" type="submit" class="mediumButton" value="Accedi"></input>
+					</form>
+				</div>
+				
+				<div class="form" id="SignInWrapper">
+					<p class="inlineP">Registrati</p>
+					<button id="signInSwitch" class="simpleButton" onclick="switchToSignIn();">&#x25BC</button>
+
+					<form id="signInForm" name="signInForm" class="form hidden" onsubmit="submitFun(event, 'signInForm');">
+						<div class="inputBox">
+							<input type="text" name="username" placeholder="Username"  data-pattern='^[a-zA-Z0-9]{5,16}$' data-unique="true" oninput="this.modified=true; validate_form('signInForm');">
+						</div>
+						<div class="inputBox">
+							<input id="password" type="password" name="password" placeholder="Scegli una password" data-pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}' oninput="this.modified=true; validate_form('signInForm');">
+							<input id="password_rep" type="password" name="password_rep" placeholder="Scrivila di nuovo" oninput="this.modified=true; validate_form('signInForm')">
+						</div>
+						<div class="inputBox">
+							<input type="text" name="email" placeholder="email" data-pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" data-unique="true" oninput="this.modified=true; validate_form('signInForm');">
+						</div>
+						<input id="signInForm.submit" type="submit" class="mediumButton" value="Registrati"></input>
+					</form>
+				</div>
+			</div>
 		</div>
+
+		<a id="info" class="bigButton purple" href="./html/info.html">Cos'è Fire Emblem?</a>
+
 	</body>
 </html>

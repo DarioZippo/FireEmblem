@@ -1,0 +1,172 @@
+<html>
+	<head>
+		<meta charset="utf-8"> 
+    	<meta name = "author" content = "Dario Zippo">
+		<meta name = "keywords" content = "Fire Emblem">
+		
+    	<link rel="shortcut icon" type="image/x-icon" href="./../img" />
+		<link rel="stylesheet" href="./../css/FireEmblem.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="./../css/game.css" type="text/css" media="screen">
+		
+		<script type="text/javascript" src="./../js/game/game.js"></script>
+		<script type="text/javascript" src="./../js/game/turn.js"></script>
+		<script type="text/javascript" src="./../js/game/board.js"></script>
+		<script type="text/javascript" src="./../js/game/block.js"></script>
+		<script type="text/javascript" src="./../js/game/area.js"></script>
+		<script type="text/javascript" src="./../js/game/character.js"></script>
+		<script type="text/javascript" src="./../js/game/enemy.js"></script>
+		<script type="text/javascript" src="./../js/game/duel.js"></script>
+		<script type="text/javascript" src="./../js/game/util.js"></script>
+		<script type="text/javascript" src="./../js/game/teamStat.js"></script>
+		<title>Fire Emblem</title>
+	</head>
+	<body onLoad="begin()">
+		<header>
+			<div id="TitleWrapper">
+				<img src="./../img/Title/Title.png" alt="Fire Emblem Title" id="TitleImage">
+			</div>
+		</header>
+
+		<div id="GameWrapper">
+
+			<div id="TurnTableWrapper">
+				<table  id="TurnTable">
+					<tbody id="TurnTableBody">
+						<tr>
+							<th class="turnTableBlock">
+								Turno
+							</th>
+							<th class="turnTableBlock">
+								Squadra
+							</th>
+						</tr>
+						<tr>
+							<td id="TurnNumber" class="turnTableBlock">
+
+							</td>
+							<td id="TurnTeam" class="turnTableBlock">
+
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<div id="GameWrapper2">
+				
+				<div id="BlueStatsWrapper" class="teamStatsWrapper">
+					<table id="BlueStatsTable"class="teamStatsTable">
+						<tbody id="BlueStatsTableBody" class="teamStatsTableBody">
+							<tr>
+								<th id="BlueStatsTitle" class="teamStatsTitle" colspan="2">Blue Team</th>
+							</tr>
+							<tr>
+								<th id="BlueKilledCounterTitle" class="statTitle">Uccisi</th>
+								<th id="BlueDeadCounterTitle" class="statTitle">Morti</th>
+							</tr>
+							<tr>
+								<td id="BlueKilledCounter" class="counter">0</td>
+								<td id="BlueDeadCounter" class="counter">0</td>
+							</tr>
+							<tr>
+								<th id="BlueScoreTitle" class="statTitle" colspan="2">Punteggio</th>
+							</tr>
+							<tr>
+								<td id="BlueScore" class="score" colspan="2">0</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									<button id="BlueTurnButton" class="turnButton" disabled="true">End Turn</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div id="BoardWrapper">
+					<div id="Board">
+						<!-- Qui la roba viene aggiunta via DOM -->
+					</div>
+
+					<div class="stats" id="StatsAttacker">
+						<div class="characterPortraitWrapper" id="CharacterPortraitWrapperAttacker">
+							<img class="characterPortrait" id="CharacterPortraitAttacker" alt="Character">
+						</div>
+						<div class="valuesWrapper" id="ValuesWrapperAttacker">
+							<div id="CharacterNameAttackerWrapper" class="value">
+								<p id="CharacterNameAttacker" class="valueText">Nome:-- </p>
+							</div>
+							<div id="PSAttackerWrapper" class="value">
+								<p id="PSAttacker" class="valueText">Ps:--</p>
+							</div>
+							<div id="CharacterWeaponAttackerWrapper" class="value">
+								<p id="CharacterWeaponAttacker" class="valueText">Arma:--</p>
+							</div>
+							<!--<div class="pointsWrapper" id="PointsWrapperAttacker">-->
+							<!--	<div class="value" id="MovePointsAttacker">Move Points:--</div>
+								<div class="value" id="AttackPointsAttacker">Attack Points:--</div> -->
+							<!--</div>-->
+						</div>
+					</div>
+
+					<div id="DuelWrapper">
+						<div id="ButtonWrapper">
+							<button id="DuelButton" class="duelMenuButton" disabled="true">DUEL</button>
+							<button id="UndoButton" class="duelMenuButton" disabled="true">UNDO</button>
+						</div>
+						<div class="stats" id="StatsDefender">
+							<div class="characterPortraitWrapper" id="CharacterPortraitWrapperDefender">
+								<img class="characterPortrait" id="CharacterPortraitDefender" alt="Character">
+							</div>
+							<div class="valuesWrapper" id="ValuesWrapperDefender">
+								<div id="CharacterNameDefenderWrapper" class="value">
+									<p id="CharacterNameDefender" class="valueText">Nome:--</p>
+								</div>
+								<div id="PSDefenderWrapper" class="value">
+									<p id="PSDefender" class="valueText">Ps:--</p>
+								</div>
+								<div id="CharacterWeaponDefenderWrapper" class="value">
+									<p id="CharacterWeaponDefender" class="valueText">Arma:--</p>
+								</div>
+								<!--<div class="pointsWrapper" id="PointsWrapperAttacker">-->
+								<!--	<div class="value" id="MovePointsDefender">Move Points:--</div>
+									<div class="value" id="AttackPointsDefender">Attack Points:--</div> -->
+								<!--</div>-->
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<div id="RedStatsWrapper" class="teamStatsWrapper">
+					<table id="RedStatsTable"class="teamStatsTable">
+						<tbody id="RedStatsTableBody"class="teamStatsTableBody">
+							<tr>
+								<th id="RedStatsTitle" class="teamStatsTitle" colspan="2">Red Team</th>
+							</tr>
+							<tr>
+								<th id="RedKilledCounterTitle" class="statTitle">Uccisi</th>
+								<th id="RedDeadCounterTitle" class="statTitle">Morti</th>
+							</tr>
+							<tr>
+								<td id="RedKilledCounter" class="counter">0</td>
+								<td id="RedDeadCounter" class="counter">0</td>
+							</tr>
+							<tr>
+								<th id="RedScoreTitle" class="statTitle" colspan="2">Punteggio</th>
+							</tr>
+							<tr>
+								<td id="RedScore" class="score" colspan="2">0</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									<button id="RedTurnButton" class="turnButton" disabled="true">End Turn</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			
+		</div>
+	</body>
+</html>
