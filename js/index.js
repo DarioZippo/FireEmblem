@@ -150,19 +150,19 @@ function validate(element)
 		showErrorParagraph(element);
 		return false;
     }
-    /*
+    
 	else if (element.dataset.unique) 
 	{
 	    //Nel caso data-unique sia vero si usa Ajax per verificare che non esista gia' il valore inserito nel database
-		//validateUnique(element);
+		validateUnique(element);
 	};
-	*/
+	
 	//In caso il campo sia valido, si rimuovono eventuali messaggi d'errore
 	hideErrorParagraph(element);
 	element.className = "valid";
 	return true;
 }
-/*
+
 //Funzione per la validazione, tramite AJAX, di campi di form che non possono avere un duplicato già presente nel database
 //Viene utilizzata per username e email, che non possono essere uguali per due utenti.
 //Il campo si ritiene già validato secondo il corrispondente pattern
@@ -192,12 +192,12 @@ function validateUnique(element)
 	postString = "type=" + element.name + "&value=" + element.value;
 	ajaxRequest("./php/ajax/session/checkUnique.php", "POST", handler, postString);
 }
-*/
+
 //Sottomette il form al server, tramite la corrispondente funzione AJAX
 function submitFun(event, formName)
 {
 	event.preventDefault();
-}/*
+
 	if(formName == "signInForm")
 		ajaxSignIn();
 	else
@@ -258,7 +258,7 @@ function ajaxLogin()
 
 	ajaxRequest("./php/ajax/session/login.php", "POST", handler, postString);
 }
-*/
+
 //Seguono funzioni che modificano il form visibile all'utente
 
 function switchToSignIn()

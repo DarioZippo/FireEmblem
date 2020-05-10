@@ -1,3 +1,14 @@
 {
-    "liveServer.settings.port": 5501
+    "liveServer.settings.port": 5501,
+    "sqltools.connections": [
+        {
+            "askForPassword": false,
+            "database": "FireEmblem",
+            "dialect": "MySQL",
+            "name": "PWEB",
+            "port": 3306,
+            "server": "localhost",
+            "username": "root"
+        }
+    ]
 }

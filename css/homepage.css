@@ -1,0 +1,28 @@
+body
+{
+	background-image: url(/img/Backgrounds/menuBackground.jpg);
+	margin: 0;
+}
+
+#MenuWrapper
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#Menu
+{
+    height: 32%;
+    width: 15%;
+    background-color: #ffffffcc;
+    padding: 20px;
+    border-style: solid;
+    border-color: #9c089c;
+    border-width: 6px;
+    border-radius: 11px;
+    text-align: center;
+    top: 5%;
+    position: relative;
+}
+

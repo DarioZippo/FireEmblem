@@ -1,3 +1,15 @@
+<?php
+	session_start();
+	require_once __DIR__ . "/php/config.php";
+    include DIR_UTIL . "sessionUtil.php";
+
+    if (isLogged())
+    {
+		    header('Location: ./php/homepage.php');
+		    exit;
+    }	
+?>
+
 <!doctype html>
 <html lang="it">
 	<head>
@@ -11,9 +23,10 @@
 	</head>
 	<body onload="load()">
 		<header>
-			<div id="TitleWrapper">
+			<img src="./img/Title/Title.png" alt="Fire Emblem Title" id="TitleImage">
+			<!--<div id="TitleWrapper">
 				<img src="./img/Title/Title.png" alt="Fire Emblem Title" id="TitleImage">
-			</div>
+			</div>-->
 		</header>
 		
 		<div id="FormWrapper">
