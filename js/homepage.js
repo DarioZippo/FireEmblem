@@ -1,5 +1,4 @@
 //Gestisce il logout dell'utente tramite AJAX
-alert();
 
 function logout()
 {

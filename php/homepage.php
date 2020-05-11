@@ -23,6 +23,7 @@
 		<link rel="stylesheet" href="./../css/homepage.css" type="text/css" media="screen">
 		
 		<script type="text/javascript" src="./../js/homepage.js"></script>
+		<script type="text/javascript" src="./../js/ajaxRequest.js"></script>
 		<title>Fire Emblem</title>
 	</head>
 	<body>
