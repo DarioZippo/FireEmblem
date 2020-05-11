@@ -1,6 +1,6 @@
 <?php
 	require_once __DIR__ . "./../AjaxResponse.php";
-	include DIR_DB_API . "sessionApi.php";
+	include DIR_DB_UTIL . "sessionUtil.php";
 	
 	session_start();
 

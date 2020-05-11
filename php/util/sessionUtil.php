@@ -1,6 +1,6 @@
 <?php
 	require_once __DIR__ . "/../config.php";
-	/*require_once DIR_DB_MANAGER . "FireEmblemDBManager.php";*/
+	require_once DIR_DB_MANAGER . "FireEmblemDBManager.php";
 
 	//Restituisce false se l'utente se non è stato effettuato il login
 	function isLogged()

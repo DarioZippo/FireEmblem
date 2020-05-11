@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	require_once __DIR__ . "/php/config.php";
-    include DIR_UTIL . "sessionUtil.php";
+    include DIR_DB_UTIL . "sessionUtil.php";
 
     if (isLogged())
     {

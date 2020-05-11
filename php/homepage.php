@@ -1,3 +1,17 @@
+<?php
+	require_once __DIR__ ."/config.php"; 
+	session_start();
+	require DIR_DB_UTIL."sessionUtil.php";
+
+	if(!isLogged())
+	{
+		header("Location: ./../index.php");
+		exit;
+	}
+
+	$_SESSION["onGame"] = false;
+?>
+
 <html>
 	<head>
 		<meta charset="utf-8"> 
@@ -23,10 +37,10 @@
         <div id="MenuWrapper">
             <div id="Menu">
                 <a class="bigButton verticalOption purple" href="./../php/game.html">Gioca</a>
-                <a class="bigButton verticalOption purple">Store</a>
-                <a class="bigButton verticalOption purple">Classifica</a>
-                <a class="bigButton verticalOption purple">Tutorial</a>
-                <a class="bigButton verticalOption purple" href="./../index.html">Esci</a>
+                <button class="bigButton verticalOption purple">Store</button>
+                <button class="bigButton verticalOption purple">Classifica</button>
+                <button class="bigButton verticalOption purple">Tutorial</button>
+                <button class="bigButton verticalOption purple" onclick="logout()">Esci</button>
             </div>
         </div>
     </body>

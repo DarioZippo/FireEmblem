@@ -173,6 +173,7 @@ function validateUnique(element)
 
 	var handler = function(responseText)
 	{
+		console.log(responseText);
 		var response = JSON.parse(responseText);
 
 		if(response["responseCode"] == 0)
