@@ -4,19 +4,20 @@ body
 	margin: 0;
 }
 
-#MenuWrapper
+#Wrapper
 {
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
-#Menu
+#MenuWrapper
 {
     height: 32%;
     width: 15%;
     background-color: #ffffffcc;
     padding: 20px;
+    padding-top: 0px;
     border-style: solid;
     border-color: #9c089c;
     border-width: 6px;
@@ -26,3 +27,22 @@ body
     position: relative;
 }
 
+#Menu
+{
+    
+}
+
+#UserInformationsWrapper
+{
+    border-bottom-style: solid;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    /*align-items: center;*/
+}
+
+#UserInformations
+{
+    font-size: 22px;
+    font-weight: bolder;
+}

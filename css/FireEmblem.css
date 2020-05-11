@@ -26,6 +26,8 @@ header
     margin-top: 10px;
     margin-bottom: 10px;
 
+    width: 216px;
+
     padding: 10px;
     padding-left:15px;
     padding-right: 15px;
@@ -48,12 +50,17 @@ a.bigButton
 {
     text-decoration: none;
     border-style: outset;
-    max-width: 150px;
+    max-width: 180px;
 }
 
-a.bigButton:hover
+.bigButton:hover
 {
     opacity: 0.8;
+}
+
+a, button
+{
+    cursor: pointer;
 }
 
 .purple

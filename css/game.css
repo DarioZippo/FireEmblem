@@ -4,11 +4,18 @@ body
 	margin: 0;
 }
 
-#TitleWrapper
+#TitleImage
 {
 	background-color: #edbcff5e;
 }
 
+/*
+#TitleWrapper
+{
+	background-color: #edbcff5e;
+	width: 20%;
+}
+*/
 h1
 {
 	text-align: center;

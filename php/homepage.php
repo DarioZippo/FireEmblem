@@ -35,14 +35,19 @@
 			</div>-->
         </header>
         
-        <div id="MenuWrapper">
-            <div id="Menu">
-                <a class="bigButton verticalOption purple" href="./../php/game.html">Gioca</a>
-                <button class="bigButton verticalOption purple">Store</button>
-                <button class="bigButton verticalOption purple">Classifica</button>
-                <button class="bigButton verticalOption purple">Tutorial</button>
-                <button class="bigButton verticalOption purple" onclick="logout()">Esci</button>
-            </div>
-        </div>
+        <div id="Wrapper">
+			<div id="MenuWrapper">
+				<div id="UserInformationsWrapper">
+					<p id="UserInformations"><?= "User: " . $_SESSION["username"] ?></p>
+				</div>
+				<div id="Menu">
+					<a class="bigButton verticalOption purple" href="./../php/game.html">Gioca</a>
+					<button class="bigButton verticalOption purple">Store</button>
+					<button class="bigButton verticalOption purple">Classifica</button>
+					<button class="bigButton verticalOption purple">Tutorial</button>
+					<button class="bigButton verticalOption purple" onclick="logout()">Esci</button>
+				</div>
+			</div>
+		</div>
     </body>
 </html>

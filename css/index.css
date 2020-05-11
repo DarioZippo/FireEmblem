@@ -54,6 +54,9 @@ p
 #messageArea
 {
 	font-weight: bold;
+    text-align: center;
+    margin: auto;
+    font-size: 18px;
 }
 
 .inlineP

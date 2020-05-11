@@ -68,10 +68,10 @@
 		$query = "INSERT into User (username, password, email) values ('" .$username. "', '" .$password. "', '" .$email. "');";
 				/*	INSERT into user_store (username) values ('" .$username. "');";*/
 		
-		/*$result = */$FireEmblemDB->performQuery($query); /* performMultiQuery($query); */
+		$result = $FireEmblemDB->performQuery($query); /* performMultiQuery($query); */
 		$FireEmblemDB->closeConnection();
 
-		/*return $result;*/
+		return $result;
 	}
 
 	//Effettua la validazione degli input tramite espressioni regolari

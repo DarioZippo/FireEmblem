@@ -30,14 +30,14 @@
 		</header>
 		
 		<div id="FormWrapper">
-			<p id="messageArea" class="hidden"></p>
-			
+
 			<div id="FormContainer">
+				<p id="messageArea" class="hidden"></p>
 				<div id="LoginWrapper">
 					<p class="inlineP">Accedi</p>
 					<button id="loginSwitch" class="simpleButton" onclick="switchToLogIn();" disabled>&#x25BC</button>
 				
-					<form id="loginForm" name="loginForm" class="form" onsubmit="submitFun(event, 'loginForm');" >
+					<form id="loginForm" name="loginForm" class="form" autocomplete="off" onsubmit="submitFun(event, 'loginForm');" >
 						<input type="text" name="username" placeholder="Username" autofocus data-pattern="^.*$" oninput="this.modified=true; validate_form('loginForm');">
 						<input type="password" name="password" placeholder="Password" data-pattern="^.*$" oninput="this.modified=true; validate_form('loginForm');">
 						<input id="loginForm.submit" type="submit" class="mediumButton" value="Accedi"></input>
@@ -48,7 +48,7 @@
 					<p class="inlineP">Registrati</p>
 					<button id="signInSwitch" class="simpleButton" onclick="switchToSignIn();">&#x25BC</button>
 
-					<form id="signInForm" name="signInForm" class="form hidden" onsubmit="submitFun(event, 'signInForm');">
+					<form id="signInForm" name="signInForm" class="form hidden" autocomplete="off" onsubmit="submitFun(event, 'signInForm');">
 						<div class="inputBox">
 							<input type="text" name="username" placeholder="Username"  data-pattern='^[a-zA-Z0-9]{5,16}$' data-unique="true" oninput="this.modified=true; validate_form('signInForm');">
 						</div>
