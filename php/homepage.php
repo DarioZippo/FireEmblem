@@ -38,7 +38,7 @@
         <div id="Wrapper">
 			<div id="MenuWrapper">
 				<div id="UserInformationsWrapper">
-					<p id="UserInformations"><?= "User: " . $_SESSION["username"] ?></p>
+					<p id="UserInformations"><?= "User: " . $_SESSION["username"] . " Coins: " . $_SESSION["coins"] ?></p>
 				</div>
 				<div id="Menu">
 					<a class="bigButton verticalOption purple" href="./../php/game.html">Gioca</a>

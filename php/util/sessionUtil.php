@@ -65,10 +65,10 @@
 		$password = $FireEmblemDB->sqlInjectionFilter($password);
 		$email = $FireEmblemDB->sqlInjectionFilter($email);
 
-		$query = "INSERT into User (username, password, email) values ('" .$username. "', '" .$password. "', '" .$email. "');";
-				/*	INSERT into user_store (username) values ('" .$username. "');";*/
+		$query = "INSERT into user (username, password, email) values ('" .$username. "', '" .$password. "', '" .$email. "'); "
+			."INSERT into inventory (user, item) values ('" .$username. "', 'Spada di bronzo'), ('" .$username. "', 'Lancia di bronzo'), ('" .$username. "', 'Ascia di bronzo');";
 		
-		$result = $FireEmblemDB->performQuery($query); /* performMultiQuery($query); */
+		$result = $FireEmblemDB->performMultiQuery($query); /* performMultiQuery($query); */
 		$FireEmblemDB->closeConnection();
 
 		return $result;
