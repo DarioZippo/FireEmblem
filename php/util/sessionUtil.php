@@ -114,4 +114,18 @@
 
 		return $count;
 	}
+
+	function showShop()
+	{
+		global $FireEmblemDB;
+
+		$query = "SELECT * "
+				."FROM item "
+				."ORDER BY type";
+
+		$result = $FireEmblemDB->performQuery($query);
+		$FireEmblemDB->CloseConnection();
+		return $result;
+	}
 ?>
+
