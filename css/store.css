@@ -1,0 +1,99 @@
+body
+{
+	background-image: url(./../img/Backgrounds/menuBackground.jpg);
+	margin: 0;
+}
+
+p
+{
+
+}
+
+#StoreContainer
+{
+
+}
+
+#WeaponWrapper
+{
+    width: 40%;
+    display: inline-block;
+    /* height: 830px; */
+    position: relative;
+    float: left;
+}
+
+#ArmorWrapper
+{
+    width: 9%;
+    display: inline-block;
+    /* height: 831px; */
+    position: relative;
+    /* top: -47px; */
+    float: left;
+}
+
+.weaponSection
+{
+    height: 260px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: solid;
+    background-color: #0088ff73;
+}
+
+#ArmorSection
+{
+    height: 84.5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: solid;
+    background-color: #0088ff73;
+    flex-direction: column;
+}
+
+.item
+{
+    height: 251px;
+    width: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #d3d3d399;
+    border-style: solid;
+}
+
+.itemImage
+{
+    height: 78%;
+}
+
+.itemName
+{
+    margin: 0;
+    text-align: center;
+    border-style: solid;
+    width: 100%;
+    height: 9%;
+}
+
+.itemPrice
+{
+    margin: 0;
+    width: 100%;
+    height: 5%;
+    text-align: center;
+}
+
+.purchasable
+{
+    background-color: rgba(144, 238, 144, 0.7);
+}
+
+.bought
+{
+    background-color: rgba(192, 43, 43, 0.7);
+}

@@ -8,10 +8,32 @@
 
 		$query = "SELECT * "
 				."FROM item "
-				/*."ORDER BY type"*/;
+				."ORDER BY type, cost";
 
 		$result = $FireEmblemDB->performQuery($query);
+		
+		if (!$result) {
+			echo 'Invalid query: ' . $FireEmblemDB->error; 
+		}
+		
+		$FireEmblemDB->CloseConnection();
+		return $result;
+	}
 
+	function showBoughtItems($user)
+	{
+		global $FireEmblemDB;
+
+		$query = "SELECT * "
+				."FROM inventory "
+				."WHERE user = '". $user ."'";
+
+		$result = $FireEmblemDB->performQuery($query);
+		
+		if (!$result) {
+			echo 'Invalid query: ' . $FireEmblemDB->error; 
+		}
+		
 		$FireEmblemDB->CloseConnection();
 		return $result;
 	}

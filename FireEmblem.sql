@@ -48,8 +48,11 @@ CREATE TABLE `item`
 LOCK TABLES `item` WRITE;
 
 /* !40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `item`(`name`, `type`)
-VALUES ('Spada di bronzo', 'Spada'), ('Lancia di bronzo', 'Lancia'), ('Ascia di bronzo', 'Ascia');
+INSERT INTO `item`
+VALUES ('Spada di ferro', 'Spada', '100'), ("Spada d'acciaio", 'Spada', '300'), ("Spada d'argento", 'Spada', '700'),
+	('Ascia di ferro', 'Ascia', '100'), ("Ascia d'acciaio", 'Ascia', '300'), ("Ascia d'argento", 'Ascia', '700'),
+    ('Lancia di ferro', 'Lancia', '100'), ("Lancia d'acciaio", 'Lancia', '300'), ("Lancia d'argento", 'Lancia', '700'),
+    ('Armatura di ferro', 'Armatura', '100'), ("Armatura d'acciaio", 'Armatura', '300'), ("Armatura d'argento", 'Armatura', '700');
 /* !40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -97,7 +100,7 @@ BEGIN
         END IF;
         
         INSERT INTO inventory
-			VALUES(currentUser, "Spada di bronzo"), (currentUser, "Lancia di bronzo"), (currentUser, "Ascia di bronzo");
+			VALUES(currentUser, "Spada di ferro"), (currentUser, "Lancia di ferro"), (currentUser, "Ascia di ferro"), (currentUser, "Armatura di ferro");
     END LOOP insertRecords;
 	CLOSE C;
 END $$
@@ -105,7 +108,11 @@ END $$
 DELIMITER ;
 
 CALL Populate();
-/*
+
 SELECT *
 FROM inventory;
+
+/*
+SELECT *
+FROM item;
 */

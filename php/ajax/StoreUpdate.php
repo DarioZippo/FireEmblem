@@ -9,7 +9,7 @@
 	if(!isLogged())
 		$response->error("Richiesta rifiutata");
 
-	$result = showStore();
+	$result = showBoughtItems($_SESSION["username"]);
 	$code; $message;
 
 	if (checkEmptyResult($result))
