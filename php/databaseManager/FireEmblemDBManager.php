@@ -78,6 +78,16 @@
 				
 			return $this->mysqli_conn->real_escape_string($parameter);
 		}
+
+		function showMYSQLError()
+		{
+ 	       	
+ 	       	if($this->mysqli_conn !== null)
+				$this->mysqli_conn->close();
+			
+			$error = $this->mysqli_conn->error;
+			return $error;
+		}
 		
 		//Chiude la connessione col database
 		function closeConnection()

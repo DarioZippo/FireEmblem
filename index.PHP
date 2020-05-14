@@ -37,7 +37,7 @@
 					<p class="inlineP">Accedi</p>
 					<button id="loginSwitch" class="simpleButton" onclick="switchToLogIn();" disabled>&#x25BC</button>
 				
-					<form id="loginForm" name="loginForm" class="form" autocomplete="off" onsubmit="submitFun(event, 'loginForm');" >
+					<form id="loginForm" name="loginForm" class="form" autocomplete="on" onsubmit="submitFun(event, 'loginForm');" >
 						<input type="text" name="username" placeholder="Username" autofocus data-pattern="^.*$" oninput="this.modified=true; validate_form('loginForm');">
 						<input type="password" name="password" placeholder="Password" data-pattern="^.*$" oninput="this.modified=true; validate_form('loginForm');">
 						<input id="loginForm.submit" type="submit" class="mediumButton" value="Accedi"></input>

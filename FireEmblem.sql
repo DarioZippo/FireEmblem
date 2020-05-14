@@ -26,8 +26,8 @@ CREATE TABLE `user` (
 LOCK TABLES `user` WRITE;
 
 /* !40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user`(`username`, `email`, `password`)
-VALUES ("MasterZi", "dario_zippo@hotmail.it", "SuSaNoo99"), ("SkuldMagnusdottir", "esempio@outlook.it", "AmoDario3000"); 
+INSERT INTO `user`/*(`username`, `email`, `password`)*/
+VALUES ("MasterZi", "dario_zippo@hotmail.it", "SuSaNoo99", 100000), ("SkuldMagnusdottir", "esempio@outlook.it", "AmoDario3000", '10'); 
 /* !40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -100,7 +100,7 @@ BEGIN
         END IF;
         
         INSERT INTO inventory
-			VALUES(currentUser, "Spada di ferro"), (currentUser, "Lancia di ferro"), (currentUser, "Ascia di ferro"), (currentUser, "Armatura di ferro");
+		    	VALUES(currentUser, "Spada di ferro"), (currentUser, "Lancia di ferro"), (currentUser, "Ascia di ferro"), (currentUser, "Armatura di ferro");
     END LOOP insertRecords;
 	CLOSE C;
 END $$
@@ -111,6 +111,8 @@ CALL Populate();
 
 SELECT *
 FROM inventory;
+
+select * from user where username='MasterZi';
 
 /*
 SELECT *

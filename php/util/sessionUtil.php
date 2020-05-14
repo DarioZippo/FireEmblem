@@ -34,12 +34,39 @@
 		}
 	};
 
+	//Aggiorna la session durante l'esecuzione
+	function updateSession()
+	{
+		global $FireEmblemDB;
+
+		$query = "select * from user where username='" . $_SESSION["username"] . "'";
+		$result = $FireEmblemDB->performQuery($query);
+		/*
+		checkResult($result, $query);
+		showResult($result);
+		*/
+		
+		if($result->num_rows != 1)
+			return false;
+		else
+		{
+			$userRow = $result->fetch_array();
+			$FireEmblemDB->closeConnection();
+
+			setSession($userRow);
+			return true;
+		}
+	}
+
 	//Inizializza le variabili di sessione
 	function setSession($userRow)
 	{
-		session_start();
-		$_SESSION['username'] = $userRow["username"];
-		$_SESSION['coins'] = $userRow["coins"];
+		if(!isset($_SESSION)) 
+		{ 
+			session_start(); 
+		} 
+		$_SESSION['username'] = $userRow['username'];
+		$_SESSION['coins'] = $userRow['coins'];
 		$_SESSION['onGame'] = false;
 	}
 
@@ -114,3 +141,26 @@
 
 		return $count;
 	}
+
+	function checkResult($result, $query)
+	{ 
+		global $FireEmblemDB;
+
+		if (!$result) 
+		{
+			$message = 'Invalid query: ' . $FireEmblemDB->showMYSQLError() . "\n";
+			$message .= 'Whole query: ' . $query;
+			die($message);
+		}
+	}
+
+	function showResult($result)
+	{ 
+		while ($row = $result->fetch_assoc()) 
+		{
+			echo $row['username']. " ";
+			echo $row['coins'] . "<br>";
+		}
+		echo "<br>";
+	}
+?>

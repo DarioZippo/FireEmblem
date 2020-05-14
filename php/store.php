@@ -27,6 +27,15 @@
 		<script type="text/javascript" src="./../js/ajaxRequest.js"></script>
 		<title>Fire Emblem</title>
 	</head>
+
+	<script>
+		var currentUserData = new Array(); 
+		currentUserData["username"] = <?php echo "'" . $_SESSION["username"] . "'"?>; 
+		currentUserData["coins"] = <?php echo "'" . $_SESSION["coins"] . "'"?>;
+		currentUserData["coins"] = parseInt(currentUserData["coins"]);
+		var str = currentUserData["username"] + ", " + currentUserData["coins"];
+	</script>
+
 	<body onload="load()">
         <header>
             <img src="./../img/Title/Title.png" alt="Fire Emblem Title" id="TitleImage">

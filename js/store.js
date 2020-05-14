@@ -76,7 +76,7 @@ function addEvents()
 	{
 		items[i].element.addEventListener("mouseover", items[i].hover);
 		items[i].element.addEventListener("mouseout", items[i].out);
-		//items[i].element.addEventListener("click", this.buy.bind(this));
+		items[i].element.addEventListener("click", items[i].click);
 	}
 }
 
