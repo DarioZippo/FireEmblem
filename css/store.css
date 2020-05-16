@@ -11,12 +11,13 @@ p
 
 #StoreContainer
 {
-
+    width: 50%;
+    display: inline-block;
 }
 
 #WeaponWrapper
 {
-    width: 40%;
+    width: 75%;
     display: inline-block;
     /* height: 830px; */
     position: relative;
@@ -25,17 +26,16 @@ p
 
 #ArmorWrapper
 {
-    width: 9%;
+    width: 24%;
     display: inline-block;
-    /* height: 831px; */
+    height: 739px;
     position: relative;
     /* top: -47px; */
-    float: left;
 }
 
 .weaponSection
 {
-    height: 260px;
+    height: 240px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,7 +45,7 @@ p
 
 #ArmorSection
 {
-    height: 84.5%;
+    height: 99%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -56,7 +56,7 @@ p
 
 .item
 {
-    height: 251px;
+    height: 230px;
     width: 130px;
     display: flex;
     justify-content: center;
@@ -96,4 +96,35 @@ p
 .bought
 {
     background-color: rgba(192, 43, 43, 0.7);
+}
+
+#UserInformationsWrapper
+{
+    border-bottom-style: solid;
+    border-top-style: solid;
+    background-color: rgba(158, 24, 158, 0.62);
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#UserInformations
+{
+    font-size: 22px;
+    font-weight: bolder;
+}
+
+#ExitWrapper
+{
+    display: inline-flex;
+    width: 49%;
+    height: 40%;
+    align-items: center;
+    justify-content: center;
+}
+
+#ExitButton
+{
+    
 }

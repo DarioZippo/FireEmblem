@@ -33,6 +33,7 @@ function()
             {
                 alert("Bought");
                 refreshStore();
+                getUserInformations();
             }
             else
                 alert(response["message"]);

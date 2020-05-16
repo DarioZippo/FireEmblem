@@ -1,7 +1,10 @@
 var items = new Array();
+var currentUserData = new Array();
 
 function load()
 {
+	getUserInformations(); //Ottiene e mostra i valori di session nella pagina
+
     var handler = function(responseText)
 	{
 		var response = JSON.parse(responseText);
@@ -15,6 +18,30 @@ function load()
 
 	ajaxRequest("./../php/ajax/StoreLoader.php", "GET", handler);
 	refreshStore();
+}
+
+function getUserInformations()
+{
+	var handler = function(responseText)
+	{
+		var response = JSON.parse(responseText);
+		if(response["responseCode"] == 0)
+		{
+			currentUserData = response["data"];
+			currentUserData["coins"] = parseInt(currentUserData["coins"]);
+			showUserInformations(currentUserData);
+		}
+		else
+			alert(response["message"]);
+	}
+
+	ajaxRequest("./../php/ajax/session/sessionValues.php", "GET", handler);
+}
+
+function showUserInformations(userInfo)
+{
+	var element = document.getElementById("UserInformations");
+	element.textContent = "User: " + currentUserData["username"] + " Coins: " + currentUserData["coins"];
 }
 
 function loadStoreItems(data)

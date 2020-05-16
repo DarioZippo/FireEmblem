@@ -26,7 +26,7 @@
 		<script type="text/javascript" src="./../js/ajaxRequest.js"></script>
 		<title>Fire Emblem</title>
 	</head>
-	<body>
+	<body onload="load()">
         <header>
             <img src="./../img/Title/Title.png" alt="Fire Emblem Title" id="TitleImage">
             <!--
@@ -38,7 +38,7 @@
         <div id="Wrapper">
 			<div id="MenuWrapper">
 				<div id="UserInformationsWrapper">
-					<p id="UserInformations"><?= "User: " . $_SESSION["username"] . " Coins: " . $_SESSION["coins"] ?></p>
+					<p id="UserInformations"></p>
 				</div>
 				<div id="Menu">
 					<a class="bigButton verticalOption purple" href="./../php/game.html">Gioca</a>

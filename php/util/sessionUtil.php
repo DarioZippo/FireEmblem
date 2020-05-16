@@ -70,6 +70,16 @@
 		$_SESSION['onGame'] = false;
 	}
 
+	function getSessionValues()
+	{
+		if(!isset($_SESSION)) 
+		{ 
+			session_start(); 
+		} 
+		$result = array("username" => $_SESSION["username"], "coins" => $_SESSION["coins"]);
+		return $result;
+	}
+
 	//Esegue il logout, eliminando le variabili di sessione
 	function logout()
 	{
@@ -93,7 +103,7 @@
 		$email = $FireEmblemDB->sqlInjectionFilter($email);
 
 		$query = "INSERT into user (username, password, email) values ('" .$username. "', '" .$password. "', '" .$email. "'); "
-			."INSERT into inventory (user, item) values ('" .$username. "', 'Spada di bronzo'), ('" .$username. "', 'Lancia di bronzo'), ('" .$username. "', 'Ascia di bronzo');";
+			."INSERT into inventory (user, item) values ('" .$username. "', 'Spada di ferro'), ('" .$username. "', 'Lancia di ferro'), ('" .$username. "', 'Ascia di ferro');";
 		
 		$result = $FireEmblemDB->performMultiQuery($query); /* performMultiQuery($query); */
 		$FireEmblemDB->closeConnection();

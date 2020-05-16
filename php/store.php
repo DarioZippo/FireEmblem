@@ -28,14 +28,6 @@
 		<title>Fire Emblem</title>
 	</head>
 
-	<script>
-		var currentUserData = new Array(); 
-		currentUserData["username"] = <?php echo "'" . $_SESSION["username"] . "'"?>; 
-		currentUserData["coins"] = <?php echo "'" . $_SESSION["coins"] . "'"?>;
-		currentUserData["coins"] = parseInt(currentUserData["coins"]);
-		var str = currentUserData["username"] + ", " + currentUserData["coins"];
-	</script>
-
 	<body onload="load()">
         <header>
             <img src="./../img/Title/Title.png" alt="Fire Emblem Title" id="TitleImage">
@@ -44,6 +36,9 @@
 				<img src="./../img/Title/Title.png" alt="Fire Emblem Title" id="TitleImage">
 			</div>-->
         </header>
+		<div id="UserInformationsWrapper">
+			<p id="UserInformations"></p>
+		</div>
 		<div id="StoreContainer">
 			<div id="WeaponWrapper">
 				<div id="SwordSection" class="weaponSection">
@@ -59,6 +54,12 @@
 			<div id="ArmorWrapper">
 				<div id="ArmorSection">
 				</div>
+			</div>
+		</div>
+
+		<div id="ExitWrapper">
+			<div id="ExitOption">
+				<a class="purple bigButton" id="ExitButton" href="./homepage.php">Esci</a>
 			</div>
 		</div>
 	</body>
