@@ -120,7 +120,7 @@ function refreshStore()
 			alert(response["message"]);
 	}
 
-	ajaxRequest("./../php/ajax/StoreUpdate.php", "GET", handler);
+	ajaxRequest("./../php/ajax/BoughtItems.php", "GET", handler);
 }
 
 function updateBought(data)
