@@ -37,6 +37,7 @@ CREATE TABLE `item`
 (
   `name` varchar(20) NOT NULL,  
   `type` varchar(20) NOT NULL,
+  `value` int(11) unsigned NOT NULL DEFAULT '50',
   `cost` int(11) unsigned NOT NULL DEFAULT '100',
   PRIMARY KEY(`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -48,11 +49,11 @@ CREATE TABLE `item`
 LOCK TABLES `item` WRITE;
 
 /* !40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `item`
-VALUES ('Spada di ferro', 'Spada', '100'), ("Spada d'acciaio", 'Spada', '300'), ("Spada d'argento", 'Spada', '700'),
-	('Ascia di ferro', 'Ascia', '100'), ("Ascia d'acciaio", 'Ascia', '300'), ("Ascia d'argento", 'Ascia', '700'),
-    ('Lancia di ferro', 'Lancia', '100'), ("Lancia d'acciaio", 'Lancia', '300'), ("Lancia d'argento", 'Lancia', '700'),
-    ('Armatura di ferro', 'Armatura', '100'), ("Armatura d'acciaio", 'Armatura', '300'), ("Armatura d'argento", 'Armatura', '700');
+INSERT INTO `item`(`name`, `type`, `value`, `cost`)
+VALUES ('Spada di ferro', 'Sword', '50', '100'), ("Spada d'acciaio", 'Sword', '70', '300'), ("Spada d'argento", 'Sword', '100', '700'),
+	('Ascia di ferro', 'Axe', '50', '100'), ("Ascia d'acciaio", 'Axe', '70', '300'), ("Ascia d'argento", 'Axe', '100', '700'),
+    ('Lancia di ferro', 'Lance', '50', '100'), ("Lancia d'acciaio", 'Lance', '70', '300'), ("Lancia d'argento", 'Lance', '100', '700'),
+    ('Armatura di ferro', 'Armor', '100', '100'), ("Armatura d'acciaio", 'Armor', '120', '300'), ("Armatura d'argento", 'Armor', '150', '700');
 /* !40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -108,6 +109,12 @@ END $$
 DELIMITER ;
 
 CALL Populate();
+/*
+SELECT * 
+FROM inventory inv INNER JOIN item it 
+	ON inv.item = it.name
+WHERE inv.user = 'MasterZi';
+*/
 /*
 SELECT *
 FROM inventory;

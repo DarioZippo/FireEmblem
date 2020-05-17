@@ -1,10 +1,10 @@
-function Character(cName, positionX, positionY, cWeapon, cTeam)
+function Character(cName, positionX, positionY, cWeaponType, cTeam)
 {
 	this.name = cName;
 	this.x = positionX;
 	this.y = positionY;
 	this.team = cTeam;
-	this.weapon = cWeapon;
+	this.weaponType = cWeaponType;
 
 	if(this.team == playerTeamColor)
 		this.teamStat = playerStat;
@@ -19,7 +19,9 @@ function Character(cName, positionX, positionY, cWeapon, cTeam)
 	this.images = 
 	{
 		sprite : document.createElement("img"),
-		portrait : document.createElement("img")
+		portrait : document.createElement("img"),
+		armor : document.createElement("img"),
+		weapon : document.createElement("img")
 	}
 
 	this.characterImages();
@@ -28,8 +30,21 @@ function Character(cName, positionX, positionY, cWeapon, cTeam)
 Character.prototype.values =
 function()
 {
-	this.lifePoints = 100;
-	this.attack = 50;
+	if(this.team == playerTeamColor)
+	{
+		this.armor = playerItems["Armor"];
+		this.weapon = playerItems[this.weaponType];
+		this.lifePoints = playerItems["ArmorValue"];
+		this.attack = playerItems[this.weaponType + "Value"];
+	}
+	else
+	{
+		this.armor = enemyItems["Armor"];
+		this.weapon = enemyItems[this.weaponType];
+		this.lifePoints = enemyItems["ArmorValue"];
+		this.attack = enemyItems[this.weaponType + "Value"];
+	}
+	
 	this.alive = true;
 	this.movePoints = 0; //Indicano i punti spendibili per un movimento
 	this.attackPoints = 0; //Indicano i punti spendibili per un attacco
@@ -45,6 +60,12 @@ function()
 
 	this.images.portrait.src = "./../img/portraits/" + this.name + ".png";
 	this.images.portrait.className = "characterPortrait "+ this.name;
+
+	this.images.armor.src = "./../img/icons/" + this.armor.replace(/ /g, "_") + ".png";
+	this.images.armor.className = "characterArmor";
+
+	this.images.weapon.src = "./../img/icons/" + this.weapon.replace(/ /g, "_") + ".png";
+	this.images.weapon.className = "characterWeapon";
 }
 
 Character.prototype.showStats =
@@ -58,26 +79,21 @@ function(role = "Attacker")
 	var str1 = PS.textContent.slice(PS.textContent.indexOf(":"), PS.textContent.length);
 	PS.textContent = PS.textContent.replace(str1, ":" + this.lifePoints);
 
+	var armorImage = document.getElementById("ArmorImage" + role); //Affianco l'immagine dell'armatura
+	armorImage.src = this.images.armor.src;
+	armorImage.style.display = "block"; 
+
 	var cName = document.getElementById("CharacterName" + role);
 	var str2 = cName.textContent.slice(cName.textContent.indexOf(":"), cName.textContent.length);
 	cName.textContent = cName.textContent.replace(str2, ":" + this.name);
 
 	var cWeapon = document.getElementById("CharacterWeapon" + role);
 	var str3 = cWeapon.textContent.slice(cWeapon.textContent.indexOf(":"), cWeapon.textContent.length);
-	var italianWeapon;
-	switch(this.weapon)
-	{
-		case "Sword":
-			italianWeapon = "Spada";
-			break;
-		case "Lance":
-			italianWeapon = "Lancia";
-			break;
-		case "Axe":
-			italianWeapon = "Ascia";
-			break;
-	}
-	cWeapon.textContent = cWeapon.textContent.replace(str3, ":" + italianWeapon);
+	cWeapon.textContent = cWeapon.textContent.replace(str3, ":" + this.weapon);
+	
+	var weaponImage = document.getElementById("WeaponImage" + role); //Affianco l'immagine dell'armatura
+	weaponImage.src = this.images.weapon.src;
+	weaponImage.style.display = "block"; 
 
 	var elementTarget = document.getElementById(this.team + "StatsTable");
     var style = window.getComputedStyle(elementTarget);

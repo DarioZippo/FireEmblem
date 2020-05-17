@@ -3,6 +3,9 @@ var characters = null;
 var xLen = 9;
 var yLen = 6;
 
+var playerItems = new Array(); //Gli oggetti selezionati nel menu
+var enemyItems = new Array(); //Gli basati sulla difficolta' selezionata nel menu
+
 var movementLength = 2; //Ampiezza dell'area di movimento
 var attackLength = 1; //Ampiezza dell'area di attacco
 
@@ -28,8 +31,13 @@ var selectedBlock = {
 
 function begin()
 {
-	board = new Board(xLen, yLen);
+	showMenu();
 
+	board = new Board(xLen, yLen);
+}
+
+function startGame()
+{
 	characters = new Array();
 	characters[0] = new Character("Bylet", 0, 0, "Sword", "Blue");
 	characters[1] = new Character("Hilda", 0, Math.floor(xLen / 2), "Axe", "Blue");

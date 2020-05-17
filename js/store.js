@@ -11,13 +11,13 @@ function load()
 		if(response["responseCode"] == 0)
 		{
 			loadStoreItems(response["data"]);
+			refreshStore();
 		}
 		else
 			alert(response["message"]);
 	}
 
 	ajaxRequest("./../php/ajax/StoreLoader.php", "GET", handler);
-	refreshStore();
 }
 
 function getUserInformations()
@@ -56,24 +56,8 @@ function loadStoreItems(data)
 
 function insertStoreItem(currentItem)
 {
-	var englishItem;
-	switch(currentItem["type"])
-	{
-		case "Spada":
-			englishItem = "Sword";
-			break;
-		case "Lancia":
-			englishItem = "Lance";
-			break;
-		case "Ascia":
-			englishItem = "Axe";
-			break;
-		case "Armatura":
-			englishItem = "Armor";
-			break;
-	}
 	var element = document.createElement("DIV");
-	element.className = "item " + "weapon " + englishItem;
+	element.className = "item " + "weapon " + currentItem["type"];
 
 	var image = document.createElement("IMG");
 	image.src = "./../img/Items/" + currentItem["name"].replace(/ /g, "_") + ".png";
@@ -91,7 +75,7 @@ function insertStoreItem(currentItem)
 	element.appendChild(name);
 	element.appendChild(price);
 
-	var sectionTarget = document.getElementById(englishItem + "Section");
+	var sectionTarget = document.getElementById(currentItem["type"] + "Section");
 	sectionTarget.appendChild(element);
 
 	items.push(new Item(element, currentItem["cost"], currentItem["name"]) );

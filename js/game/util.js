@@ -23,11 +23,19 @@ function cleanStats(role = "Attacker")
     var PS = document.getElementById("PS" + role);
     PS.textContent = "Ps:--";
 
+    var armorImage = document.getElementById("ArmorImage" + role);
+    armorImage.src = "";
+    armorImage.style.display = "none";
+
 	var cName = document.getElementById("CharacterName" + role);
     cName.textContent = "Nome:--";
 
     var cWeapon = document.getElementById("CharacterWeapon" + role);
     cWeapon.textContent = "Arma:--";
+
+    var weaponImage = document.getElementById("WeaponImage" + role);
+    weaponImage.src = "";
+    weaponImage.style.display = "none";
 
     document.getElementById("Stats" + role).style.backgroundColor = "#d3d3d378";
     /*

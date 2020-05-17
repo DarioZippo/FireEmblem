@@ -22,8 +22,9 @@
 		global $FireEmblemDB;
 
 		$query = "SELECT * "
-				."FROM inventory "
-				."WHERE user = '". $user ."'";
+				."FROM inventory inv INNER JOIN item it "
+				."ON inv.item = it.name "
+				."WHERE inv.user = '". $user ."'";
 
 		$result = $FireEmblemDB->performQuery($query);
 		

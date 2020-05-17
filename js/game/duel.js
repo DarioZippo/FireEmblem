@@ -24,7 +24,7 @@ function duel(attacker, defender)
 {
 	disableDuelButtons();
 
-	var currentDamage = calculateDamage(attacker.attack, attacker.weapon, defender.weapon); //Calcolo l'attacco iniziale	
+	var currentDamage = calculateDamage(attacker.attack, attacker.weaponType, defender.weaponType); //Calcolo l'attacco iniziale	
 
 	//duelResult = ""; //Lo inizializzo a 0
 	var duelResult = defender.getDamage(currentDamage, "Defender");
@@ -43,7 +43,7 @@ function duel(attacker, defender)
 		setTimeout( function(){attacker.showStats("Attacker");}, 3000);
 		return;
 	}
-	currentDamage = calculateDamage(defender.attack, defender.weapon, attacker.weapon); //Calcolo l'attacco di risposta	
+	currentDamage = calculateDamage(defender.attack, defender.weaponType, attacker.weaponType); //Calcolo l'attacco di risposta	
 
 	setTimeout(function(){duelResult = attacker.getDamage(currentDamage, "Attacker");}, 3000);
 	setTimeout(
@@ -74,6 +74,7 @@ function duel(attacker, defender)
 
 function calculateDamage(currentDamage, attackerWeapon, defenderWeapon)
 {
+	currentDamage = parseInt(currentDamage);
 	if(attackerWeapon != defenderWeapon)
 	{
 		var modifier = currentDamage / 2;

@@ -136,7 +136,7 @@ function nextEnemyTurn(i = 0)
 {
     while(i < enemyTeam.length && enemyTeam[i].alive == false)
     {
-        alert(i);
+        //alert(i);
         i++;
     }
     if(i >= enemyTeam.length) //Finisce il turno avversario
