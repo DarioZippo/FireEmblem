@@ -1,7 +1,7 @@
 Character.prototype.autoTurn =
 function(i)
 {
-    console.log(this.name);
+    //console.log(this.name);
     this.showStats();
     this.showArea();
     var that = this;
@@ -103,7 +103,23 @@ function(i)
     {
         attackMenu(this, targetCharacter);
         duel(this, targetCharacter);
-        setTimeout(function(){cleanStats(); cleanArea(); undo(true); nextEnemyTurn(++i)}, 5000);
+        setTimeout(
+            function()
+            {
+                if(ended == true)
+                {
+                    return;
+                }
+                else
+                {
+                    cleanArea(); 
+                    undo(true); 
+                    cleanStats(); 
+                    nextEnemyTurn(++i)
+                }
+            }, 
+            5002
+        );
     }
     else
     {

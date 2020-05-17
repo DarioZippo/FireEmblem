@@ -4,7 +4,7 @@ body
 	margin: 0;
 }
 
-#Modal
+.modal
 {
 	position: fixed; /* Stay in place */
 	z-index: 1; /* Sit on top */
@@ -18,18 +18,23 @@ body
 	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */	
 }
 
-/* Modal Content */
-#ModalContent {
+.modalContent 
+{
 	background-color: #fefefe9e;
 	margin: auto;
 	/*padding: 20px;*/
 	border: 1px solid #888;
 	width: 80%;
-	height: 80%;
+	height: 82%;
     border-style: solid;
     border-width: 7px;
     border-color: purple;
     border-radius: 4px;
+}
+
+#ModalResult
+{
+	display: none;
 }
 
 .selectionWrapper
@@ -168,7 +173,7 @@ h1
 .characterPortraitWrapper
 {
 	width: 43.7%;
-	height: 98%;
+	height: 97.5%;
 	display: inline-block;
 	border-style: solid;
 }
@@ -387,4 +392,19 @@ tr, th, td
 #RedTurnButton
 {
 	background-color: #ff5050;
+}
+
+#ModalResultContent
+{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.resultText
+{
+	text-align: center;
+    font-size: 40px;
+    font-weight: bold;
 }

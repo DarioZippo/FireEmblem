@@ -40,7 +40,7 @@ function duel(attacker, defender)
 		defender.teamStat.updateScoreBoard();
 
 		setTimeout( function(){undo();}, 3000);
-		setTimeout( function(){attacker.showStats("Attacker");}, 3000);
+		setTimeout( function(){attacker.showStats("Attacker"); checkEndGame();}, 3001);
 		return;
 	}
 	currentDamage = calculateDamage(defender.attack, defender.weaponType, attacker.weaponType); //Calcolo l'attacco di risposta	
@@ -60,6 +60,8 @@ function duel(attacker, defender)
 
 				attacker.teamStat.decrementScore();
 				attacker.teamStat.updateScoreBoard();
+
+				checkEndGame();
 
 				setTimeout(function(){defender.showStats("Attacker");}, 1);
 				return;

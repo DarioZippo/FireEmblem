@@ -175,9 +175,9 @@
 				</div>
 			
 		</div>
-
-		<div id="Modal">
-			<div id="ModalContent">
+		<!-- Menu iniziale di selezione oggetti -->
+		<div class="modal" id="ModalMenu">
+			<div class="modalContent" id="ModalMenuContent">
 				<div id="itemsMenu">
 					<div class="itemSelectionWrapper selectionWrapper">
 						<label for="ArmorSelection">Armor type:</label>
@@ -215,6 +215,20 @@
 				<div id="SubmitWrapper">
 					<button id="Submit" class="bigButton purple" onclick="start()">Submit</button>
 				</div>	
+			</div>
+		</div>
+		<!--Pop-up di resoconto dopo la fine di una partita-->
+		<div class="modal" id="ModalResult">
+			<div class="modalContent" id="ModalResultContent">
+				<p id="Outcome" class="resultText">
+					
+				</p>
+				<p id="GameValues" class="resultText">
+
+				</p>
+				<p id="Reward" class="resultText">
+
+				</p>
 			</div>
 		</div>
 

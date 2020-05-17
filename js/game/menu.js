@@ -70,7 +70,7 @@ function start()
 
 function submitForm()
 {
-	var menu = document.getElementById("Modal");
+	var menu = document.getElementById("ModalMenu");
 	menu.style.display = "none";
 
 	var selections = document.getElementsByClassName("itemSelection");
