@@ -1,3 +1,17 @@
+<?php
+	require_once __DIR__ ."/config.php"; 
+	session_start();
+	require DIR_DB_UTIL."sessionUtil.php";
+
+	if(!isLogged())
+	{
+		header("Location: ./../index.php");
+		exit;
+	}
+
+	$_SESSION["onGame"] = false;
+?>
+
 <html>
 	<head>
 		<meta charset="utf-8"> 
@@ -20,6 +34,7 @@
 		<script type="text/javascript" src="./../js/game/duel.js"></script>
 		<script type="text/javascript" src="./../js/game/util.js"></script>
 		<script type="text/javascript" src="./../js/game/teamStat.js"></script>
+		<script type="text/javascript" src="./../js/game/endGame.js"></script>
 		<title>Fire Emblem</title>
 	</head>
 	<body onLoad="begin()">
@@ -229,6 +244,7 @@
 				<p id="Reward" class="resultText">
 
 				</p>
+				<a class="bigButton purple" href="./homepage.php">Esci</a>
 			</div>
 		</div>
 

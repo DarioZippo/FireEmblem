@@ -109,6 +109,23 @@ END $$
 DELIMITER ;
 
 CALL Populate();
+
+CREATE TABLE `level`
+(
+  `seed` varchar(20) NOT NULL,
+  PRIMARY KEY(`seed`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `game`
+(
+	`user` varchar(20) NOT NULL
+		REFERENCES `user`(`username`),
+	`level` varchar(20) NOT NULL
+		REFERENCES `level`(`seed`),
+	`date` date NOT NULL,
+    PRIMARY KEY(`user`, `level`, `date`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 /*
 SELECT * 
 FROM inventory inv INNER JOIN item it 

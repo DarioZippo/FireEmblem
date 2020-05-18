@@ -41,7 +41,7 @@
 					<p id="UserInformations"></p>
 				</div>
 				<div id="Menu">
-					<a class="bigButton verticalOption purple" href="./../php/game.html">Gioca</a>
+					<a class="bigButton verticalOption purple" href="./../php/game.php">Gioca</a>
 					<a class="bigButton verticalOption purple" href="./store.php">Store</a>
 					<button class="bigButton verticalOption purple">Classifica</button>
 					<button class="bigButton verticalOption purple">Tutorial</button>

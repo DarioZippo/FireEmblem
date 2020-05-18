@@ -4,6 +4,7 @@ function Board(xLen, yLen)
 	this.blocks = new Array;
 	
 	this.generator(xLen, yLen);
+	this.randomObstacles(xLen, yLen);
 }
 
 Board.prototype.generator =
@@ -27,5 +28,33 @@ function(xLen, yLen)
 			
 			this.blocks[i * xLen + j].addEvents();
 		}
+	}
+}
+
+Board.prototype.randomObstacles =
+function(xLen, yLen)
+{
+	var currentRandomNumber;
+	var currentRow;
+
+	for(var currentColumn = 0; currentColumn < xLen; currentColumn++)
+	{
+		currentRandomNumber = Math.floor(Math.random() * 3) + 0; //Numero compreso fra 0 e 2
+
+		switch(currentRandomNumber)
+		{
+			case 0:
+				levelCode += currentRandomNumber; //Aggiorno il codice del livello
+				continue;
+			case 1:
+				currentRow = Math.floor(yLen / 2) - 1;
+				break;
+			case 2:
+				currentRow = Math.floor(yLen / 2);
+				break;
+		}
+		
+		this.blocks[currentRow * xLen + currentColumn].obstacle();
+		levelCode += currentRandomNumber; //Aggiorno il codice del livello
 	}
 }

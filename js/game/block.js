@@ -18,6 +18,14 @@ function Block(positionX, positionY)
 	this.click = this.selectBlock.bind(this);
 }
 
+Block.prototype.obstacle =
+function()
+{
+	this.occupied = true;
+	this.occupier = "obstacle";
+	this.element.classList.add("obstacleBlock");
+}
+
 Block.prototype.addEvents =
 function()
 {
@@ -62,7 +70,6 @@ function()
 Block.prototype.selectBlock =
 function()
 {
-	var classe = this.element.className;
 	var currentCharacter;
 
 	if(movePhase == true)

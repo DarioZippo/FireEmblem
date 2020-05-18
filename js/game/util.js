@@ -85,7 +85,14 @@ function cleanArea()
         board.blocks[i].element.className = "matrixBlock";
         if(board.blocks[i].occupied == true)
         {
-            board.blocks[i].element.className += " " + board.blocks[i].team + "TeamBlock";
+            if(board.blocks[i].occupier != "obstacle")
+            {
+                board.blocks[i].element.classList.add(board.blocks[i].team + "TeamBlock");
+            }
+            else
+            {
+                board.blocks[i].element.classList.add("obstacleBlock");
+            }
         }
     }
 }

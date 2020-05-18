@@ -3,10 +3,12 @@ var characters = null;
 var xLen = 9;
 var yLen = 6;
 
+var levelCode = "";
+
 var playerItems = new Array(); //Gli oggetti selezionati nel menu
 var enemyItems = new Array(); //Gli basati sulla difficolta' selezionata nel menu
 
-var movementLength = 2; //Ampiezza dell'area di movimento
+var movementLength = 5; //Ampiezza dell'area di movimento
 var attackLength = 1; //Ampiezza dell'area di attacco
 
 var teams = ["Blue", "Red"]; //Variabile che registra chi deve fare il turno corrente
@@ -100,52 +102,4 @@ function updateBoardCharacters()
 			/*currentBlock.element.className += " occupied"; //+ " " + character[i].name; da implementare*/
 		}
 	}
-}
-
-function checkEndGame()
-{
-	if(enemyTeam.length == enemyStat.deadCounter)
-	{
-		result(true);
-	}
-	else if(playerTeam.length == playerStat.deadCounter)
-	{
-		result(false);
-	}
-	else
-	{
-		return false;
-	}
-}
-
-function result(win)
-{
-	ended = true;
-
-	var modal = document.getElementById("ModalResult");
-	modal.style.display = "block";
-	
-	var modalContent = document.getElementById("ModalResultContent");
-
-	var outcome = document.getElementById("Outcome");
-	if(win == true)
-	{
-		modalContent.style.backgroundColor = "rgba(115, 255, 123, 0.80)";
-		outcome.appendChild(document.createTextNode("WIN! :D"));
-	}
-	else
-	{
-		modalContent.style.backgroundColor = "rgba(160, 11, 31, 0.80)";
-		outcome.appendChild(document.createTextNode("Lose... :("));
-	}
-
-	var gameValues = document.getElementById("GameValues");
-	gameValues.appendChild(document.createTextNode("Punteggio: " + playerStat.correntScore)); 
-	gameValues.appendChild(document.createElement("br"));
-	gameValues.appendChild(document.createTextNode("Uccisi: " + playerStat.killedCounter));
-	gameValues.appendChild(document.createElement("br"));
-	gameValues.appendChild(document.createTextNode("Morti: " + playerStat.deadCounter));												
-														
-	var reward = document.getElementById("Reward");
-	reward.appendChild(document.createTextNode(100 * playerStat.correntScore + " coins!"));
 }
