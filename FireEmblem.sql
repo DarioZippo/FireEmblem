@@ -122,7 +122,10 @@ CREATE TABLE `game`
 		REFERENCES `user`(`username`),
 	`level` varchar(20) NOT NULL
 		REFERENCES `level`(`seed`),
-	`date` date NOT NULL,
+	`win` boolean NOT NULL,
+	`score` int(11) NOT NULL,
+    `turns` int(11) NOT NULL,
+	`date` TIMESTAMP NOT NULL,
     PRIMARY KEY(`user`, `level`, `date`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -142,3 +145,12 @@ select * from user where username='MasterZi';
 SELECT *
 FROM item;
 */
+/*
+INSERT INTO `game`
+Values ('MasterZi', '0210120221', true, '100', CURRENT_TIMESTAMP());
+*/
+SELECT *
+FROM `level`;
+
+SELECT *
+FROM game;

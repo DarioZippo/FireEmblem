@@ -44,7 +44,7 @@ function(xLen, yLen)
 		switch(currentRandomNumber)
 		{
 			case 0:
-				levelCode += currentRandomNumber; //Aggiorno il codice del livello
+				seed += currentRandomNumber; //Aggiorno il codice del livello
 				continue;
 			case 1:
 				currentRow = Math.floor(yLen / 2) - 1;
@@ -55,6 +55,6 @@ function(xLen, yLen)
 		}
 		
 		this.blocks[currentRow * xLen + currentColumn].obstacle();
-		levelCode += currentRandomNumber; //Aggiorno il codice del livello
+		seed += currentRandomNumber; //Aggiorno il codice del livello
 	}
 }

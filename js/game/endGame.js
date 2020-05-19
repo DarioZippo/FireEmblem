@@ -30,7 +30,7 @@ function result(win)
 	{
 		modalContent.style.backgroundColor = "rgba(115, 255, 123, 0.80)";
         outcome.appendChild(document.createTextNode("WIN! :D"));
-        
+
         reward = 100 * playerStat.correntScore;
 	}
 	else
@@ -53,10 +53,10 @@ function result(win)
 	var rewardElement = document.getElementById("Reward");
     rewardElement.appendChild(document.createTextNode(reward + " coins"));
     
-    updateDatas(reward);
+    updateDatas(reward, Number(win), playerStat.correntScore, turn.number);
 }
 
-function updateDatas(reward)
+function updateDatas(reward, win, score, endTurn)
 {
     var handler = function(responseText)
 	{
@@ -67,6 +67,6 @@ function updateDatas(reward)
         }
 	}
 
-    postString = "reward=" + reward;
-	ajaxRequest("./../php/ajax/UserUpdate.php", "POST", handler, postString);
+    postString = "reward=" + reward + "&seed=" + seed + "&win=" + win + "&score=" + score + "&turns=" + endTurn;
+	ajaxRequest("./../php/ajax/EndGame.php", "POST", handler, postString);
 }

@@ -152,20 +152,6 @@
 		return $count;
 	}
 
-	function addCoins($username, $reward)
-	{
-		global $FireEmblemDB;
-
-		$query = "UPDATE user "
-				."SET coins = coins + " . $reward
-				." WHERE username = " . "'" . $username . "'";
-		$result = $FireEmblemDB->performQuery($query);
-
-		$FireEmblemDB->closeConnection();
-
-		return $result;
-	}
-
 	function checkResult($result, $query)
 	{ 
 		global $FireEmblemDB;

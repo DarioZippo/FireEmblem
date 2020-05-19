@@ -3,7 +3,7 @@ var characters = null;
 var xLen = 9;
 var yLen = 6;
 
-var levelCode = "";
+var seed = "";
 
 var playerItems = new Array(); //Gli oggetti selezionati nel menu
 var enemyItems = new Array(); //Gli basati sulla difficolta' selezionata nel menu
@@ -44,12 +44,12 @@ function startGame()
 {
 	characters = new Array();
 	characters[0] = new Character("Bylet", 0, 0, "Sword", "Blue");
-	characters[1] = new Character("Hilda", 0, Math.floor(xLen / 2), "Axe", "Blue");
-	characters[2] = new Character("Claude", 0, xLen-1, "Lance", "Blue");
-	characters[3] = new Character("Edelgard", yLen-1, 0, "Axe", "Red");
-	characters[4] = new Character("Dimitri", yLen-1, Math.floor(xLen / 2), "Lance", "Red");
+	/*characters[1] = new Character("Hilda", 0, Math.floor(xLen / 2), "Axe", "Blue");
+	characters[2] = new Character("Claude", 0, xLen-1, "Lance", "Blue");*/
+	characters[1] /*[3]*/ = new Character("Edelgard", yLen-1, 0, "Axe", "Red");
+	/*characters[4] = new Character("Dimitri", yLen-1, Math.floor(xLen / 2), "Lance", "Red");
 	characters[5] = new Character("Petra", yLen-1, xLen-1, "Sword", "Red");
-	
+	*/
 	buildTeams();
 
 	updateBoardCharacters();
