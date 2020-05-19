@@ -25,7 +25,7 @@ body
 {
     margin: auto;
     margin-top: 25px;
-    width: 80%;
+    width: 90%;
     overflow-y: auto;
     height: 75%;
     border-style: solid;
@@ -86,4 +86,29 @@ body
     font-weight: bolder;
     border-style: solid;
     border-bottom-style: none;
+}
+
+#ModalText
+{
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+#ModalMenuContent
+{
+    height: 30%;
+    margin-top: 12%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#ModalButton
+{
+    margin: 24px;
+}
+
+#ModalMenu
+{
+    display: none;
 }

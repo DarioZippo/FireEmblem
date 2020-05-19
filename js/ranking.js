@@ -6,14 +6,13 @@ function load()
 		if(response["responseCode"] == 0)
 		{
 			loadRankingRecords(response["data"]);
+			getUserInformations(); //Ottiene e mostra i valori di session nella pagina, per poi modificare i record dell'utente corrente
 		}
 		else
 			alert(response["message"]);
 	}
 
 	ajaxRequest("./../php/ajax/showRanking.php", "GET", handler);
-
-	getUserInformations(); //Ottiene e mostra i valori di session nella pagina, per poi modificare i record dell'utente corrente
 }
 
 function getUserInformations()
@@ -59,8 +58,9 @@ function insertRankingRecords(currentGame, currentPosition)
 	record.className = "record";
 
     var currentValue;
+	var tempButton;
 
-    for(var i = -1; i < currentGame.length; i++)
+    for(var i = -1; i <= currentGame.length; i++)
     {
         currentValue = document.createElement("TD");
 		currentValue.classList.add("recordValue");
@@ -69,6 +69,17 @@ function insertRankingRecords(currentGame, currentPosition)
 			currentValue.appendChild(
 				document.createTextNode(currentPosition)
 			);
+		}
+		else if(i == currentGame.length)
+		{
+			tempButton = document.createElement("button");
+			tempButton.appendChild(
+				document.createTextNode("Sfida")
+			);
+			tempButton.classList.add("bigButton", "red");
+			tempButton.addEventListener("click", showModalChallenge);
+
+			currentValue.appendChild(tempButton);
 		}
 		else
 		{
@@ -86,7 +97,7 @@ function insertRankingRecords(currentGame, currentPosition)
 function updateRecordsTarget(usernameTarget)
 {
 	var records = document.getElementsByClassName("record");
-	
+
 	var currentUsername;
 	
 	for(var i = 0; i < records.length; i++)
@@ -151,4 +162,16 @@ function sortTable(columnTarget, number = false)
 			switching = true;
 		}
 	}
+}
+
+function showModalChallenge()
+{
+	var currentRecord = this.parentNode.parentNode; //Il padre è TH, il nonno TR
+	var level = currentRecord.children[2].childNodes[0].nodeValue;
+
+	var modalText = document.getElementById("ModalText");
+	modalText.childNodes[0].nodeValue += level + "?";
+
+	var modalMenu = document.getElementById("ModalMenu");
+	modalMenu.style.display = "block";
 }

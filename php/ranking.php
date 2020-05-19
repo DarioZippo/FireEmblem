@@ -43,7 +43,7 @@
                        
             <table id="RankingTable">
 				<tbody>
-					<caption id="RankingCaption">CLASSIFICA</caption>
+					<caption class="recordValue" id="RankingCaption">CLASSIFICA</caption>
 					<tr class="recordHeaders">
 					<th class="recordValue rankingHeader" onclick="sortTable(0, true)">Posizione</th>
 						<th class="recordValue rankingHeader" onclick="sortTable(1)">User</th>
@@ -52,10 +52,20 @@
 						<th class="recordValue rankingHeader" onclick="sortTable(4, true)">Punteggio</th>
 						<th class="recordValue rankingHeader" onclick="sortTable(5, true)">Turni</th>
 						<th class="recordValue rankingHeader" onclick="sortTable(6)">Data</th>
+						<th class="recordValue"></th>
 					</tr>
 				</tbody>
 			</table>
         
-        </div>
+		</div>
+		
+		<div class="modal" id="ModalMenu">
+			<div class="modalContent" id="ModalMenuContent">
+				<p id="ModalText">
+					Vuoi affrontare il livello:
+				</p>
+				<button class="bigButton red" id="ModalButton">Gioca!</button>
+			</div>
+		</div>
     </body>
 </html>
