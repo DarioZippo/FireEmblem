@@ -31,4 +31,19 @@
         
         return $result;
     }
+
+    function showRanking()
+    {
+        global $FireEmblemDB;
+
+        $query = "SELECT * "
+                ."FROM game "
+                ."ORDER BY score DESC, date";
+                
+        $result = $FireEmblemDB->performQuery($query);
+
+        $FireEmblemDB->closeConnection();
+        
+        return $result;
+    }
 ?>

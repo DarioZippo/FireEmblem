@@ -1,0 +1,89 @@
+body
+{
+	background-image: url(./../img/Backgrounds/menuBackground.jpg);
+	margin: 0;
+}
+
+#UserInformationsWrapper
+{
+    border-bottom-style: solid;
+    border-top-style: solid;
+    background-color: rgba(158, 24, 158, 0.62);
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#UserInformations
+{
+    font-size: 22px;
+    font-weight: bolder;
+}
+
+#RankingWrapper
+{
+    margin: auto;
+    margin-top: 25px;
+    width: 80%;
+    overflow-y: auto;
+    height: 75%;
+    border-style: solid;
+    border-width: 4px;
+    border-color: gray;
+    border-radius: 4px;
+}
+
+#RankingCaption
+{
+    text-align: center;
+    font-size: 32px;
+}
+
+#RankingTable
+{
+    border-style: solid;
+	border-collapse: collapse;
+    height: 100%;
+    width: 100%;
+}
+
+.record
+{
+    background-color: rgba(0, 136, 255, 0.9);
+}
+
+.recordValue
+{
+    border-style: solid;
+    padding: 32px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 30px;
+    margin: 0px;
+    text-align: center;
+}
+
+.rankingHeader:hover
+{
+    cursor: pointer;
+    background-color: blue;
+}
+
+.recordHeaders
+{
+    background-color: rgba(158, 24, 158, 0.9);
+}
+
+.userRecord
+{
+    background-color: rgba(151, 9, 33, 0.9);
+}
+
+#RankingCaption
+{
+    background-color: rgba(158, 24, 158, 0.9);
+    font-weight: bolder;
+    border-style: solid;
+    border-bottom-style: none;
+}

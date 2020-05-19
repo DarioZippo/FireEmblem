@@ -43,7 +43,7 @@
 				<div id="Menu">
 					<a class="bigButton verticalOption purple" href="./../php/game.php">Gioca</a>
 					<a class="bigButton verticalOption purple" href="./store.php">Store</a>
-					<button class="bigButton verticalOption purple">Classifica</button>
+					<a class="bigButton verticalOption purple" href="./ranking.php">Classifica</a>
 					<button class="bigButton verticalOption purple">Tutorial</button>
 					<button class="bigButton verticalOption purple" onclick="logout()">Esci</button>
 				</div>

@@ -38,7 +38,7 @@ function getUserInformations()
 	ajaxRequest("./../php/ajax/session/sessionValues.php", "GET", handler);
 }
 
-function showUserInformations(userInfo)
+function showUserInformations()
 {
 	var element = document.getElementById("UserInformations");
 	element.textContent = "User: " + currentUserData["username"] + " Coins: " + currentUserData["coins"];

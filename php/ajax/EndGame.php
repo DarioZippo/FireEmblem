@@ -10,7 +10,7 @@
 		$response->error("Richiesta rifiutata");
 
 	$result = addCoins($_SESSION["username"], $_POST["reward"]) 
-				&& updateRanking($_SESSION["username"], $_POST["seed"], $_POST["win"], $_POST["score"], $_POST["turns"]);
+				&& updateRanking($_SESSION["username"], $_POST["seed"], $_POST["outcome"], $_POST["score"], $_POST["turns"]);
 	
 	$code; $message;
 

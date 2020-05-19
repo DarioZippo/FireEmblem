@@ -13,7 +13,7 @@ CREATE TABLE `user` (
   `username` varchar(20) NOT NULL,
   `email` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL,
-  `coins` int(11) unsigned NOT NULL DEFAULT '10',
+  `coins` int(11) unsigned NOT NULL DEFAULT '1000',
   PRIMARY KEY (`username`),
   UNIQUE KEY `email_UNIQUE` (`email`),
   UNIQUE KEY `username_UNIQUE` (`username`)
@@ -27,7 +27,7 @@ LOCK TABLES `user` WRITE;
 
 /* !40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user`/*(`username`, `email`, `password`)*/
-VALUES ("MasterZi", "dario_zippo@hotmail.it", "SuSaNoo99", '100000'), ("SkuldMagnusdottir", "esempio@outlook.it", "AmoDario3000", '1000'); 
+VALUES ("MasterZi", "dario_zippo@hotmail.it", "SuSaNoo99", '100000'), ("SkuldMagnusdottir", "esempio@outlook.it", "AmoDario3000", '1000'), ("HeyPika!", "b@b.it", "Password99", '1000'); 
 /* !40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -101,14 +101,18 @@ BEGIN
         END IF;
         
         INSERT INTO inventory
-		    	VALUES(currentUser, "Spada di ferro"), (currentUser, "Lancia di ferro"), (currentUser, "Ascia di ferro"), (currentUser, "Armatura di ferro");
+		    VALUES(currentUser, "Spada di ferro"), (currentUser, "Lancia di ferro"), (currentUser, "Ascia di ferro"), (currentUser, "Armatura di ferro");
+                
+		INSERT INTO game
+			VALUES
+				(currentUser, "1111111111", "Vittoria", "3", "4", current_timestamp() - INTERVAL (rand() * 10) + 0 DAY), (currentUser, "1111111112", "Vittoria", "1", "6", current_timestamp() - INTERVAL (rand() * 10) + 0 DAY), (currentUser, "1111111113", "Sconfitta", "-2", "5", current_timestamp() - INTERVAL (rand() * 10) + 0 DAY),
+				(currentUser, "2222222221", "Vittoria", "3", "4", current_timestamp() - INTERVAL (rand() * 10) + 0 DAY), (currentUser, "2222222222", "Vittoria", "1", "6", current_timestamp() - INTERVAL (rand() * 10) + 0 DAY), (currentUser, "2222222223", "Sconfitta", "-2", "5", current_timestamp() - INTERVAL (rand() * 10) + 0 DAY),
+                (currentUser, "3333333331", "Vittoria", "3", "4", current_timestamp() - INTERVAL (rand() * 10) + 0 DAY), (currentUser, "3333333332", "Vittoria", "1", "6", current_timestamp() - INTERVAL (rand() * 10) + 0 DAY), (currentUser, "3333333333", "Sconfitta", "-2", "5", current_timestamp() - INTERVAL (rand() * 10) + 0 DAY);
     END LOOP insertRecords;
 	CLOSE C;
 END $$
 
 DELIMITER ;
-
-CALL Populate();
 
 CREATE TABLE `level`
 (
@@ -122,12 +126,14 @@ CREATE TABLE `game`
 		REFERENCES `user`(`username`),
 	`level` varchar(20) NOT NULL
 		REFERENCES `level`(`seed`),
-	`win` boolean NOT NULL,
+	`outcome` varchar(20) NOT NULL,
 	`score` int(11) NOT NULL,
     `turns` int(11) NOT NULL,
 	`date` TIMESTAMP NOT NULL,
     PRIMARY KEY(`user`, `level`, `date`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CALL Populate();
 
 /*
 SELECT * 

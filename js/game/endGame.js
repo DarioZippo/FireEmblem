@@ -2,11 +2,11 @@ function checkEndGame()
 {
 	if(enemyTeam.length == enemyStat.deadCounter)
 	{
-		result(true);
+		result("Vittoria");
 	}
 	else if(playerTeam.length == playerStat.deadCounter)
 	{
-		result(false);
+		result("Sconfitta");
 	}
 	else
 	{
@@ -14,7 +14,7 @@ function checkEndGame()
 	}
 }
 
-function result(win)
+function result(outcome)
 {
 	ended = true;
 
@@ -25,18 +25,18 @@ function result(win)
 	
 	var modalContent = document.getElementById("ModalResultContent");
 
-	var outcome = document.getElementById("Outcome");
-	if(win == true)
+	var outcomeElement = document.getElementById("Outcome");
+	if(outcome == "Vittoria")
 	{
 		modalContent.style.backgroundColor = "rgba(115, 255, 123, 0.80)";
-        outcome.appendChild(document.createTextNode("WIN! :D"));
+        outcomeElement.appendChild(document.createTextNode("WIN! :D"));
 
         reward = 100 * playerStat.correntScore;
 	}
 	else
 	{
 		modalContent.style.backgroundColor = "rgba(160, 11, 31, 0.80)";
-        outcome.appendChild(document.createTextNode("Lose... :("));
+        outcomeElement.appendChild(document.createTextNode("Lose... :("));
         
         reward = 50;
 	}
@@ -53,10 +53,10 @@ function result(win)
 	var rewardElement = document.getElementById("Reward");
     rewardElement.appendChild(document.createTextNode(reward + " coins"));
     
-    updateDatas(reward, Number(win), playerStat.correntScore, turn.number);
+    updateDatas(reward, outcome, playerStat.correntScore, turn.number);
 }
 
-function updateDatas(reward, win, score, endTurn)
+function updateDatas(reward, outcome, score, endTurn)
 {
     var handler = function(responseText)
 	{
@@ -67,6 +67,6 @@ function updateDatas(reward, win, score, endTurn)
         }
 	}
 
-    postString = "reward=" + reward + "&seed=" + seed + "&win=" + win + "&score=" + score + "&turns=" + endTurn;
+    postString = "reward=" + reward + "&seed=" + seed + "&outcome=" + outcome + "&score=" + score + "&turns=" + endTurn;
 	ajaxRequest("./../php/ajax/EndGame.php", "POST", handler, postString);
 }
