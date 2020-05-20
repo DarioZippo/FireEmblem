@@ -92,7 +92,7 @@ function submitForm()
 	switch(difficult.value)
 	{
 		case "easy":
-			seed += "1"; //Aggiorno il codice del livello
+			seed += "0"; //Aggiorno il codice del livello
 
 			enemyItems["Armor"] = "Armatura di ferro";
 			enemyItems["Sword"] = "Spada di ferro";
@@ -100,7 +100,7 @@ function submitForm()
 			enemyItems["Lance"] = "Lancia di ferro";
 			break;
 		case "medium":
-			seed += "2"; //Aggiorno il codice del livello
+			seed += "1"; //Aggiorno il codice del livello
 
 			enemyItems["Armor"] = "Armatura d'acciaio";
 			enemyItems["Sword"] = "Spada d'acciaio";
@@ -108,7 +108,7 @@ function submitForm()
 			enemyItems["Lance"] = "Lancia d'acciaio";
 			break;
 		case "hard":
-			seed += "3"; //Aggiorno il codice del livello
+			seed += "2"; //Aggiorno il codice del livello
 
 			enemyItems["Armor"] = "Armatura d'argento";
 			enemyItems["Sword"] = "Spada d'argento";

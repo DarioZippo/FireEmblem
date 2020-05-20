@@ -9,7 +9,7 @@
 		exit;
 	}
 
-	$_SESSION["onGame"] = false;
+	$_SESSION["seed"] = "";
 ?>
 
 <html>
@@ -18,7 +18,7 @@
     	<meta name = "author" content = "Dario Zippo">
 		<meta name = "keywords" content = "Fire Emblem">
 		
-    	<link rel="shortcut icon" type="image/x-icon" href="./../img" />
+    	<link rel="shortcut icon" type="image/x-icon" href="./../img/icons/siteIcon.png">
 		<link rel="stylesheet" href="./../css/FireEmblem.css" type="text/css" media="screen">
 		<link rel="stylesheet" href="./../css/store.css" type="text/css" media="screen">
 		

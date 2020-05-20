@@ -1,14 +1,13 @@
-function Board(xLen, yLen)
+function Board()
 {
 	this.element = document.getElementById("Board");
 	this.blocks = new Array;
 	
-	this.generator(xLen, yLen);
-	this.randomObstacles(xLen, yLen);
+	this.generator();
 }
 
 Board.prototype.generator =
-function(xLen, yLen)
+function()
 {
 	var currentRow;
 	var currentBlock;
@@ -32,7 +31,7 @@ function(xLen, yLen)
 }
 
 Board.prototype.randomObstacles =
-function(xLen, yLen)
+function()
 {
 	var currentRandomNumber;
 	var currentRow;
@@ -56,5 +55,31 @@ function(xLen, yLen)
 		
 		this.blocks[currentRow * xLen + currentColumn].obstacle();
 		seed += currentRandomNumber; //Aggiorno il codice del livello
+	}
+}
+
+Board.prototype.seedObstacles =
+function(currentSeed)
+{
+	var currentRow;
+	var currentNumber;
+
+	for(var currentColumn = 0; currentColumn < xLen; currentColumn++)
+	{
+		currentNumber = parseInt(currentSeed[currentColumn]);
+		switch(currentNumber)
+		{
+			case 0:
+				continue;
+			case 1:
+				currentRow = Math.floor(yLen / 2) - 1;
+				break;
+			case 2:
+				currentRow = Math.floor(yLen / 2);
+				break;
+		}
+
+		this.blocks[currentRow * xLen + currentColumn].obstacle();
+		seed = currentSeed.slice(0, currentSeed.length - 1); //Aggiorno il codice del livello, prendendo la parte dedicata agli ostacoli
 	}
 }

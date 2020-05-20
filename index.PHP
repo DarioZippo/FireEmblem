@@ -18,6 +18,7 @@
 		<script type="text/javascript" src="./js/index.js"></script>
 		<script type="text/javascript" src="./js/ajaxRequest.js"></script>
 
+		<link rel="shortcut icon" type="image/x-icon" href="./img/icons/siteIcon.png">
 		<link rel="stylesheet" type="text/css" href="./css/index.css">
 		<link rel="stylesheet" type="text/css" href="./css/FireEmblem.css" media="screen">
 	</head>

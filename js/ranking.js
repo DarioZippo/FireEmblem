@@ -175,3 +175,30 @@ function showModalChallenge()
 	var modalMenu = document.getElementById("ModalMenu");
 	modalMenu.style.display = "block";
 }
+
+function playSeedLevel()
+{
+	var modalText = document.getElementById("ModalText");
+	var textTarget = modalText.childNodes[0].nodeValue;
+
+	textTarget = textTarget.replace(/ /g, "");
+	textTarget = textTarget.replace(/\t/g, "");
+	textTarget = textTarget.replace(/\n/g, "");
+	
+	var level = textTarget.slice(textTarget.lastIndexOf(":") + 1, textTarget.length - 1);
+
+	var handler = function(responseText)
+	{
+		var response = JSON.parse(responseText);
+		if(response["responseCode"] == 0)
+		{
+			window.location.replace("./../php/game.php");
+		}
+		else
+		{
+			alert(response["message"]);	
+		}
+	}
+	var postString = "seed=" + level;
+	ajaxRequest("./../php/ajax/PlaySeedLevel.php", "POST", handler, postString);
+}

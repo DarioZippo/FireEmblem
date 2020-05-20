@@ -35,7 +35,7 @@
 	};
 
 	//Aggiorna la session durante l'esecuzione
-	function updateSession()
+	function updateSession($currentSeed = "")
 	{
 		global $FireEmblemDB;
 
@@ -53,13 +53,13 @@
 			$userRow = $result->fetch_array();
 			$FireEmblemDB->closeConnection();
 
-			setSession($userRow);
+			setSession($userRow, $currentSeed);
 			return true;
 		}
 	}
 
 	//Inizializza le variabili di sessione
-	function setSession($userRow)
+	function setSession($userRow, $currentSeed = "")
 	{
 		if(!isset($_SESSION)) 
 		{ 
@@ -67,7 +67,7 @@
 		} 
 		$_SESSION['username'] = $userRow['username'];
 		$_SESSION['coins'] = $userRow['coins'];
-		$_SESSION['onGame'] = false;
+		$_SESSION['seed'] = $currentSeed;
 	}
 
 	function getSessionValues()
@@ -76,7 +76,7 @@
 		{ 
 			session_start(); 
 		} 
-		$result = array("username" => $_SESSION["username"], "coins" => $_SESSION["coins"]);
+		$result = array("username" => $_SESSION["username"], "coins" => $_SESSION["coins"], "seed" => $_SESSION["seed"]);
 		return $result;
 	}
 

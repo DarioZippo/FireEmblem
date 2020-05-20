@@ -16,16 +16,47 @@
         return $result;
     }
 
-    function updateRanking($username, $seed, $win, $score, $turns)
+    function showLevel($seed)
+    {
+        global $FireEmblemDB;
+        //Verifico se il livello è già presente nel database
+        $query = 'SELECT * '
+                .'FROM `level` '
+                .'WHERE seed = "' . $seed . '"';
+
+        $result = $FireEmblemDB->performQuery($query);
+
+        $FireEmblemDB->closeConnection();
+        
+        return $result;
+    }
+
+    function insertLevel($seed)
     {
         global $FireEmblemDB;
 
         $query = "INSERT INTO `level` "
-                ."Values ('" . $seed .  "'); "
-                ."INSERT INTO `game` "
-                ."Values ('" . $username . "', '" . $seed . "', '" . $win . "', '" . $score . "', '" . $turns . "', " . "CURRENT_TIMESTAMP()" . " );" ;
-                
-        $result = $FireEmblemDB->performMultiQuery($query);
+            ."Values ('" . $seed .  "')";
+
+        $result = $FireEmblemDB->performQuery($query);
+
+        checkResult($result, $query);
+
+        $FireEmblemDB->closeConnection();
+        
+        return $result;
+    }
+
+    function updateRanking($username, $seed, $win, $score, $turns)
+    {
+        global $FireEmblemDB;
+
+        $query = "INSERT INTO `game` "
+            ."Values ('" . $username . "', '" . $seed . "', '" . $win . "', '" . $score . "', '" . $turns . "', " . "CURRENT_TIMESTAMP()" . " );" ;
+        
+        $result = $FireEmblemDB->performQuery($query);
+        
+        checkResult($result, $query);
 
         $FireEmblemDB->closeConnection();
         

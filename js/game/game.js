@@ -8,7 +8,7 @@ var seed = "";
 var playerItems = new Array(); //Gli oggetti selezionati nel menu
 var enemyItems = new Array(); //Gli basati sulla difficolta' selezionata nel menu
 
-var movementLength = 5; //Ampiezza dell'area di movimento
+var movementLength = 2; //Ampiezza dell'area di movimento
 var attackLength = 1; //Ampiezza dell'area di attacco
 
 var teams = ["Blue", "Red"]; //Variabile che registra chi deve fare il turno corrente
@@ -35,21 +35,64 @@ var ended;
 
 function begin()
 {
-	showMenu();
+	board = new Board();
 
-	board = new Board(xLen, yLen);
+	getSessionSeed();
+
+	showMenu();
+}
+
+function getSessionSeed()
+{
+	var handler = function(responseText)
+	{
+		var response = JSON.parse(responseText);
+		if(response["responseCode"] == 0)
+		{
+			currentUserData = response["data"];
+			buildBoard(currentUserData["seed"]);
+		}
+		else
+			alert(response["message"]);
+	}
+
+	ajaxRequest("./../php/ajax/session/sessionValues.php", "GET", handler);
+}
+
+function buildBoard(currentSeed)
+{
+	if(currentSeed == "")
+	{
+		board.randomObstacles();
+	}
+	else
+	{
+		board.seedObstacles(currentSeed);
+		//Imposto la difficoltà e la fisso nel menu iniziale
+		var difficult = parseInt(currentSeed[currentSeed.length - 1]);
+		
+		var difficultySelection = document.getElementById("DifficultySelection");
+		difficultySelection.getElementsByTagName("option")[difficult].selected = "selected";
+
+		difficultySelection.disabled = "true";
+	}
 }
 
 function startGame()
 {
 	characters = new Array();
-	characters[0] = new Character("Bylet", 0, 0, "Sword", "Blue");
-	/*characters[1] = new Character("Hilda", 0, Math.floor(xLen / 2), "Axe", "Blue");
-	characters[2] = new Character("Claude", 0, xLen-1, "Lance", "Blue");*/
-	characters[1] /*[3]*/ = new Character("Edelgard", yLen-1, 0, "Axe", "Red");
-	/*characters[4] = new Character("Dimitri", yLen-1, Math.floor(xLen / 2), "Lance", "Red");
-	characters[5] = new Character("Petra", yLen-1, xLen-1, "Sword", "Red");
-	*/
+	characters[0] = new Character("Bylet(M)", 0, 0, "Sword", "Blue");
+	characters[1] = new Character("Hilda", 0, Math.floor(xLen / 2), "Axe", "Blue");
+	characters[2] = new Character("Claude", 0, xLen-1, "Lance", "Blue");
+	characters[3] = new Character("Felix", 1, xLen-3, "Sword", "Blue");
+	characters[4] = new Character("Dorothea", 1, 2, "Lance", "Blue");
+
+	characters[5] = new Character("Edelgard", yLen-1, 0, "Axe", "Red");
+	characters[6] = new Character("Dimitri", yLen-1, Math.floor(xLen / 2), "Lance", "Red");
+	characters[7] = new Character("Petra", yLen-1, xLen-1, "Sword", "Red");
+	characters[8] = new Character("Bylet(F)", yLen-2, xLen-3, "Sword", "Red");
+	characters[9] = new Character("Sylvain", yLen-2, 2, "Lance", "Red");
+	
 	buildTeams();
 
 	updateBoardCharacters();

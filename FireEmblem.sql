@@ -102,12 +102,13 @@ BEGIN
         
         INSERT INTO inventory
 		    VALUES(currentUser, "Spada di ferro"), (currentUser, "Lancia di ferro"), (currentUser, "Ascia di ferro"), (currentUser, "Armatura di ferro");
-                
+		
 		INSERT INTO game
 			VALUES
-				(currentUser, "1111111111", "Vittoria", "3", "4", current_timestamp() - INTERVAL (rand() * 10) + 0 DAY), (currentUser, "1111111112", "Vittoria", "1", "6", current_timestamp() - INTERVAL (rand() * 10) + 0 DAY), (currentUser, "1111111113", "Sconfitta", "-2", "5", current_timestamp() - INTERVAL (rand() * 10) + 0 DAY),
-				(currentUser, "2222222221", "Vittoria", "3", "4", current_timestamp() - INTERVAL (rand() * 10) + 0 DAY), (currentUser, "2222222222", "Vittoria", "1", "6", current_timestamp() - INTERVAL (rand() * 10) + 0 DAY), (currentUser, "2222222223", "Sconfitta", "-2", "5", current_timestamp() - INTERVAL (rand() * 10) + 0 DAY),
-                (currentUser, "3333333331", "Vittoria", "3", "4", current_timestamp() - INTERVAL (rand() * 10) + 0 DAY), (currentUser, "3333333332", "Vittoria", "1", "6", current_timestamp() - INTERVAL (rand() * 10) + 0 DAY), (currentUser, "3333333333", "Sconfitta", "-2", "5", current_timestamp() - INTERVAL (rand() * 10) + 0 DAY);
+				(currentUser, "0000000000", "Vittoria", "3", "4", current_timestamp() - INTERVAL (rand() * 10) + 0 DAY), (currentUser, "0000000001", "Vittoria", "1", "6", current_timestamp() - INTERVAL (rand() * 10) + 0 DAY), (currentUser, "0000000002", "Sconfitta", "-2", "5", current_timestamp() - INTERVAL (rand() * 10) + 0 DAY),
+				(currentUser, "1111111110", "Vittoria", "3", "4", current_timestamp() - INTERVAL (rand() * 10) + 0 DAY), (currentUser, "1111111111", "Vittoria", "1", "6", current_timestamp() - INTERVAL (rand() * 10) + 0 DAY), (currentUser, "1111111112", "Sconfitta", "-2", "5", current_timestamp() - INTERVAL (rand() * 10) + 0 DAY),
+                (currentUser, "2222222220", "Vittoria", "3", "4", current_timestamp() - INTERVAL (rand() * 10) + 0 DAY), (currentUser, "2222222221", "Vittoria", "1", "6", current_timestamp() - INTERVAL (rand() * 10) + 0 DAY), (currentUser, "2222222222", "Sconfitta", "-2", "5", current_timestamp() - INTERVAL (rand() * 10) + 0 DAY);
+		
     END LOOP insertRecords;
 	CLOSE C;
 END $$
@@ -120,16 +121,32 @@ CREATE TABLE `level`
   PRIMARY KEY(`seed`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `level`
+--
+
+LOCK TABLES `level` WRITE;
+
+/* !40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `level`(`seed`)
+VALUES ("0000000000"), ("0000000001"), ("0000000002"), 
+	("1111111110"), ("1111111111"), ("1111111112"), 
+    ("2222222220"), ("2222222221"), ("2222222222");
+/* !40000 ALTER TABLE `user` ENABLE KEYS */;
+UNLOCK TABLES;
+
 CREATE TABLE `game`
 (
-	`user` varchar(20) NOT NULL
-		REFERENCES `user`(`username`),
-	`level` varchar(20) NOT NULL
-		REFERENCES `level`(`seed`),
+	`user` varchar(20) NOT NULL,
+	`level` varchar(20) NOT NULL,
 	`outcome` varchar(20) NOT NULL,
 	`score` int(11) NOT NULL,
     `turns` int(11) NOT NULL,
 	`date` TIMESTAMP NOT NULL,
+    FOREIGN KEY(`user`)
+		REFERENCES `user`(`username`),
+    FOREIGN KEY(`level`)
+		REFERENCES `level`(`seed`),
     PRIMARY KEY(`user`, `level`, `date`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -155,6 +172,8 @@ FROM item;
 INSERT INTO `game`
 Values ('MasterZi', '0210120221', true, '100', CURRENT_TIMESTAMP());
 */
+SELECT * FROM `level` WHERE seed = "2202020110";
+
 SELECT *
 FROM `level`;
 
