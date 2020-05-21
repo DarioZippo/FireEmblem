@@ -15,8 +15,8 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Fire Emblem</title>
-		<script type="text/javascript" src="./js/index.js"></script>
-		<script type="text/javascript" src="./js/ajaxRequest.js"></script>
+		<script src="./js/index.js"></script>
+		<script src="./js/ajaxRequest.js"></script>
 
 		<link rel="shortcut icon" type="image/x-icon" href="./img/icons/siteIcon.png">
 		<link rel="stylesheet" type="text/css" href="./css/index.css">
@@ -36,18 +36,18 @@
 				<p id="messageArea" class="hidden"></p>
 				<div id="LoginWrapper">
 					<p class="inlineP">Accedi</p>
-					<button id="loginSwitch" class="simpleButton" onclick="switchToLogIn();" disabled>&#x25BC</button>
+					<button id="loginSwitch" class="simpleButton" onclick="switchToLogIn();" disabled>&#x25BC;</button>
 				
 					<form id="loginForm" name="loginForm" class="form" autocomplete="on" onsubmit="submitFun(event, 'loginForm');" >
 						<input type="text" name="username" placeholder="Username" autofocus data-pattern="^.*$" oninput="this.modified=true; validate_form('loginForm');">
 						<input type="password" name="password" placeholder="Password" data-pattern="^.*$" oninput="this.modified=true; validate_form('loginForm');">
-						<input id="loginForm.submit" type="submit" class="mediumButton" value="Accedi"></input>
+						<input id="loginForm.submit" type="submit" class="mediumButton" value="Accedi">
 					</form>
 				</div>
 				
 				<div class="form" id="SignInWrapper">
 					<p class="inlineP">Registrati</p>
-					<button id="signInSwitch" class="simpleButton" onclick="switchToSignIn();">&#x25BC</button>
+					<button id="signInSwitch" class="simpleButton" onclick="switchToSignIn();">&#x25BC;</button>
 
 					<form id="signInForm" name="signInForm" class="form hidden" autocomplete="off" onsubmit="submitFun(event, 'signInForm');">
 						<div class="inputBox">
@@ -60,7 +60,7 @@
 						<div class="inputBox">
 							<input type="text" name="email" placeholder="email" data-pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" data-unique="true" oninput="this.modified=true; validate_form('signInForm');">
 						</div>
-						<input id="signInForm.submit" type="submit" class="mediumButton" value="Registrati"></input>
+						<input id="signInForm.submit" type="submit" class="mediumButton" value="Registrati">
 					</form>
 				</div>
 			</div>

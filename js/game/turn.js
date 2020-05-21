@@ -39,7 +39,9 @@ function()
     this.addTurnPoints();
 
     this.disableTurnButton();
-    this.activeTurnButton();
+    
+    if(this.teamName == playerTeamColor)
+        this.activeTurnButton();
 
     if(this.teamName == enemyTeamColor)
     {

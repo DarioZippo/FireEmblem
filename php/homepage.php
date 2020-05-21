@@ -12,7 +12,8 @@
 	$_SESSION["seed"] = "";
 ?>
 
-<html>
+<!doctype html>
+<html lang="it">
 	<head>
 		<meta charset="utf-8"> 
     	<meta name = "author" content = "Dario Zippo">
@@ -22,8 +23,8 @@
 		<link rel="stylesheet" href="./../css/FireEmblem.css" type="text/css" media="screen">
 		<link rel="stylesheet" href="./../css/homepage.css" type="text/css" media="screen">
 		
-		<script type="text/javascript" src="./../js/homepage.js"></script>
-		<script type="text/javascript" src="./../js/ajaxRequest.js"></script>
+		<script src="./../js/homepage.js"></script>
+		<script src="./../js/ajaxRequest.js"></script>
 		<title>Fire Emblem</title>
 	</head>
 	<body onload="load()">
@@ -38,8 +39,14 @@
         <div id="Wrapper">
 			<div id="MenuWrapper">
 				<div id="UserInformationsWrapper">
-					<p id="UserInformations"></p>
+					<div id="UserInformations">
+						<p id="UserInformationsText"></p>
+						<span>
+							<img src="./../img/icons/coinIcon.png" id="coinsIcon" alt="coin">
+						</span>
+					</div>
 				</div>
+
 				<div id="Menu">
 					<a class="bigButton verticalOption purple" href="./../php/game.php">Gioca</a>
 					<a class="bigButton verticalOption purple" href="./store.php">Store</a>

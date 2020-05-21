@@ -40,7 +40,7 @@ function getUserInformations()
 
 function showUserInformations()
 {
-	var element = document.getElementById("UserInformations");
+	var element = document.getElementById("UserInformationsText");
 	element.textContent = "User: " + currentUserData["username"] + " Coins: " + currentUserData["coins"];
 }
 
@@ -63,17 +63,58 @@ function insertStoreItem(currentItem)
 	image.src = "./../img/Items/" + currentItem["name"].replace(/ /g, "_") + ".png";
 	image.className = "itemImage";
 	
+	var informationsWrapper = document.createElement("DIV");
+	informationsWrapper.className = "informationsWrapper";
+
+	var nameWrapper = document.createElement("DIV");
+	nameWrapper.className = "valueWrapper";
+
+	var nameTitle = document.createElement("P");
+	nameTitle.className = "itemTitle";
+	nameTitle.textContent = "Nome";
+
 	var name = document.createElement("P");
-	name.className = "itemName";
+	name.className = "itemValue";
 	name.textContent = currentItem["name"];
 
+	var bonusWrapper = document.createElement("DIV");
+	bonusWrapper.className = "valueWrapper";
+
+	var bonusTitle = document.createElement("P");
+	bonusTitle.className = "itemTitle";
+	bonusTitle.textContent = "Bonus";
+
+	var bonus = document.createElement("P");
+	bonus.className = "itemValue";
+	bonus.textContent = currentItem["value"];
+
+	var priceWrapper = document.createElement("DIV");
+	priceWrapper.className = "valueWrapper";
+
+	var priceTitle = document.createElement("P");
+	priceTitle.className = "itemTitle";
+	priceTitle.textContent = "Prezzo";
+
 	var price = document.createElement("P");
-	price.className = "itemPrice";
+	price.className = "itemValue";
 	price.textContent = currentItem["cost"];
 
 	element.appendChild(image);
-	element.appendChild(name);
-	element.appendChild(price);
+
+	nameWrapper.appendChild(nameTitle);
+	nameWrapper.appendChild(name);
+
+	bonusWrapper.appendChild(bonusTitle);
+	bonusWrapper.appendChild(bonus);
+
+	priceWrapper.appendChild(priceTitle);
+	priceWrapper.appendChild(price);
+
+	informationsWrapper.appendChild(nameWrapper);
+	informationsWrapper.appendChild(bonusWrapper);
+	informationsWrapper.appendChild(priceWrapper);
+
+	element.appendChild(informationsWrapper);
 
 	var sectionTarget = document.getElementById(currentItem["type"] + "Section");
 	sectionTarget.appendChild(element);
@@ -89,6 +130,30 @@ function addEvents()
 		items[i].element.addEventListener("mouseout", items[i].out);
 		items[i].element.addEventListener("click", items[i].click);
 	}
+}
+
+function showModalResult(bought)
+{
+	var modalBuyResult = document.getElementById("ModalBuyResult");
+	var modalBuyResultContent = document.getElementById("ModalBuyResultContent");
+	var modalTextResult = document.getElementById("ModalTextResult");
+	if(bought == true)
+	{
+		modalBuyResultContent.style.backgroundColor = "rgba(115, 255, 123, 0.80)";
+		modalTextResult.childNodes[0].nodeValue = "Acquistato! :D"
+	}
+	else
+	{
+		modalBuyResultContent.style.backgroundColor = "rgba(160, 11, 31, 0.80)";
+		modalTextResult.childNodes[0].nodeValue = "Sei troppo povero bro... :(";
+	}
+	modalBuyResult.style.display = "block";
+}
+
+function hideModalResult()
+{
+	var modalBuyResult = document.getElementById("ModalBuyResult");
+	modalBuyResult.style.display = "none";
 }
 
 function refreshStore()

@@ -10,7 +10,8 @@
 	}
 ?>
 
-<html>
+<!doctype html>
+<html lang="it">
 	<head>
 		<meta charset="utf-8"> 
     	<meta name = "author" content = "Dario Zippo">
@@ -20,19 +21,19 @@
 		<link rel="stylesheet" href="./../css/FireEmblem.css" type="text/css" media="screen">
 		<link rel="stylesheet" href="./../css/game.css" type="text/css" media="screen">
 		
-		<script type="text/javascript" src="./../js/ajaxRequest.js"></script>
-		<script type="text/javascript" src="./../js/game/menu.js"></script>
-		<script type="text/javascript" src="./../js/game/game.js"></script>
-		<script type="text/javascript" src="./../js/game/turn.js"></script>
-		<script type="text/javascript" src="./../js/game/board.js"></script>
-		<script type="text/javascript" src="./../js/game/block.js"></script>
-		<script type="text/javascript" src="./../js/game/area.js"></script>
-		<script type="text/javascript" src="./../js/game/character.js"></script>
-		<script type="text/javascript" src="./../js/game/enemy.js"></script>
-		<script type="text/javascript" src="./../js/game/duel.js"></script>
-		<script type="text/javascript" src="./../js/game/util.js"></script>
-		<script type="text/javascript" src="./../js/game/teamStat.js"></script>
-		<script type="text/javascript" src="./../js/game/endGame.js"></script>
+		<script src="./../js/ajaxRequest.js"></script>
+		<script src="./../js/game/menu.js"></script>
+		<script src="./../js/game/game.js"></script>
+		<script src="./../js/game/turn.js"></script>
+		<script src="./../js/game/board.js"></script>
+		<script src="./../js/game/block.js"></script>
+		<script src="./../js/game/area.js"></script>
+		<script src="./../js/game/character.js"></script>
+		<script src="./../js/game/enemy.js"></script>
+		<script src="./../js/game/duel.js"></script>
+		<script src="./../js/game/util.js"></script>
+		<script src="./../js/game/teamStat.js"></script>
+		<script src="./../js/game/endGame.js"></script>
 		<title>Fire Emblem</title>
 	</head>
 	<body onLoad="begin()">
@@ -42,6 +43,10 @@
 				<img src="./../img/Title/Title.png" alt="Fire Emblem Title" id="TitleImage">
 			</div>-->
 		</header>
+
+		<div id="ExitOption">
+			<a class="purple bigButton" id="ExitButton" href="./homepage.php">Esci</a>
+		</div>
 
 		<div id="GameWrapper">
 
@@ -71,7 +76,7 @@
 			<div id="GameWrapper2">
 				
 				<div id="BlueStatsWrapper" class="teamStatsWrapper">
-					<table id="BlueStatsTable"class="teamStatsTable">
+					<table id="BlueStatsTable" class="teamStatsTable">
 						<tbody id="BlueStatsTableBody" class="teamStatsTableBody">
 							<tr>
 								<th id="BlueStatsTitle" class="teamStatsTitle" colspan="2">Blue Team</th>
@@ -92,7 +97,7 @@
 							</tr>
 							<tr>
 								<td colspan="2">
-									<button id="BlueTurnButton" class="turnButton" disabled="true">End Turn</button>
+									<button id="BlueTurnButton" class="turnButton" disabled>End Turn</button>
 								</td>
 							</tr>
 						</tbody>
@@ -106,7 +111,7 @@
 
 					<div class="stats" id="StatsAttacker">
 						<div class="characterPortraitWrapper" id="CharacterPortraitWrapperAttacker">
-							<img class="characterPortrait" id="CharacterPortraitAttacker" alt="Character">
+							<img class="characterPortrait" id="CharacterPortraitAttacker" alt="Character" src="./">
 						</div>
 						<div class="valuesWrapper" id="ValuesWrapperAttacker">
 							<div id="CharacterNameAttackerWrapper" class="value">
@@ -114,11 +119,11 @@
 							</div>
 							<div id="PSAttackerWrapper" class="value">
 								<p id="PSAttacker" class="valueText">Ps:--</p>
-								<img class="armorImage" id="ArmorImageAttacker" alt="Armor">
+								<img class="armorImage" id="ArmorImageAttacker" alt="Armor" src="./">
 							</div>
 							<div id="CharacterWeaponAttackerWrapper" class="value">
 								<p id="CharacterWeaponAttacker" class="valueText">Arma:--</p>
-								<img class="weaponImage" id="WeaponImageAttacker" alt="Weapon">
+								<img class="weaponImage" id="WeaponImageAttacker" alt="Weapon" src="./">
 							</div>
 							<!--<div class="pointsWrapper" id="PointsWrapperAttacker">-->
 							<!--	<div class="value" id="MovePointsAttacker">Move Points:--</div>
@@ -129,12 +134,12 @@
 
 					<div id="DuelWrapper">
 						<div id="ButtonWrapper">
-							<button id="DuelButton" class="duelMenuButton" disabled="true">DUEL</button>
-							<button id="UndoButton" class="duelMenuButton" disabled="true">UNDO</button>
+							<button id="DuelButton" class="duelMenuButton" disabled>DUEL</button>
+							<button id="UndoButton" class="duelMenuButton" disabled>UNDO</button>
 						</div>
 						<div class="stats" id="StatsDefender">
 							<div class="characterPortraitWrapper" id="CharacterPortraitWrapperDefender">
-								<img class="characterPortrait" id="CharacterPortraitDefender" alt="Character">
+								<img class="characterPortrait" id="CharacterPortraitDefender" alt="Character" src="./">
 							</div>
 							<div class="valuesWrapper" id="ValuesWrapperDefender">
 								<div id="CharacterNameDefenderWrapper" class="value">
@@ -142,11 +147,11 @@
 								</div>
 								<div id="PSDefenderWrapper" class="value">
 									<p id="PSDefender" class="valueText">Ps:--</p>
-									<img class="armorImage" id="ArmorImageDefender" alt="Armor">
+									<img class="armorImage" id="ArmorImageDefender" alt="Armor" src="./">
 								</div>
 								<div id="CharacterWeaponDefenderWrapper" class="value">
 									<p id="CharacterWeaponDefender" class="valueText">Arma:--</p>
-									<img class="weaponImage" id="WeaponImageDefender" alt="Weapon">
+									<img class="weaponImage" id="WeaponImageDefender" alt="Weapon" src="./">
 								</div>
 								<!--<div class="pointsWrapper" id="PointsWrapperDefender">-->
 								<!--	<div class="value" id="MovePointsDefender">Move Points:--</div>
@@ -159,8 +164,8 @@
 				</div>
 
 				<div id="RedStatsWrapper" class="teamStatsWrapper">
-					<table id="RedStatsTable"class="teamStatsTable">
-						<tbody id="RedStatsTableBody"class="teamStatsTableBody">
+					<table id="RedStatsTable" class="teamStatsTable">
+						<tbody id="RedStatsTableBody" class="teamStatsTableBody">
 							<tr>
 								<th id="RedStatsTitle" class="teamStatsTitle" colspan="2">Red Team</th>
 							</tr>
@@ -180,13 +185,13 @@
 							</tr>
 							<tr>
 								<td colspan="2">
-									<button id="RedTurnButton" class="turnButton" disabled="true">End Turn</button>
+									<button id="RedTurnButton" class="turnButton" disabled>End Turn</button>
 								</td>
 							</tr>
 						</tbody>
 					</table>
 				</div>
-			
+			</div>
 		</div>
 		<!-- Menu iniziale di selezione oggetti -->
 		<div class="modal" id="ModalMenu">

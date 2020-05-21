@@ -27,7 +27,7 @@ LOCK TABLES `user` WRITE;
 
 /* !40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user`/*(`username`, `email`, `password`)*/
-VALUES ("MasterZi", "dario_zippo@hotmail.it", "SuSaNoo99", '100000'), ("SkuldMagnusdottir", "esempio@outlook.it", "AmoDario3000", '1000'), ("HeyPika!", "b@b.it", "Password99", '1000'); 
+VALUES ("MasterZi", "dario_zippo@hotmail.it", "SuSaNoo99", '10000'), ("SkuldMagnusdottir", "esempio@outlook.it", "AmoDario3000", '1000'), ("HeyPika!", "b@b.it", "Password99", '1000'); 
 /* !40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -172,7 +172,6 @@ FROM item;
 INSERT INTO `game`
 Values ('MasterZi', '0210120221', true, '100', CURRENT_TIMESTAMP());
 */
-SELECT * FROM `level` WHERE seed = "2202020110";
 
 SELECT *
 FROM `level`;

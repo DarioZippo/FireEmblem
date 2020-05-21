@@ -77,6 +77,13 @@ a, button
     font-weight: bold;
 }
 
+.green
+{
+    background-color: rgb(29, 92, 5);
+    color: black;
+    font-weight: bold;
+}
+
 .verticalOption
 {
     display: block;
@@ -108,4 +115,15 @@ a, button
     border-width: 7px;
     border-color: purple;
     border-radius: 4px;
+}
+
+#UserInformationsText
+{
+    font-size: 22px;
+    font-weight: bolder;
+}
+
+#coinsIcon
+{
+    height: 30px;
 }

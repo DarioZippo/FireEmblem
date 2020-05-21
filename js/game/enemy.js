@@ -118,7 +118,7 @@ function(i)
                     nextEnemyTurn(++i)
                 }
             }, 
-            5002
+            5010
         );
     }
     else

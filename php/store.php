@@ -12,7 +12,8 @@
 	$_SESSION["seed"] = "";
 ?>
 
-<html>
+<!doctype html>
+<html lang="it">
 	<head>
 		<meta charset="utf-8"> 
     	<meta name = "author" content = "Dario Zippo">
@@ -22,9 +23,9 @@
 		<link rel="stylesheet" href="./../css/FireEmblem.css" type="text/css" media="screen">
 		<link rel="stylesheet" href="./../css/store.css" type="text/css" media="screen">
 		
-		<script type="text/javascript" src="./../js/store.js"></script>
-		<script type="text/javascript" src="./../js/storeItem.js"></script>
-		<script type="text/javascript" src="./../js/ajaxRequest.js"></script>
+		<script src="./../js/store.js"></script>
+		<script src="./../js/storeItem.js"></script>
+		<script src="./../js/ajaxRequest.js"></script>
 		<title>Fire Emblem</title>
 	</head>
 
@@ -36,9 +37,16 @@
 				<img src="./../img/Title/Title.png" alt="Fire Emblem Title" id="TitleImage">
 			</div>-->
         </header>
+
 		<div id="UserInformationsWrapper">
-			<p id="UserInformations"></p>
+			<div id="UserInformations">
+				<p id="UserInformationsText"></p>
+				<span>
+					<img src="./../img/icons/coinIcon.png" id="coinsIcon" alt="coin">
+				</span>
+			</div>
 		</div>
+
 		<div id="StoreContainer">
 			<div id="WeaponWrapper">
 				<div id="SwordSection" class="weaponSection">
@@ -60,6 +68,26 @@
 		<div id="ExitWrapper">
 			<div id="ExitOption">
 				<a class="purple bigButton" id="ExitButton" href="./homepage.php">Esci</a>
+			</div>
+		</div>
+
+		<div class="modal" id="ModalMenu">
+			<div class="modalContent" id="ModalMenuContent">
+				<p class="modalText" id="ModalTextMenu">
+					Vuoi acquistare: 
+				</p>
+				<div id="ModalMenuButtons">
+					<button class="bigButton modalButton green" id="ModalButtonBuy">Acquista</button>
+					<button class="bigButton modalButton red" id="ModalButtonUndo">Annulla</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal" id="ModalBuyResult">
+			<div class="modalContent" id="ModalBuyResultContent">
+				<p class="modalText" id="ModalTextResult">
+				</p>
+				<button class="bigButton modalButton red" id="ModalBuyResultButton" onclick="hideModalResult()">Ok</button>
 			</div>
 		</div>
 	</body>

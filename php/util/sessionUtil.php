@@ -103,7 +103,7 @@
 		$email = $FireEmblemDB->sqlInjectionFilter($email);
 
 		$query = "INSERT into user (username, password, email) values ('" .$username. "', '" .$password. "', '" .$email. "'); "
-			."INSERT into inventory (user, item) values ('" .$username. "', 'Spada di ferro'), ('" .$username. "', 'Lancia di ferro'), ('" .$username. "', 'Ascia di ferro');";
+			."INSERT into inventory (user, item) values ('" .$username. "', 'Spada di ferro'), ('" .$username. "', 'Lancia di ferro'), ('" .$username. "', 'Ascia di ferro'), ('" .$username. "', 'Armatura di ferro');";
 		
 		$result = $FireEmblemDB->performMultiQuery($query); /* performMultiQuery($query); */
 		$FireEmblemDB->closeConnection();

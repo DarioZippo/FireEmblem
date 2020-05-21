@@ -37,7 +37,7 @@ function getUserInformations()
 
 function showUserInformations(currentUserData)
 {
-	var element = document.getElementById("UserInformations");
+	var element = document.getElementById("UserInformationsText");
 	element.textContent = "User: " + currentUserData["username"] + " Coins: " + currentUserData["coins"];
 }
 

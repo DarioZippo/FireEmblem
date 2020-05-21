@@ -12,7 +12,8 @@
 	$_SESSION["seed"] = "";
 ?>
 
-<html>
+<!doctype html>
+<html lang="it">
 	<head>
 		<meta charset="utf-8"> 
     	<meta name = "author" content = "Dario Zippo">
@@ -22,8 +23,8 @@
 		<link rel="stylesheet" href="./../css/FireEmblem.css" type="text/css" media="screen">
 		<link rel="stylesheet" href="./../css/ranking.css" type="text/css" media="screen">
 		
-		<script type="text/javascript" src="./../js/ranking.js"></script>
-		<script type="text/javascript" src="./../js/ajaxRequest.js"></script>
+		<script src="./../js/ranking.js"></script>
+		<script src="./../js/ajaxRequest.js"></script>
 		<title>Fire Emblem</title>
 	</head>
 	<body onload="load()">
@@ -36,14 +37,23 @@
         </header>
 
         <div id="UserInformationsWrapper">
-			<p id="UserInformations"></p>
+			<div id="UserInformations">
+				<p id="UserInformationsText"></p>
+				<span>
+					<img src="./../img/icons/coinIcon.png" id="coinsIcon" alt="coin">
+				</span>
+			</div>
+		</div>
+
+		<div id="ExitOption">
+				<a class="purple bigButton" id="ExitButton" href="./homepage.php">Esci</a>
 		</div>
 
         <div id="RankingWrapper">
                        
             <table id="RankingTable">
+				<caption class="recordValue" id="RankingCaption">CLASSIFICA</caption>
 				<tbody>
-					<caption class="recordValue" id="RankingCaption">CLASSIFICA</caption>
 					<tr class="recordHeaders">
 					<th class="recordValue rankingHeader" onclick="sortTable(0, true)">Posizione</th>
 						<th class="recordValue rankingHeader" onclick="sortTable(1)">User</th>

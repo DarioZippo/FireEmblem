@@ -4,6 +4,16 @@ body
 	margin: 0;
 }
 
+#ModalMenu
+{
+    display: none;
+}
+
+#ModalBuyResult
+{
+    display: none;
+}
+
 p
 {
 
@@ -11,14 +21,14 @@ p
 
 #StoreContainer
 {
-    width: 50%;
+    width: 70%;
     display: inline-block;
 }
 
 #WeaponWrapper
 {
     width: 75%;
-    display: inline-block;
+    /*display: inline-block;*/
     /* height: 830px; */
     position: relative;
     float: left;
@@ -54,21 +64,54 @@ p
     flex-direction: column;
 }
 
+.informationsWrapper
+{
+    height: 100%;
+    width: 50%;
+}
+
 .item
 {
     height: 230px;
-    width: 130px;
+    width: 250px;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
     background-color: #d3d3d399;
     border-style: solid;
+    margin: 3px;
 }
 
 .itemImage
 {
-    height: 78%;
+    height: 100%;
+    width: 50%;
+    border-style: solid;
+}
+
+.valueWrapper
+{
+    border-style: solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 31%;
+}
+
+.itemTitle
+{
+    margin: 0px;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+.itemValue
+{
+    margin: 0px;
+    text-align: center;
+    font-size: 16px;
 }
 
 .itemName
@@ -78,14 +121,6 @@ p
     border-style: solid;
     width: 100%;
     height: 9%;
-}
-
-.itemPrice
-{
-    margin: 0;
-    width: 100%;
-    height: 5%;
-    text-align: center;
 }
 
 .purchasable
@@ -111,20 +146,56 @@ p
 
 #UserInformations
 {
-    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalText
+{
+    font-size: 25px;
     font-weight: bolder;
+}
+
+.modalContent
+{
+    height: 30%;
+    margin-top: 12%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#ModalMenu
+{
+    display: none;
+}
+
+.modalButton
+{
+    margin: 24px;
+}
+
+#ModalBuyResult
+{
+    display: none;
 }
 
 #ExitWrapper
 {
     display: inline-flex;
-    width: 49%;
-    height: 40%;
+    width: 12%;
+    height: 12%;
     align-items: center;
     justify-content: center;
+    background-color: #ffffffcc;
+    border-style: solid;
+    border-color: #9c089c;
+    border-width: 6px;
+    border-radius: 11px;
+    margin-left: 135px;
 }
 
 #ExitButton
 {
-    
 }

@@ -149,7 +149,7 @@ function(damage, role)
 	setTimeout(function(){that.showStats(role)}, 2000);
 	if(this.lifePoints <= 0)
 	{
-		this.die();
+		setTimeout(function(){that.die()}, 2000);
 		return "died";
 	}
 }

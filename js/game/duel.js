@@ -70,7 +70,7 @@ function duel(attacker, defender)
 			{ 
 				activeDuelButtons();
 			}
-		}, 5000);
+		}, 5001);
 	
 }
 

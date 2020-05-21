@@ -60,6 +60,13 @@ h1
 	text-align: center;
 }
 
+#ExitOption
+{
+	position: fixed;
+    top: 0;
+    margin-top: 12px;
+}
+
 #GameWrapper
 {
 	margin: auto;	
@@ -143,7 +150,7 @@ h1
 
 .stats
 {
-	height: 170px;
+	height: 149px;
 	width: 774px;
 }
 
@@ -158,7 +165,7 @@ h1
 .characterPortrait
 {
 	height: 100%;
-	width: 53%;
+	width: 48%;
 	margin: auto;
 	display: none;
 }
@@ -166,14 +173,14 @@ h1
 .valuesWrapper
 {
 	width: 55.5%;
-	height: 95.5%;
+	height: 149px;
 	position: relative;
 	float: right;
 }
 
 .value
 {
-	height: 31.7%;
+	height: 44.2px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
