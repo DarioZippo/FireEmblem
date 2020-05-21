@@ -74,7 +74,8 @@
 				<p id="ModalText">
 					Vuoi affrontare il livello:
 				</p>
-				<button class="bigButton red" id="ModalButton" onclick="playSeedLevel()">Gioca!</button>
+				<button class="bigButton modalButton red" id="ModalButtonPlay" onclick="playSeedLevel()">Gioca!</button>
+				<button class="bigButton modalButton red" id="ModalButtonUndo" onclick="undo()">Annulla</button>
 			</div>
 		</div>
     </body>

@@ -2,6 +2,8 @@ body
 {
 	background-image: url(./../img/Backgrounds/gameBackground.jpg);
 	margin: 0;
+	height: 100%;
+	width: 100%;
 }
 
 #ModalResult
@@ -96,7 +98,7 @@ h1
 
 .matrixRow
 {
-
+	height: 86px;
 }
 
 .matrixBlock

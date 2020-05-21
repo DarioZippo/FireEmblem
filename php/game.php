@@ -196,32 +196,31 @@
 		<!-- Menu iniziale di selezione oggetti -->
 		<div class="modal" id="ModalMenu">
 			<div class="modalContent" id="ModalMenuContent">
-				<div id="itemsMenu">
-					<div class="itemSelectionWrapper selectionWrapper">
-						<label for="ArmorSelection">Armor type:</label>
-							<select id="ArmorSelection" class="itemSelection" name="Armors">
+				<div class="itemSelectionWrapper selectionWrapper">
+					<label for="ArmorSelection">Armor type:</label>
+						<select id="ArmorSelection" class="itemSelection" name="Armors">
 						
-							</select><br><br>
-					</div>
-					<div class="itemSelectionWrapper selectionWrapper">
-						<label for="SwordSelection">Sword type:</label>
-							<select id="SwordSelection" class="itemSelection" name="Swords">
-							
-							</select><br><br>
-					</div>
-					<div class="itemSelectionWrapper selectionWrapper">
-						<label for="AxeSelection">Axe type:</label>
-							<select id="AxeSelection" class="itemSelection" name="Axes">
-							
-							</select><br><br>
-					</div>
-					<div class="itemSelectionWrapper selectionWrapper">
-						<label for="LanceSelection">Lance type:</label>
-							<select id="LanceSelection" class="itemSelection" name="Lances">
-							
-							</select><br><br>
-					</div>
+						</select><br><br>
 				</div>
+				<div class="itemSelectionWrapper selectionWrapper">
+					<label for="SwordSelection">Sword type:</label>
+						<select id="SwordSelection" class="itemSelection" name="Swords">
+							
+						</select><br><br>
+				</div>
+				<div class="itemSelectionWrapper selectionWrapper">
+					<label for="AxeSelection">Axe type:</label>
+						<select id="AxeSelection" class="itemSelection" name="Axes">
+						
+						</select><br><br>
+				</div>
+				<div class="itemSelectionWrapper selectionWrapper">
+					<label for="LanceSelection">Lance type:</label>
+						<select id="LanceSelection" class="itemSelection" name="Lances">
+							
+						</select><br><br>
+				</div>
+				
 				<div class="difficultySelectionWrapper selectionWrapper">
 					<label for="DifficultySelection">Difficolta':</label>
 							<select id="DifficultySelection" name="Difficult">

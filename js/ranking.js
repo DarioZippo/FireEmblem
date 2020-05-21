@@ -202,3 +202,20 @@ function playSeedLevel()
 	var postString = "seed=" + level;
 	ajaxRequest("./../php/ajax/PlaySeedLevel.php", "POST", handler, postString);
 }
+
+function undo()
+{
+	var modalText = document.getElementById("ModalText");
+    var modalTextValue = modalText.childNodes[0].nodeValue;
+    var currentLevel = modalTextValue.slice(modalTextValue.indexOf(":") + 2, modalTextValue.length);
+    
+	currentLevel = currentLevel.replace(/\t/g, "");
+	currentLevel = currentLevel.replace(/\n/g, "");
+
+    modalTextValue = modalTextValue.replace(currentLevel, "");
+
+	modalText.childNodes[0].nodeValue = modalTextValue;
+	
+	var modalMenu = document.getElementById("ModalMenu");
+    modalMenu.style.display = "none";
+}

@@ -1,7 +1,9 @@
 body
 {
 	background-image: url(./../img/Backgrounds/menuBackground.jpg);
-	margin: 0;
+    margin: 0;
+    height: 100%;
+	width: 100%;
 }
 
 #UserInformationsWrapper
@@ -117,7 +119,7 @@ body
     justify-content: center;
 }
 
-#ModalButton
+.modalButton
 {
     margin: 24px;
 }

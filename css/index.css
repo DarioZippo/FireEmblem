@@ -2,6 +2,8 @@ body
 {
 	background-image: url(./../img/Backgrounds/menuBackground.jpg);
 	margin: 0;
+	height: 100%;
+	width: 100%;
 }
 
 p
@@ -11,8 +13,6 @@ p
 
 #FormWrapper
 {
-    height: 100%;
-    width: 100%;
 }
 
 #FormContainer
