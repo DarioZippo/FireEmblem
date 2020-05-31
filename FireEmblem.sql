@@ -54,7 +54,6 @@ VALUES ('Spada di ferro', 'Sword', '50', '100'), ("Spada d'acciaio", 'Sword', '7
 	('Ascia di ferro', 'Axe', '50', '100'), ("Ascia d'acciaio", 'Axe', '70', '300'), ("Ascia d'argento", 'Axe', '100', '700'),
     ('Lancia di ferro', 'Lance', '50', '100'), ("Lancia d'acciaio", 'Lance', '70', '300'), ("Lancia d'argento", 'Lance', '100', '700'),
     ('Armatura di ferro', 'Armor', '100', '100'), ("Armatura d'acciaio", 'Armor', '120', '300'), ("Armatura d'argento", 'Armor', '150', '700');
-/* !40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --

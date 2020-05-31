@@ -57,11 +57,12 @@ function loadStoreItems(data)
 function insertStoreItem(currentItem)
 {
 	var element = document.createElement("DIV");
-	element.className = "item " + "weapon " + currentItem["type"];
+	element.className = "item " + currentItem["type"];
 
 	var image = document.createElement("IMG");
 	image.src = "./../img/Items/" + currentItem["name"].replace(/ /g, "_") + ".png";
 	image.className = "itemImage";
+	image.alt = currentItem["name"];
 	
 	var informationsWrapper = document.createElement("DIV");
 	informationsWrapper.className = "informationsWrapper";

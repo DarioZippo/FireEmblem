@@ -10,6 +10,8 @@ function attackMenu(attacker, defender)
 
     document.getElementById("DuelWrapper").style.display = "block";
 
+	window.location.href = "#DuelWrapper";
+
 	disableBlocks();
 	document.getElementById("BlueTurnButton").disabled = true;
 	document.getElementById("RedTurnButton").disabled = true;
@@ -20,7 +22,7 @@ function attackMenu(attacker, defender)
 	activeDuelButtons(attacker.attackPoints);
 }
 
-function duel(attacker, defender)
+function duel(attacker, defender, enemyFlag = false)
 {
 	disableDuelButtons();
 
@@ -39,7 +41,7 @@ function duel(attacker, defender)
 		defender.teamStat.decrementScore();
 		defender.teamStat.updateScoreBoard();
 
-		setTimeout( function(){undo();}, 3000);
+		setTimeout( function(){undo(enemyFlag);}, 3000);
 		setTimeout( function(){attacker.showStats("Attacker"); checkEndGame();}, 3001);
 		return;
 	}
@@ -53,7 +55,7 @@ function duel(attacker, defender)
 
 			if(duelResult == "died")
 			{
-				undo();
+				undo(enemyFlag);
 				/*Aggiorno i punteggi*/
 				defender.teamStat.incrementScore();
 				defender.teamStat.updateScoreBoard();
@@ -147,7 +149,7 @@ function disableDuelButtons()
 	undoButton.disabled = true;
 }
 
-function activeDuelButtons(attackPoints)
+function activeDuelButtons(attackPoints = 0)
 {
 	var duelButton = document.getElementById("DuelButton");
 	var undoButton = document.getElementById("UndoButton");

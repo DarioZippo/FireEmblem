@@ -102,7 +102,7 @@ function(i)
     if(found == true)
     {
         attackMenu(this, targetCharacter);
-        duel(this, targetCharacter);
+        duel(this, targetCharacter, true);
         setTimeout(
             function()
             {

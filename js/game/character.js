@@ -57,15 +57,19 @@ function()
 {
 	this.images.sprite.src = "./../img/sprites/" + this.name + ".png";
 	this.images.sprite.className = "characterSprite "+ this.name;
+	this.images.sprite.alt = "characterSprite "+ this.name;
 
 	this.images.portrait.src = "./../img/portraits/" + this.name + ".png";
 	this.images.portrait.className = "characterPortrait "+ this.name;
+	this.images.portrait.alt = "characterPortrait "+ this.name;
 
 	this.images.armor.src = "./../img/icons/" + this.armor.replace(/ /g, "_") + ".png";
 	this.images.armor.className = "characterArmor";
+	this.images.armor.alt = "characterArmor";
 
 	this.images.weapon.src = "./../img/icons/" + this.weapon.replace(/ /g, "_") + ".png";
 	this.images.weapon.className = "characterWeapon";
+	this.images.weapon.alt = "characterWeapon";
 }
 
 Character.prototype.showStats =

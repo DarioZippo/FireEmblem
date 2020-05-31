@@ -21,10 +21,18 @@ p
 
 }
 
+#contentWrapper
+{
+    display: flex;
+    height: 79%;
+    width: 100%;
+    align-items: center;
+}
+
 #StoreContainer
 {
     width: 70%;
-    display: inline-block;
+    height: 100%;
 }
 
 #WeaponWrapper
@@ -53,6 +61,7 @@ p
     align-items: center;
     border-style: solid;
     background-color: #0088ff73;
+    overflow-x: auto;
 }
 
 #ArmorSection
@@ -64,6 +73,7 @@ p
     border-style: solid;
     background-color: #0088ff73;
     flex-direction: column;
+    overflow-y: auto;
 }
 
 .informationsWrapper
@@ -81,7 +91,8 @@ p
     align-items: center;
     background-color: #d3d3d399;
     border-style: solid;
-    margin: 3px;
+    margin-left: 3px;
+    margin-right: 3px;
 }
 
 .itemImage
@@ -185,7 +196,7 @@ p
 
 #ExitWrapper
 {
-    display: inline-flex;
+    display: flex;
     width: 12%;
     height: 12%;
     align-items: center;

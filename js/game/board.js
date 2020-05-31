@@ -19,7 +19,7 @@ function()
 		for(var j = 0; j < xLen; j++)
 		{
 			currentBlock = new Block(i, j);
-			currentBlock.element = document.createElement("span");
+			currentBlock.element = document.createElement("div");
 			currentBlock.element.className = "matrixBlock";
 			currentRow.appendChild(currentBlock.element);
 			
