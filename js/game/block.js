@@ -180,6 +180,7 @@ function()
 	{
 		attackPhase = false;
 		cleanArea();
+		cleanStats();
 		selectedBlock.x = null; 
 		selectedBlock.y = null;
 	}
