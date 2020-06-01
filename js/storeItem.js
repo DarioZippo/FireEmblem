@@ -61,7 +61,7 @@ function()
         }
 
         var postString = "username=" + currentUserData["username"] + "&item=" + this.name + "&cost=" + this.cost;
-        ajaxRequest("./../php/ajax/StoreBuy.php", "POST", handler, postString);
+        ajaxRequest("./../php/ajax/store/StoreBuy.php", "POST", handler, postString);
     }
     else
         showModalResult(false);
@@ -77,7 +77,7 @@ function()
 	currentItemText = currentItemText.replace(/\t/g, "");
 	currentItemText = currentItemText.replace(/\n/g, "");
 
-    modalTextMenuValue = modalTextMenuValue.replace(currentItemText, "");
+    modalTextMenuValue = modalTextMenuValue.replace(currentItemText, ""); //Elimino l'oggetto corrente dalla stringa
 
     modalTextMenu.childNodes[0].nodeValue = modalTextMenuValue;
 

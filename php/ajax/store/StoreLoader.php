@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	require_once __DIR__ . "./AjaxResponse.php";
+	require_once __DIR__ . "./../AjaxResponse.php";
 	include DIR_DB_UTIL . "sessionUtil.php";
 	include DIR_DB_UTIL . "storeUtil.php";
 
@@ -9,30 +9,33 @@
 	if(!isLogged())
 		$response->error("Richiesta rifiutata");
 
-    $username = $_POST["username"];
-    $item = $_POST["item"];
-    $cost = $_POST["cost"];
+	$result = showStore();
+	$code; $message;
 
-	$result = buy($username, $item, $cost);
-    $code; $message;
-    
 	if (checkEmptyResult($result))
 	{
-        $response->error("Empty result");
+		$response->error("Empty result");
 		return;
-    }
-
+	}
 	else
-	{	
-        updateSession();
+	{			
+		$index = 0;
+		$data = array();
+		while ($row = $result->fetch_assoc())
+		{			
+			$data[$index] = $row;
+			$index++;
+		}
+		
 		$response->sendBack(0,
 							"Ok",
-							0);
+							$data);
 	}
 
-    function checkEmptyResult($result)
-    {
+	function checkEmptyResult($result){
 		if ($result === null || !$result)
 			return true;
+			
+		return ($result->num_rows <= 0);
 	}
 ?>

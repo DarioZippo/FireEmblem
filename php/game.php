@@ -39,9 +39,6 @@
 	<body onLoad="begin()">
 		<header>
 			<img src="./../img/Title/Title.png" alt="Fire Emblem Title" id="TitleImage">
-			<!--<div id="TitleWrapper">
-				<img src="./../img/Title/Title.png" alt="Fire Emblem Title" id="TitleImage">
-			</div>-->
 		</header>
 
 		<div id="ExitOption">
@@ -106,7 +103,7 @@
 
 				<div id="BoardWrapper">
 					<div id="Board">
-						<!-- Qui la roba viene aggiunta via DOM -->
+						<!-- Qui il campo di gioco viene aggiunto via DOM -->
 					</div>
 
 					<div class="stats" id="StatsAttacker">

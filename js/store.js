@@ -1,5 +1,5 @@
-var items = new Array();
-var currentUserData = new Array();
+var items = new Array(); //Array che salva in locale gli oggetti ottenuti dal database
+var currentUserData = new Array(); //Array che salva in locale i valori di sessione ottenuti dal database
 
 function load()
 {
@@ -11,13 +11,13 @@ function load()
 		if(response["responseCode"] == 0)
 		{
 			loadStoreItems(response["data"]);
-			refreshStore();
+			refreshStore(); //Aggiorna gli oggetti già venduti all'utente corrente
 		}
 		else
 			alert(response["message"]);
 	}
 
-	ajaxRequest("./../php/ajax/StoreLoader.php", "GET", handler);
+	ajaxRequest("./../php/ajax/store/StoreLoader.php", "GET", handler); //Ottiene gli oggetti venduti nello store e li carica nella pagina 
 }
 
 function getUserInformations()
@@ -49,7 +49,6 @@ function loadStoreItems(data)
     for(var i = 0; i < data.length; i++)
     {
 		insertStoreItem(data[i]);
-		/*updateBuyedStoreItem();*/
 	}
 	addEvents();
 }
@@ -120,9 +119,10 @@ function insertStoreItem(currentItem)
 	var sectionTarget = document.getElementById(currentItem["type"] + "Section");
 	sectionTarget.appendChild(element);
 
-	items.push(new Item(element, currentItem["cost"], currentItem["name"]) );
+	items.push(new Item(element, currentItem["cost"], currentItem["name"]) ); //Aggiorna l'array Items con i valori del nuovo oggetto aggiunto nel sito
 }
 
+//Rende interattivi gli oggetti nella pagina
 function addEvents()
 {
 	for(let i = 0; i < items.length; i++)
@@ -133,6 +133,7 @@ function addEvents()
 	}
 }
 
+//Mostra il risultato dell'acquisto tramite una finestra modale
 function showModalResult(bought)
 {
 	var modalBuyResult = document.getElementById("ModalBuyResult");
@@ -146,11 +147,12 @@ function showModalResult(bought)
 	else
 	{
 		modalBuyResultContent.style.backgroundColor = "rgba(160, 11, 31, 0.80)";
-		modalTextResult.childNodes[0].nodeValue = "Sei troppo povero bro... :(";
+		modalTextResult.childNodes[0].nodeValue = "Non hai abbastanza monete... :(";
 	}
 	modalBuyResult.style.display = "block";
 }
 
+//Nasconde la finestra modale
 function hideModalResult()
 {
 	var modalBuyResult = document.getElementById("ModalBuyResult");
@@ -170,9 +172,10 @@ function refreshStore()
 			alert(response["message"]);
 	}
 
-	ajaxRequest("./../php/ajax/BoughtItems.php", "GET", handler);
+	ajaxRequest("./../php/ajax/store/BoughtItems.php", "GET", handler);
 }
 
+//Aggiorna lo stato degli oggetti acquistati, cambiandone lo stile e rimuovendo gli event listener
 function updateBought(data)
 {
 	for(var i = 0; i < data.length; i++)

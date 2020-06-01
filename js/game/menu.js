@@ -14,7 +14,7 @@ function showMenu()
 			alert(response["message"]);
 	}
 
-	ajaxRequest("./../php/ajax/BoughtItems.php", "GET", handler);
+	ajaxRequest("./../php/ajax/store/BoughtItems.php", "GET", handler);
 }
 
 function insertOptions(boughtItems)
@@ -48,7 +48,7 @@ function itemValues()
 			alert(response["message"]);
 	}
 
-	ajaxRequest("./../php/ajax/StoreLoader.php", "GET", handler);
+	ajaxRequest("./../php/ajax/store/StoreLoader.php", "GET", handler);
 }
 
 function insertItemValues(items)

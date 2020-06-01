@@ -80,7 +80,7 @@ function()
     var targetButtons = document.getElementsByClassName("turnButton");
     for(var i = 0; i < targetButtons.length; i++)
     {
-        if(targetButtons[i].id.includes(this.teamName) == false) //Se il bottone corrente è per un diverso team da quello corrente
+        if(targetButtons[i].id.includes(this.teamName) == false) //Se il bottone corrente è per team diverso da quello corrente
         {
             targetButtons[i].disabled = true;
         }
@@ -93,13 +93,15 @@ function()
     var targetButtons = document.getElementsByClassName("turnButton");
     for(var i = 0; i < targetButtons.length; i++)
     {
-        if(targetButtons[i].id.includes(this.teamName) == true) //Se il bottone corrente è per il team corrente
+        if(targetButtons[i].id.includes(this.teamName) == true && this.teamName != enemyTeamColor) //Se il bottone corrente è per il team corrente, e per il team del giocatore
         {
             targetButtons[i].disabled = false;
         }
     }
 }
 
+//Funzione che rimuove i punti di spostamento ed attacco per le squadre diverse da quella del turno corrente
+//Per impedire ai personaggi di agire al di fuori dei loro turni
 Turn.prototype.removeTurnPoints =
 function()
 {
@@ -113,6 +115,8 @@ function()
     }
 }
 
+//Funzione che aggiunge punti di spostamento ed attacco per la squadra del turno corrente
+//Per poter usare i personaggi nel loro turno
 Turn.prototype.addTurnPoints =
 function()
 {
@@ -126,6 +130,7 @@ function()
     }
 }
 
+//Funzione che avvia il turno automatico degli avversari
 Turn.prototype.enemyTurn =
 function()
 {
@@ -134,11 +139,12 @@ function()
     nextEnemyTurn(0);
 }
 
+//Funzione che avvia il turno automatico del prossimo personaggio avversario in vita
+//A meno che non siano terminati. Nel caso passerà il turno al giocatore
 function nextEnemyTurn(i = 0)
 {
     while(i < enemyTeam.length && enemyTeam[i].alive == false)
     {
-        //alert(i);
         i++;
     }
     if(i >= enemyTeam.length) //Finisce il turno avversario

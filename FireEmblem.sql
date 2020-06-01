@@ -171,9 +171,10 @@ FROM item;
 INSERT INTO `game`
 Values ('MasterZi', '0210120221', true, '100', CURRENT_TIMESTAMP());
 */
-
+/*
 SELECT *
 FROM `level`;
 
 SELECT *
 FROM game;
+*/

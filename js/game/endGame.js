@@ -14,6 +14,7 @@ function checkEndGame()
 	}
 }
 
+//Mostra la finestra modale di resoconto della partita e richiama l'aggiornamento del DB
 function result(outcome)
 {
 	ended = true;
@@ -56,6 +57,7 @@ function result(outcome)
     updateDatas(reward, outcome, playerStat.correntScore, turn.number);
 }
 
+//Aggiorna il DB aggiungendo il nuovo livello (se non è già presente), la partita nella classifica ed aggiorna il numero di monete dell'utente
 function updateDatas(reward, outcome, score, endTurn)
 {
     var handler = function(responseText)
@@ -68,5 +70,5 @@ function updateDatas(reward, outcome, score, endTurn)
 	}
 
     postString = "reward=" + reward + "&seed=" + seed + "&outcome=" + outcome + "&score=" + score + "&turns=" + endTurn;
-	ajaxRequest("./../php/ajax/EndGame.php", "POST", handler, postString);
+	ajaxRequest("./../php/ajax/game/EndGame.php", "POST", handler, postString);
 }

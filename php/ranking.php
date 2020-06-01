@@ -30,10 +30,6 @@
 	<body onload="load()">
         <header>
             <img src="./../img/Title/Title.png" alt="Fire Emblem Title" id="TitleImage">
-            <!--
-			<div id="TitleWrapper">
-				<img src="./../img/Title/Title.png" alt="Fire Emblem Title" id="TitleImage">
-			</div>-->
         </header>
 
         <div id="UserInformationsWrapper">

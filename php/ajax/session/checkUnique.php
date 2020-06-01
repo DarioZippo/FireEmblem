@@ -5,8 +5,7 @@
 	$response = new AjaxResponse();
 
 	if( !array_key_exists("type", $_POST) || !array_key_exists("value", $_POST) 
-		|| ( $_POST["type"] != "username" && $_POST["type"] != "email") //Verifico se la validità dei dati inviati
-		)
+		|| ( $_POST["type"] != "username" && $_POST["type"] != "email") ) //Verifico se la validità dei dati inviati
 		$response->error("Richiesta rifiutata");
 
 	$count = checkUnique($_POST["type"], $_POST["value"]);

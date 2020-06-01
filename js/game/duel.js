@@ -28,9 +28,9 @@ function duel(attacker, defender, enemyFlag = false)
 
 	var currentDamage = calculateDamage(attacker.attack, attacker.weaponType, defender.weaponType); //Calcolo l'attacco iniziale	
 
-	//duelResult = ""; //Lo inizializzo a 0
 	var duelResult = defender.getDamage(currentDamage, "Defender");
 	attacker.attackPoints--;
+
 	if(duelResult == "died")
 	{
 		attackPhase = false;
@@ -41,6 +41,7 @@ function duel(attacker, defender, enemyFlag = false)
 		defender.teamStat.decrementScore();
 		defender.teamStat.updateScoreBoard();
 
+		/* Chiudo automaticamente il menu, mostro gli stats del vincitore e controllo se è finita la partita */
 		setTimeout( function(){undo(enemyFlag);}, 3000);
 		setTimeout( function(){attacker.showStats("Attacker"); checkEndGame();}, 3001);
 		return;
@@ -63,6 +64,7 @@ function duel(attacker, defender, enemyFlag = false)
 				attacker.teamStat.decrementScore();
 				attacker.teamStat.updateScoreBoard();
 
+				/* Chiudo automaticamente il menu, mostro gli stats del vincitore e controllo se è finita la partita */
 				checkEndGame();
 
 				setTimeout(function(){defender.showStats("Attacker");}, 1);
@@ -76,6 +78,7 @@ function duel(attacker, defender, enemyFlag = false)
 	
 }
 
+//Calcolo il danno in arrivo basandomi sul triangolo di debolezze e resistenze tra le armi
 function calculateDamage(currentDamage, attackerWeapon, defenderWeapon)
 {
 	currentDamage = parseInt(currentDamage);
@@ -122,6 +125,7 @@ function calculateDamage(currentDamage, attackerWeapon, defenderWeapon)
 	return currentDamage;
 }
 
+//Funzione che chiude il menu d'attacco
 function undo(enemyFlag = false)
 {
 	cleanStats("Attacker");
@@ -133,6 +137,7 @@ function undo(enemyFlag = false)
 	turn.activeTurnButton();
 	
 	disableDuelButtons();
+	
 	if(enemyFlag == false)
 		activeBlocks();
 }

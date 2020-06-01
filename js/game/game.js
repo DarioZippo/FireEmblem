@@ -6,12 +6,12 @@ var yLen = 6;
 var seed = "";
 
 var playerItems = new Array(); //Gli oggetti selezionati nel menu
-var enemyItems = new Array(); //Gli basati sulla difficolta' selezionata nel menu
+var enemyItems = new Array(); //Gli oggetti basati sulla difficolta' selezionata nel menu
 
 var movementLength = 2; //Ampiezza dell'area di movimento
 var attackLength = 1; //Ampiezza dell'area di attacco
 
-var teams = ["Blue", "Red"]; //Variabile che registra chi deve fare il turno corrente
+var teams = ["Blue", "Red"]; //Array che registra i team coinvolti
 
 var playerTeamColor = teams[0];
 var enemyTeamColor = teams[1];
@@ -20,8 +20,6 @@ var playerTeam = new Array();
 var enemyTeam = new Array();
 
 var turn;
-
-var waitingTurn = false;
 
 var movePhase = false;
 var attackPhase = false;
@@ -42,6 +40,9 @@ function begin()
 	showMenu();
 }
 
+//Richiede via ajax il seed salvato nella session
+//Se non c'è, il livello verrà creato randomicamente e la difficoltà sarà selezionabile dall'utente
+//Se c'è, creerà il livello basandosi solo sul seed, ed la difficoltà sarà settata in base al seed
 function getSessionSeed()
 {
 	var handler = function(responseText)
@@ -49,7 +50,7 @@ function getSessionSeed()
 		var response = JSON.parse(responseText);
 		if(response["responseCode"] == 0)
 		{
-			currentUserData = response["data"];
+			var currentUserData = response["data"];
 			buildBoard(currentUserData["seed"]);
 		}
 		else
@@ -81,17 +82,17 @@ function buildBoard(currentSeed)
 function startGame()
 {
 	characters = new Array();
-	characters[0] = new Character("Bylet(M)", 0, 0, "Sword", "Blue");
-	characters[1] = new Character("Hilda", 0, Math.floor(xLen / 2), "Axe", "Blue");
-	characters[2] = new Character("Claude", 0, xLen-1, "Lance", "Blue");
-	characters[3] = new Character("Felix", 1, xLen-3, "Sword", "Blue");
-	characters[4] = new Character("Dorothea", 1, 2, "Lance", "Blue");
+	characters[0] = new Character("Bylet(M)", yLen-1, 0, "Sword", "Blue");
+	characters[1] = new Character("Hilda", yLen-1, Math.floor(xLen / 2), "Axe", "Blue");
+	characters[2] = new Character("Claude", yLen-1, xLen-1, "Lance", "Blue");
+	characters[3] = new Character("Felix", yLen-2, xLen-3, "Sword", "Blue");
+	characters[4] = new Character("Dorothea", yLen-2, 2, "Lance", "Blue");
 
-	characters[5] = new Character("Edelgard", yLen-1, 0, "Axe", "Red");
-	characters[6] = new Character("Dimitri", yLen-1, Math.floor(xLen / 2), "Lance", "Red");
-	characters[7] = new Character("Petra", yLen-1, xLen-1, "Sword", "Red");
-	characters[8] = new Character("Bylet(F)", yLen-2, xLen-3, "Sword", "Red");
-	characters[9] = new Character("Sylvain", yLen-2, 2, "Lance", "Red");
+	characters[5] = new Character("Edelgard", 0, 0, "Axe", "Red");
+	characters[6] = new Character("Dimitri", 0, Math.floor(xLen / 2), "Lance", "Red");
+	characters[7] = new Character("Petra", 0, xLen-1, "Sword", "Red");
+	characters[8] = new Character("Bylet(F)", 1, xLen-3, "Sword", "Red");
+	characters[9] = new Character("Sylvain", 1, 2, "Lance", "Red");
 	
 	buildTeams();
 
@@ -114,6 +115,7 @@ function buildTeams()
 	}
 }
 
+//Aggiorna la posizione dei personaggi nella board
 function updateBoardCharacters()
 {
 	var currentX, currentY;
@@ -142,7 +144,6 @@ function updateBoardCharacters()
 
 				currentBlock.element.className += " " + currentBlock.team + "TeamBlock";
 			}
-			/*currentBlock.element.className += " occupied"; //+ " " + character[i].name; da implementare*/
 		}
 	}
 }

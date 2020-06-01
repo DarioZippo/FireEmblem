@@ -11,9 +11,6 @@ function Character(cName, positionX, positionY, cWeaponType, cTeam)
 	else
 		this.teamStat = enemyStat;
 
-	this.attackPhase = false;
-	this.movePhase = false;
-
 	this.values();
 
 	this.images = 
@@ -27,6 +24,7 @@ function Character(cName, positionX, positionY, cWeaponType, cTeam)
 	this.characterImages();
 }
 
+//Imposto i valori di attacco e vita in base al suo equipaggiamento
 Character.prototype.values =
 function()
 {
@@ -48,10 +46,9 @@ function()
 	this.alive = true;
 	this.movePoints = 0; //Indicano i punti spendibili per un movimento
 	this.attackPoints = 0; //Indicano i punti spendibili per un attacco
-
-	this.selected = false;
 }
 
+//Imposto le immagini che userò per gli sprite del personaggio, dell'equipaggiamento e il ritratto
 Character.prototype.characterImages =
 function()
 {
@@ -72,6 +69,7 @@ function()
 	this.images.weapon.alt = "characterWeapon";
 }
 
+//Mostra le statistiche nell'area target, passata via argomento
 Character.prototype.showStats =
 function(role = "Attacker")
 {
@@ -95,25 +93,17 @@ function(role = "Attacker")
 	var str3 = cWeapon.textContent.slice(cWeapon.textContent.indexOf(":"), cWeapon.textContent.length);
 	cWeapon.textContent = cWeapon.textContent.replace(str3, ":" + this.weapon);
 	
-	var weaponImage = document.getElementById("WeaponImage" + role); //Affianco l'immagine dell'armatura
+	var weaponImage = document.getElementById("WeaponImage" + role); //Affianco l'immagine dell'arma
 	weaponImage.src = this.images.weapon.src;
 	weaponImage.style.display = "block"; 
 
+	//Coloro l'area Stats in base al colore della squadra d'appartenenza
 	var elementTarget = document.getElementById(this.team + "StatsTable");
     var style = window.getComputedStyle(elementTarget);
 	var currentColor = style.getPropertyValue("background-color");
 	var newColor = changeOpacity(currentColor, 0.7);
 
 	document.getElementById("Stats" + role).style.backgroundColor = newColor;
-/*
-	var mPoints = document.getElementById("MovePoints" + role);
-	var str3 = mPoints.textContent.slice(mPoints.textContent.indexOf(":"), mPoints.textContent.length);
-	mPoints.textContent = mPoints.textContent.replace(str3, ":" + this.movePoints);
-
-	var aPoints = document.getElementById("AttackPoints" + role);
-	var str4 = aPoints.textContent.slice(aPoints.textContent.indexOf(":"), aPoints.textContent.length);
-	aPoints.textContent = aPoints.textContent.replace(str4, ":" + this.attackPoints);	
-*/
 }
 
 Character.prototype.showArea =
@@ -133,13 +123,14 @@ function()
 Character.prototype.move =
 function(destinationBlock)
 {
+	//Elimino il personaggio dal blocco corrente, aggiornandone i valori
 	currentBlock = board.blocks[this.x * xLen + this.y];
 	currentBlock.occupied = false;
 	currentBlock.occupier = "";
 	currentBlock.team = "";
 	currentBlock.element.removeChild(currentBlock.element.childNodes[0]);
 
-
+	//Aggiorno la posizione del personaggio
 	this.x = destinationBlock.x;
 	this.y = destinationBlock.y;
 }

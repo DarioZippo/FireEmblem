@@ -5,14 +5,14 @@ function load()
 		var response = JSON.parse(responseText);
 		if(response["responseCode"] == 0)
 		{
-			loadRankingRecords(response["data"]);
+			loadRankingRecords(response["data"]); //Ottiene e mostra i record della classifica
 			getUserInformations(); //Ottiene e mostra i valori di session nella pagina, per poi modificare i record dell'utente corrente
 		}
 		else
 			alert(response["message"]);
 	}
 
-	ajaxRequest("./../php/ajax/showRanking.php", "GET", handler);
+	ajaxRequest("./../php/ajax/ranking/showRanking.php", "GET", handler);
 }
 
 function getUserInformations()
@@ -46,7 +46,6 @@ function loadRankingRecords(data)
     for(var i = 0; i < data.length; i++)
     {
 		insertRankingRecords(data[i], i + 1);
-		/*updateBuyedStoreItem();*/
 	}
 }
 
@@ -94,6 +93,7 @@ function insertRankingRecords(currentGame, currentPosition)
 	table.appendChild(record);
 }
 
+//Aggiorna i record dell'utente corrente applicando uno sfondo rosso
 function updateRecordsTarget(usernameTarget)
 {
 	var records = document.getElementsByClassName("record");
@@ -111,35 +111,33 @@ function updateRecordsTarget(usernameTarget)
 	}
 }
 
+//Ordino i record della tabella in base all'attributo cliccato
 function sortTable(columnTarget, number = false) 
 {
-	//alert("ok");
 	var table, rows, switching, i, x, y, shouldSwitch;
 	table = document.getElementById("RankingTable");
 	switching = true;
-	/* Make a loop that will continue until
-	no switching has been done: */
+	/* Crea un ciclo che continuerà finchè verranno eseguiti scambi*/
 	while (switching == true) 
 	{
-		// Start by saying: no switching is done:
+		// Comincio dicendo che non ci sono scambi in corso
 		switching = false;
 		rows = table.rows;
-		/* Loop through all table rows (except the
-		first, which contains table headers): */
+		/* Passa attraverso tutte le righe della tabella (tranne la
+		prima, che contiene le intestazioni */
 		for (i = 1; i < (rows.length - 1); i++) 
 		{
-			// Start by saying there should be no switching:
+			// Comincio dicendo che non ci dovrebbero essere scambi
 			shouldSwitch = false;
-			/* Get the two elements you want to compare,
-			one from current row and one from the next: */
+			/* Prendo il record corrente ed il prossimo e li confronto */
 			x = rows[i].getElementsByTagName("TD")[columnTarget];
 			y = rows[i + 1].getElementsByTagName("TD")[columnTarget];
-			// Check if the two rows should switch place:
-			if(number == true)
+
+			if(number == true) //Controllo se ho passato alla funzione un numero o una stringa
 			{
 				if (Number(x.childNodes[0].nodeValue) > Number(y.childNodes[0].nodeValue)) 
 				{
-					// If so, mark as a switch and break the loop:
+					// Se necessitano lo scambio, esco dal ciclo e faccio lo scambio
 					shouldSwitch = true;
 					break;
 				}
@@ -148,7 +146,7 @@ function sortTable(columnTarget, number = false)
 			{
 				if (x.childNodes[0].nodeValue.toLowerCase() > y.childNodes[0].nodeValue.toLowerCase() ) 
 				{
-					// If so, mark as a switch and break the loop:
+					// Se necessitano lo scambio, esco dal ciclo e faccio lo scambio
 					shouldSwitch = true;
 					break;
 				}
@@ -156,14 +154,14 @@ function sortTable(columnTarget, number = false)
 	  	}
 		if (shouldSwitch == true) 
 		{
-			/* If a switch has been marked, make the switch
-			and mark that a switch has been done: */
+			/* Se lo scambio è necessario, lo eseguo e lo segno, così da andare avanti nel ciclo */
 			rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
 			switching = true;
 		}
 	}
 }
 
+//Mostra la finestra modale per la sfida in livello presente nella classifica
 function showModalChallenge()
 {
 	var currentRecord = this.parentNode.parentNode; //Il padre è TH, il nonno TR
@@ -176,6 +174,7 @@ function showModalChallenge()
 	modalMenu.style.display = "block";
 }
 
+//Avvio una partita tramite il bottone di sfida
 function playSeedLevel()
 {
 	var modalText = document.getElementById("ModalText");
@@ -200,9 +199,10 @@ function playSeedLevel()
 		}
 	}
 	var postString = "seed=" + level;
-	ajaxRequest("./../php/ajax/PlaySeedLevel.php", "POST", handler, postString);
+	ajaxRequest("./../php/ajax/game/PlaySeedLevel.php", "POST", handler, postString);
 }
 
+//Nascondo la finestra modale per la sfida
 function undo()
 {
 	var modalText = document.getElementById("ModalText");
@@ -212,7 +212,7 @@ function undo()
 	currentLevel = currentLevel.replace(/\t/g, "");
 	currentLevel = currentLevel.replace(/\n/g, "");
 
-    modalTextValue = modalTextValue.replace(currentLevel, "");
+    modalTextValue = modalTextValue.replace(currentLevel, ""); //Elimino il livello corrente dalla stringa
 
 	modalText.childNodes[0].nodeValue = modalTextValue;
 	

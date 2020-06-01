@@ -1,8 +1,6 @@
-//Gestisce il logout dell'utente tramite AJAX
-
 function load()
 {
-	getUserInformations();
+	getUserInformations(); //Ottiene e mostra i valori di session nella pagina
 }
 
 function getUserInformations()
@@ -27,6 +25,7 @@ function showUserInformations(userInfo)
 	element.textContent = "User: " + userInfo["username"] + " Coins: " + userInfo["coins"];
 }
 
+//Gestisce il logout dell'utente tramite AJAX
 function logout()
 {
 	var handler = function(responseText)

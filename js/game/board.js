@@ -30,6 +30,8 @@ function()
 	}
 }
 
+//Per ogni colonna, genera un numero da 0 a 2
+//Con 0 l'ostacolo nella colonna non appare, con 1 o 2 viene messo in una delle due righe intermedie
 Board.prototype.randomObstacles =
 function()
 {
@@ -58,6 +60,7 @@ function()
 	}
 }
 
+//Posiziono gli ostacoli in base al seed passato
 Board.prototype.seedObstacles =
 function(currentSeed)
 {
@@ -80,6 +83,7 @@ function(currentSeed)
 		}
 
 		this.blocks[currentRow * xLen + currentColumn].obstacle();
-		seed = currentSeed.slice(0, currentSeed.length - 1); //Aggiorno il codice del livello, prendendo la parte dedicata agli ostacoli
 	}
+
+	seed = currentSeed.slice(0, currentSeed.length - 1); //Aggiorno il codice del livello, prendendo la parte dedicata agli ostacoli
 }

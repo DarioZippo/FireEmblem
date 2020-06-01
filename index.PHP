@@ -20,14 +20,11 @@
 
 		<link rel="shortcut icon" type="image/x-icon" href="./img/icons/siteIcon.png">
 		<link rel="stylesheet" type="text/css" href="./css/index.css">
-		<link rel="stylesheet" type="text/css" href="./css/FireEmblem.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="./css/FireEmblem.css">
 	</head>
 	<body onload="load()">
 		<header>
 			<img src="./img/Title/Title.png" alt="Fire Emblem Title" id="TitleImage">
-			<!--<div id="TitleWrapper">
-				<img src="./img/Title/Title.png" alt="Fire Emblem Title" id="TitleImage">
-			</div>-->
 		</header>
 		
 		<div id="FormWrapper">

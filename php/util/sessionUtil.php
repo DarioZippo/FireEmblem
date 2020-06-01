@@ -41,10 +41,6 @@
 
 		$query = "select * from user where username='" . $_SESSION["username"] . "'";
 		$result = $FireEmblemDB->performQuery($query);
-		/*
-		checkResult($result, $query);
-		showResult($result);
-		*/
 		
 		if($result->num_rows != 1)
 			return false;
@@ -70,6 +66,7 @@
 		$_SESSION['seed'] = $currentSeed;
 	}
 
+	//Restituisce gli attuali valori di sessione
 	function getSessionValues()
 	{
 		if(!isset($_SESSION)) 
@@ -91,6 +88,7 @@
 
 	//Esegue la registrazione di un nuovo utente nel database.
 	//Prima della registrazione, gli argomenti sono validati perché aderiscano ai pattern richiesti dal servizio
+	//Poi inserisce nel DB il nuovo utente e gli oggetti base nel suo inventario
 	function signIn($username, $password, $email)
 	{
 		if(!validate($username, $password, $email))
@@ -105,7 +103,7 @@
 		$query = "INSERT into user (username, password, email) values ('" .$username. "', '" .$password. "', '" .$email. "'); "
 			."INSERT into inventory (user, item) values ('" .$username. "', 'Spada di ferro'), ('" .$username. "', 'Lancia di ferro'), ('" .$username. "', 'Ascia di ferro'), ('" .$username. "', 'Armatura di ferro');";
 		
-		$result = $FireEmblemDB->performMultiQuery($query); /* performMultiQuery($query); */
+		$result = $FireEmblemDB->performMultiQuery($query);
 		$FireEmblemDB->closeConnection();
 
 		return $result;
@@ -151,7 +149,7 @@
 
 		return $count;
 	}
-
+	
 	function checkResult($result, $query)
 	{ 
 		global $FireEmblemDB;

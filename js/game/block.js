@@ -45,13 +45,6 @@ function()
 Block.prototype.highlight =
 function()
 {
-	//alert(this.className);
-	/*
-	if(this.occupied == true)
-	{
-		this.element.className = this.element.className.replace(" " + this.team + "TeamBlock", "");
-	}
-	*/
 	this.element.className += " highlightedBlock";
 }
 
@@ -59,12 +52,6 @@ Block.prototype.disableHighlight =
 function()
 {
 	this.element.className = this.element.className.replace(" highlightedBlock", "");
-	/*
-	if(this.occupied == true) //Se il blocco occupato non è stato selezionato
-	{
-		this.element.className += " " + this.team + "TeamBlock";
-	}
-	*/
 }
 
 Block.prototype.selectBlock =
@@ -88,6 +75,7 @@ function()
 		return;
 	}
 
+	//Se è stato prima selezionato un altro blocco, lo deseleziono
 	if(selectedBlock.x != null && selectedBlock.y != null)
 	{
 		if(selectedBlock.x != this.x || selectedBlock.y != this.y)
@@ -105,14 +93,15 @@ function()
 		
 		if(currentCharacter != null)
 		{
-			//this.element.className = this.element.className.replace(" " + this.team + "TeamBlock", "");
 			currentCharacter.showStats();
 
+			//Se il personaggio ha la possibilità di muoversi, mostro l'area di movimento
 			if(currentCharacter.movePoints > 0)
 			{
 				currentCharacter.showArea();
 				movePhase = true;
 			}
+			//Altrimenti, se può attaccare, mostro l'area di attacco
 			else if(currentCharacter.attackPoints > 0)
 			{
 				currentCharacter.showAttackArea();
@@ -145,13 +134,13 @@ function()
 	currentCharacter.move(this);
 	currentCharacter.movePoints--;
 	
-	cleanArea();
+	cleanArea(); //Elimino l'area di movimento dopo lo spostamento
 
 	movePhase = false;
 	updateBoardCharacters();
 
-	selectedBlock.x = this.x; 
-	selectedBlock.y = this.y;
+	selectedBlock.x = null; 
+	selectedBlock.y = null;
 
 	currentCharacter.showStats();
 
@@ -165,6 +154,7 @@ function()
 	if(this.attackBlock == true)
 	{
 		cleanBlock(selectedBlock.x, selectedBlock.y);
+		//Controllo ho selezionato un nemico, nel caso mostro il menu di attacco
 		var attackedCharacter = findCharacter(this.x, this.y);
 		if(currentCharacter != null && attackedCharacter != null)
 		{

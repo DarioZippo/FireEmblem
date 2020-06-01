@@ -1,11 +1,7 @@
 function findCharacter(positionX, positionY)
 {
-    //var str1 = "" + positionX + " " + positionY;
-    //alert(characters.length);
-    var str2;
     for(var i = 0; i < characters.length; i++)
     {
-        //str2 = characters[i].x + " " + characters[i].y;
         if(characters[i].x == positionX && characters[i].y == positionY)
         {
             return characters[i];
@@ -38,13 +34,6 @@ function cleanStats(role = "Attacker")
     weaponImage.style.display = "none";
 
     document.getElementById("Stats" + role).style.backgroundColor = "#d3d3d378";
-    /*
-    var mPoints = document.getElementById("MovePoints" + role);
-    mPoints.textContent = "Move Points:--";
-    
-    var aPoints = document.getElementById("AttackPoints" + role);
-	aPoints.textContent = "Attack Points:--";
-    */
 }
 
 function cleanBlock(positionX, positionY)
@@ -66,10 +55,6 @@ function cleanBlock(positionX, positionY)
 
 function distance(a, b)
 {
-    /*
-    str = a + " " + b;
-    alert(str);
-    */
     return Math.abs(a - b);
 }
 
