@@ -38,3 +38,17 @@ function logout()
 
 	ajaxRequest("./../php/ajax/session/logout.php", "GET", handler);
 }
+
+//Mostra la finestra modale
+function showModalTutorial()
+{
+	var modalBuyResult = document.getElementById("ModalTutorial");
+	modalBuyResult.style.display = "block";
+}
+
+//Nasconde la finestra modale
+function hideModalTutorial()
+{
+	var modalBuyResult = document.getElementById("ModalTutorial");
+	modalBuyResult.style.display = "none";
+}

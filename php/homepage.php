@@ -47,9 +47,18 @@
 					<a class="bigButton verticalOption purple" href="./../php/game.php">Gioca</a>
 					<a class="bigButton verticalOption purple" href="./store.php">Store</a>
 					<a class="bigButton verticalOption purple" href="./ranking.php">Classifica</a>
-					<button class="bigButton verticalOption purple">Tutorial</button>
+					<button class="bigButton verticalOption purple" onclick="showModalTutorial()">Tutorial</button>
 					<button class="bigButton verticalOption purple" onclick="logout()">Esci</button>
 				</div>
+			</div>
+		</div>
+
+		<div class="modal" id="ModalTutorial">
+			<div class="modalContent" id="ModalTutorialContent">
+				<div id="ModalButtonWrapper">
+					<button class="bigButton purple" onclick="hideModalTutorial()">Esci</button>
+				</div>
+				<iframe src="./../html/tutorial.html" title="Tutorial" class="tutorialFrame"></iframe>
 			</div>
 		</div>
     </body>

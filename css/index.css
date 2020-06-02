@@ -128,7 +128,10 @@ input
     display: none;
 }
 
-#GameDescription
+#ModalInfoContent
 {
-
+	background-color: lightgray;
+	text-align: center;
+	font-weight: bold;
+	font-size: 24px;
 }

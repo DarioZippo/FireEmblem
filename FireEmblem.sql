@@ -150,31 +150,3 @@ CREATE TABLE `game`
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CALL Populate();
-
-/*
-SELECT * 
-FROM inventory inv INNER JOIN item it 
-	ON inv.item = it.name
-WHERE inv.user = 'MasterZi';
-*/
-/*
-SELECT *
-FROM inventory;
-
-select * from user where username='MasterZi';
-*/
-/*
-SELECT *
-FROM item;
-*/
-/*
-INSERT INTO `game`
-Values ('MasterZi', '0210120221', true, '100', CURRENT_TIMESTAMP());
-*/
-/*
-SELECT *
-FROM `level`;
-
-SELECT *
-FROM game;
-*/

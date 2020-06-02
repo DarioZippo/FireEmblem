@@ -94,7 +94,7 @@
 							</tr>
 							<tr>
 								<td colspan="2">
-									<button id="BlueTurnButton" class="turnButton" disabled>End Turn</button>
+									<button id="BlueTurnButton" class="turnButton" disabled>Passa il turno</button>
 								</td>
 							</tr>
 						</tbody>
@@ -131,8 +131,8 @@
 
 					<div id="DuelWrapper">
 						<div id="ButtonWrapper">
-							<button id="DuelButton" class="duelMenuButton" disabled>DUEL</button>
-							<button id="UndoButton" class="duelMenuButton" disabled>UNDO</button>
+							<button id="DuelButton" class="duelMenuButton" disabled>ATTACCA</button>
+							<button id="UndoButton" class="duelMenuButton" disabled>CHIUDI MENU'</button>
 						</div>
 						<div class="stats" id="StatsDefender">
 							<div class="characterPortraitWrapper" id="CharacterPortraitWrapperDefender">
@@ -182,7 +182,7 @@
 							</tr>
 							<tr>
 								<td colspan="2">
-									<button id="RedTurnButton" class="turnButton" disabled>End Turn</button>
+									<button id="RedTurnButton" class="turnButton" disabled>Passa il turno</button>
 								</td>
 							</tr>
 						</tbody>

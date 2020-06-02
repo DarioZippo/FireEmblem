@@ -52,3 +52,27 @@ body
     height: 80%;
     margin-top: 12px;
 }
+
+#ModalTutorial
+{
+    display: none;
+}
+
+#ModalTutorialContent
+{
+    display: flex;
+    flex-direction: column;
+}
+
+#ModalButtonWrapper
+{
+    width: 100%;
+    background-color: rgba(158, 24, 158, 1);
+    display: flex;
+}
+
+.tutorialFrame
+{
+    width: 100%;
+    height: 100%;
+}

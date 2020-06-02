@@ -317,3 +317,17 @@ function clearForm(formName)
 		validate_form(formName);
 	}
 }
+
+//Mostra la finestra modale
+function showModalInfo()
+{
+	var modalInfo = document.getElementById("ModalInfo");
+	modalInfo.classList.remove("hidden");
+}
+
+//Nasconde la finestra modale
+function hideModalInfo()
+{
+	var modalInfo = document.getElementById("ModalInfo");
+	modalInfo.classList.add("hidden");
+}

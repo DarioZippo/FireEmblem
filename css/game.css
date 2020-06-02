@@ -243,11 +243,13 @@ p
 	border-bottom-width: 0px;
 	border-bottom-style: solid;
 	color: black;
+	font-size: 20px;
 	font-weight: bold;
-	border-right-width: 0px;
+	border-right-width: 3px;
 	border-right-style: solid;
-	border-left-width: 0px;
+	border-left-width: 3px;
 	border-left-style: solid;
+	border-color: black;
 }
 
 #DuelButton
@@ -366,6 +368,7 @@ tr, th, td
 .turnButton
 {
 	color: black;
+	font-weight: bold;
 	width: 100%;
 	height: 100%;
 }
