@@ -108,7 +108,7 @@
 
 					<div class="stats" id="StatsAttacker">
 						<div class="characterPortraitWrapper" id="CharacterPortraitWrapperAttacker">
-							<img class="characterPortrait" id="CharacterPortraitAttacker" alt="Character" src="./">
+							<img class="characterPortrait" id="CharacterPortraitAttacker" alt="Character" src="data:,">
 						</div>
 						<div class="valuesWrapper" id="ValuesWrapperAttacker">
 							<div id="CharacterNameAttackerWrapper" class="value">
@@ -116,11 +116,11 @@
 							</div>
 							<div id="PSAttackerWrapper" class="value">
 								<p id="PSAttacker" class="valueText">Ps:--</p>
-								<img class="armorImage" id="ArmorImageAttacker" alt="Armor" src="./">
+								<img class="armorImage" id="ArmorImageAttacker" alt="Armor" src="data:,">
 							</div>
 							<div id="CharacterWeaponAttackerWrapper" class="value">
 								<p id="CharacterWeaponAttacker" class="valueText">Arma:--</p>
-								<img class="weaponImage" id="WeaponImageAttacker" alt="Weapon" src="./">
+								<img class="weaponImage" id="WeaponImageAttacker" alt="Weapon" src="data:,">
 							</div>
 							<!--<div class="pointsWrapper" id="PointsWrapperAttacker">-->
 							<!--	<div class="value" id="MovePointsAttacker">Move Points:--</div>
@@ -136,7 +136,7 @@
 						</div>
 						<div class="stats" id="StatsDefender">
 							<div class="characterPortraitWrapper" id="CharacterPortraitWrapperDefender">
-								<img class="characterPortrait" id="CharacterPortraitDefender" alt="Character" src="./">
+								<img class="characterPortrait" id="CharacterPortraitDefender" alt="Character" src="data:,">
 							</div>
 							<div class="valuesWrapper" id="ValuesWrapperDefender">
 								<div id="CharacterNameDefenderWrapper" class="value">
@@ -144,11 +144,11 @@
 								</div>
 								<div id="PSDefenderWrapper" class="value">
 									<p id="PSDefender" class="valueText">Ps:--</p>
-									<img class="armorImage" id="ArmorImageDefender" alt="Armor" src="./">
+									<img class="armorImage" id="ArmorImageDefender" alt="Armor" src="data:,">
 								</div>
 								<div id="CharacterWeaponDefenderWrapper" class="value">
 									<p id="CharacterWeaponDefender" class="valueText">Arma:--</p>
-									<img class="weaponImage" id="WeaponImageDefender" alt="Weapon" src="./">
+									<img class="weaponImage" id="WeaponImageDefender" alt="Weapon" src="data:,">
 								</div>
 								<!--<div class="pointsWrapper" id="PointsWrapperDefender">-->
 								<!--	<div class="value" id="MovePointsDefender">Move Points:--</div>

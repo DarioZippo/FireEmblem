@@ -13,14 +13,14 @@ function findCharacter(positionX, positionY)
 function cleanStats(role = "Attacker")
 {
     var statPortrait = document.getElementById("CharacterPortrait" + role);
-    statPortrait.src = "";
+    statPortrait.src = "data:,";
     statPortrait.style.display = "none";
 
     var PS = document.getElementById("PS" + role);
     PS.textContent = "Ps:--";
 
     var armorImage = document.getElementById("ArmorImage" + role);
-    armorImage.src = "";
+    armorImage.src = "data:,";
     armorImage.style.display = "none";
 
 	var cName = document.getElementById("CharacterName" + role);
@@ -30,7 +30,7 @@ function cleanStats(role = "Attacker")
     cWeapon.textContent = "Arma:--";
 
     var weaponImage = document.getElementById("WeaponImage" + role);
-    weaponImage.src = "";
+    weaponImage.src = "data:,";
     weaponImage.style.display = "none";
 
     document.getElementById("Stats" + role).style.backgroundColor = "#d3d3d378";
