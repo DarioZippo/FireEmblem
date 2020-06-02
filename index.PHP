@@ -67,34 +67,10 @@
 		
 		<div class="modal hidden" id="ModalInfo">
 			<div class="modalContent" id="ModalInfoContent">
-				<div id="ModalInfoContentWrapper">
-					<p>
-					<p>
-						Fire Emblem è un videogioco strategico a turni in cui il giocatore controlla un team di personaggi con l'obiettivo di sconfiggere il team avversario.<br>
-						A tale scopo il giocatore può scegliere tra diversi equipaggiamenti, acquistabili nello store, con cui potenziare i propri personaggi, e sfruttare il sistema di debolezze e resistenze tra le armi a proprio vantaggio negli scontri.<br>
-						Una volta effettuata la registrazione e il login, la homepage del sito presenta tre pulsanti che portano a diverse sezioni del sito: "Gioca", "Store", "Classifica" e "Tutorial".
-					</p>
-					<p>
-						Cliccando su "Gioca" si può avviare una nuova partita, dopo aver scelto tra gli equipaggiamenti posseduti dal giocatore.
-						Le meccaniche di gioco vengono ben spiegate, con l'ausilio di immagini, nella sezione "Tutorial".<br>
-						Se si sconfiggoni tutti i nemici, il giocatore vincerà, mentre se il giocatore perderà tutte le proprie unità, perderà.<br> 
-						I punti vengono dati in base alla differenza tra in nemici sconfitti ed i propri personaggi battuti,
-						informazioni che vengono costantemente aggiornati nel proprio tabellone, durante la partita.<br>
-						In caso di vittoria, il giocatore riceverà un numero di monete pari al proprio punteggio moltiplicato per 100.<br>
-						In caso di sconfitta invece riceverà 50 monete.
-					</p>
-					<p>
-						Cliccando su "Classifica" si possono vedere i punteggi propri (evidenziati in rosso) e degli altri giocatori di Fire Emblem, con la relativa posizione in classifica.<br>
-						Si possono ordinare le righe della classifica in modo crescente in base a qualsiasi colonna. Basterà cliccare sull'intestazione della colonna interessata.<br>
-						In tale sezione è inoltre possibile accedere al meccanismo delle sfide, grazie al quale più giocatori singolarmente possono affrontare partite negli stessi livelli (che altrimenti posizionerebbero gli ostacoli in modo randomico) e con lo stesso livello di difficoltà. Lo scopo di una sfida è quindi quello di raggiungere il miglior punteggio fra tutti coloro che hanno giocato il medesimo livello.<br>
-						Per sfidare un giocatore sullo stesso livello, basterà cliccare sul pulsante "Sfida" e continuare tramite il menu' contestuale.
-					</p>
-					<p>
-						Cliccando su "Store" si possono spendere monete di gioco, guadagnate giocando, per acquistare nuovo equipaggiamento quali armi o armature.
-					<p>
-					</p>
+				<div id="ModalButtonWrapper">
 					<button class="bigButton purple" onclick="hideModalInfo()">Esci</button>
 				</div>
+				<iframe src="./html/info.html" title="Info" class="infoFrame"></iframe>
 			</div>
 		</div>
 	</body>
