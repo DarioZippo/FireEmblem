@@ -38,6 +38,7 @@ p
 #WeaponWrapper
 {
     width: 75%;
+    height: 100%;
     /*display: inline-block;*/
     /* height: 830px; */
     position: relative;
@@ -48,14 +49,14 @@ p
 {
     width: 24%;
     display: inline-block;
-    height: 739px;
+    height: 100%;
     position: relative;
     /* top: -47px; */
 }
 
 .weaponSection
 {
-    height: 240px;
+    height: 32.44%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -66,7 +67,7 @@ p
 
 #ArmorSection
 {
-    height: 99%;
+    height: 98.9%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -84,8 +85,6 @@ p
 
 .item
 {
-    height: 230px;
-    width: 250px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -93,6 +92,18 @@ p
     border-style: solid;
     margin-left: 3px;
     margin-right: 3px;
+}
+
+.Sword, .Lance, .Axe
+{    
+    height: 96%;
+    width: 24%;
+}
+
+.Armor
+{
+    height: 31.5%;
+    width: 83%;
 }
 
 .itemImage
