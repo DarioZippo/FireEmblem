@@ -84,7 +84,7 @@ h1
 
 #BoardWrapper
 {
-	/*width: 100%;*/
+	width: 40.32%;
 	margin: auto;
 	display: inline-block;
 	background-image: url(./../img/Backgrounds/boardBackground.jpg);
@@ -153,7 +153,7 @@ h1
 .stats
 {
 	height: 149px;
-	width: 774px;
+	width: 100%;
 }
 
 .characterPortraitWrapper
