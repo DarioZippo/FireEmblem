@@ -24,7 +24,7 @@ p
 #contentWrapper
 {
     display: flex;
-    height: 76%;
+    height: 740px;
     width: 100%;
     align-items: center;
 }
@@ -67,7 +67,7 @@ p
 
 #ArmorSection
 {
-    height: 99%;
+    height: 98.9%;
     display: flex;
     justify-content: center;
     align-items: center;
