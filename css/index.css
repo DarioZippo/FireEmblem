@@ -1,6 +1,7 @@
 body
 {
 	background-image: url(./../img/Backgrounds/menuBackground.jpg);
+	background-size: cover;
 	margin: 0;
 	height: 100%;
 	width: 100%;
@@ -128,6 +129,12 @@ input
     display: none;
 }
 
+#ModalInfoContent
+{
+	display: flex;
+	flex-direction: column;
+}
+
 #ModalButtonWrapper
 {
     width: 100%;
@@ -137,6 +144,5 @@ input
 
 .infoFrame
 {
-    height: 90.5%;
-    width: 99.7%;
+    height: 100%;
 }
