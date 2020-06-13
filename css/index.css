@@ -96,12 +96,16 @@ input
 	border-style: dashed;
 }
 
-#signInForm input
+#signInForm div > input
 {
 	border-style: dotted;
 	border-color: black;	
 }
 
+#signInForm > input:disabled
+{
+	border-style: dotted;
+}
 
 #signInForm input.missing
 {

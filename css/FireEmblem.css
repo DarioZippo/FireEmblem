@@ -23,6 +23,23 @@ header
 	width: 30%;
 }
 
+.mediumButton
+{
+    padding: 5px;
+    padding-left:8px;
+    padding-right: 8px;
+    font-family:inherit;
+    font-size:larger;
+    margin: 5px;
+    background-color:DeepSkyBlue;
+    border-color: black;
+    border-width: 2px;
+    border-radius: 5px;
+    border-style: outset;
+
+    vertical-align: middle;
+}
+
 .bigButton
 {
     vertical-align: middle;

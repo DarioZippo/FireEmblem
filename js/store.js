@@ -3,7 +3,7 @@ var currentUserData = new Array(); //Array che salva in locale i valori di sessi
 
 function load()
 {
-	getUserInformations(); //Ottiene e mostra i valori di session nella pagina
+	getUserInformations();
 
     var handler = function(responseText)
 	{
@@ -20,6 +20,7 @@ function load()
 	ajaxRequest("./../php/ajax/store/StoreLoader.php", "GET", handler); //Ottiene gli oggetti venduti nello store e li carica nella pagina 
 }
 
+//Ottiene e mostra i valori di session nella pagina
 function getUserInformations()
 {
 	var handler = function(responseText)
@@ -38,6 +39,7 @@ function getUserInformations()
 	ajaxRequest("./../php/ajax/session/sessionValues.php", "GET", handler);
 }
 
+//Mostra a video i valori di session nella pagina
 function showUserInformations()
 {
 	var element = document.getElementById("UserInformationsText");

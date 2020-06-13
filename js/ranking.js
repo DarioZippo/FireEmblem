@@ -5,8 +5,8 @@ function load()
 		var response = JSON.parse(responseText);
 		if(response["responseCode"] == 0)
 		{
-			loadRankingRecords(response["data"]); //Ottiene e mostra i record della classifica
-			getUserInformations(); //Ottiene e mostra i valori di session nella pagina, per poi modificare i record dell'utente corrente
+			loadRankingRecords(response["data"]);
+			getUserInformations(); 
 		}
 		else
 			alert(response["message"]);
@@ -15,6 +15,7 @@ function load()
 	ajaxRequest("./../php/ajax/ranking/showRanking.php", "GET", handler);
 }
 
+//Ottiene e mostra i valori di session nella pagina, per poi modificare i record dell'utente corrente
 function getUserInformations()
 {
 	var currentUserData = new Array();
@@ -35,12 +36,14 @@ function getUserInformations()
 	ajaxRequest("./../php/ajax/session/sessionValues.php", "GET", handler);
 }
 
+//Mostra a video i valori di session nella pagina
 function showUserInformations(currentUserData)
 {
 	var element = document.getElementById("UserInformationsText");
 	element.textContent = "User: " + currentUserData["username"] + " Coins: " + currentUserData["coins"];
 }
 
+//Ottiene e mostra i record della classifica
 function loadRankingRecords(data)
 {
     for(var i = 0; i < data.length; i++)
@@ -111,7 +114,7 @@ function updateRecordsTarget(usernameTarget)
 	}
 }
 
-//Ordino i record della tabella in base all'attributo cliccato
+//Ordina i record della tabella in base all'attributo cliccato
 function sortTable(columnTarget, number = false) 
 {
 	var table, rows, switching, i, x, y, shouldSwitch;
@@ -174,7 +177,7 @@ function showModalChallenge()
 	modalMenu.style.display = "block";
 }
 
-//Avvio una partita tramite il bottone di sfida
+//Avvia una partita tramite il bottone di sfida
 function playSeedLevel()
 {
 	var modalText = document.getElementById("ModalText");
@@ -202,7 +205,7 @@ function playSeedLevel()
 	ajaxRequest("./../php/ajax/game/PlaySeedLevel.php", "POST", handler, postString);
 }
 
-//Nascondo la finestra modale per la sfida
+//Nasconde la finestra modale per la sfida
 function undo()
 {
 	var modalText = document.getElementById("ModalText");

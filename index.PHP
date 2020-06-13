@@ -38,7 +38,7 @@
 					<form id="loginForm" name="loginForm" class="form" autocomplete="on" onsubmit="submitFun(event, 'loginForm');" >
 						<input type="text" name="username" placeholder="Username" autofocus data-pattern="^.*$" oninput="this.modified=true; validate_form('loginForm');">
 						<input type="password" name="password" placeholder="Password" data-pattern="^.*$" oninput="this.modified=true; validate_form('loginForm');">
-						<input id="loginForm.submit" type="submit" class="mediumButton" value="Accedi">
+						<input id="loginForm.submit" type="submit" class="mediumButton purple" value="Accedi">
 					</form>
 				</div>
 				
@@ -57,7 +57,7 @@
 						<div class="inputBox">
 							<input type="text" name="email" placeholder="email" data-pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" data-unique="true" oninput="this.modified=true; validate_form('signInForm');">
 						</div>
-						<input id="signInForm.submit" type="submit" class="mediumButton" value="Registrati">
+						<input id="signInForm.submit" type="submit" class="mediumButton purple" value="Registrati">
 					</form>
 				</div>
 			</div>
