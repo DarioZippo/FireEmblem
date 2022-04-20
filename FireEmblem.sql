@@ -27,7 +27,7 @@ LOCK TABLES `user` WRITE;
 
 /* !40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user`/*(`username`, `email`, `password`)*/
-VALUES ("MasterZi", "dario_zippo@hotmail.it", "SuSaNoo99", '10000'), ("SkuldMagnusdottir", "esempio@outlook.it", "AmoDario3000", '1000'), ("HeyPika!", "b@b.it", "Password99", '1000'); 
+VALUES ("SkuldMagnusdottir", "esempio@outlook.it", "Password89", '1000'), ("HeyPika!", "b@b.it", "Password99", '1000'); 
 /* !40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
